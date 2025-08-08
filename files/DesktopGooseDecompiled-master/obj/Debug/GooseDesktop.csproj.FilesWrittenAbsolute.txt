@@ -1,0 +1,3 @@
+/Users/eligh/Downloads/PVJ WORKBOOK/offense/DesktopGooseDecompiled-master/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/eligh/Downloads/PVJ WORKBOOK/offense/DesktopGooseDecompiled-master/obj/Debug/GooseDesktop.exe
+/Users/eligh/Downloads/PVJ WORKBOOK/offense/DesktopGooseDecompiled-master/obj/Debug/GooseDesktop.pdb

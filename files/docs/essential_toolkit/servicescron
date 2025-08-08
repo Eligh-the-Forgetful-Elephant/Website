@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SERVICE_NAME="bind9"
+
+if ! systemctl is-active --quiet "$SERVICE_NAME"; then
+    echo "The $SERVICE_NAME service is not running. Attempting to restart..."
+    sudo systemctl restart "$SERVICE_NAME"
+
+
+    sleep 5
+    if systemctl is-active --quiet "$SERVICE_NAME"; then
+        echo "The $SERVICE_NAME service has been successfully restarted."
+    else
+        echo "Failed to restart the $SERVICE_NAME service. Please check the logs."
+        exit 1
+    fi
+else
+    echo "The $SERVICE_NAME service is already running."
+fi
+
+exit 0

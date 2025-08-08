@@ -1,0 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background: linear-gradient(135deg, #0f2027, #232526, #1a1a2e, #232526, #0f2027);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: gradientBG 12s ease-in-out infinite;
+    color: #00ff00;
+    margin: 0; padding: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #0f2027;
+}
+
+html {
+    background: linear-gradient(135deg, #0f2027, #232526, #1a1a2e, #232526, #0f2027);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: gradientBG 12s ease-in-out infinite;
+    min-height: 100%;
+    height: 100%;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.container {
+    max-width: 1200px;
+    margin: 60px auto 30px auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: rgba(20,20,40,0.95);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 32px #00ff00, 0 0 8px #ff00ff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Scanline overlay */
+header::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    z-index: 20;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.12) 0px,
+        rgba(0,0,0,0.12) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    mix-blend-mode: multiply;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #00ff00;
+    margin-bottom: 10px;
+    text-shadow: 0 0 12px #00ff00, 0 0 32px #ff00ff;
+    letter-spacing: 2px;
+}
+
+header .warning {
+    font-size: 1.2em;
+    color: #ff00ff;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding: 15px;
+    background: rgba(255,0,255,0.1);
+    border-radius: 8px;
+    border-left: 4px solid #ff00ff;
+    text-shadow: 0 0 8px #ff00ff;
+}
+
+header .subtitle {
+    font-size: 1.1em;
+    color: #aaa;
+    font-style: italic;
+}
+
+.demo-section {
+    background: rgba(20,20,40,0.95);
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 32px #00ff00, 0 0 8px #ff00ff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Scanline overlay for demo sections */
+.demo-section::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    z-index: 20;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.12) 0px,
+        rgba(0,0,0,0.12) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    mix-blend-mode: multiply;
+}
+
+.demo-section h2 {
+    font-size: 1.8em;
+    color: #ff00ff;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid #00ff00;
+    padding-bottom: 10px;
+    text-shadow: 0 0 8px #ff00ff;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.demo-btn {
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.demo-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.5);
+    background: linear-gradient(135deg, #ff00ff, #00ff00);
+    color: #fff;
+}
+
+.demo-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.fake-file {
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+    color: #000;
+    font-weight: 600;
+    border: 2px solid #00ff00;
+}
+
+.fake-file:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.5);
+    background: linear-gradient(135deg, #ff00ff, #00ff00);
+}
+
+.fake-file:active {
+    transform: translateY(-2px);
+}
+
+.file-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.file-name {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    word-break: break-word;
+    color: #000;
+}
+
+.file-size {
+    font-size: 0.9em;
+    opacity: 0.8;
+    color: #000;
+}
+
+/* Technical Analysis Section */
+.technical-analysis {
+    background: rgba(20,20,40,0.95);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 32px #00ff00, 0 0 8px #ff00ff;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.analysis-card {
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid #00ff00;
+}
+
+.analysis-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.5);
+}
+
+.analysis-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ff00ff;
+    color: #ff00ff;
+    text-shadow: 0 0 8px #ff00ff;
+}
+
+.analysis-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.analysis-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    font-size: 0.95em;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.analysis-card li:last-child {
+    border-bottom: none;
+}
+
+.analysis-card li strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Card Color Schemes */
+.high-impact {
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    color: #fff;
+}
+
+.high-impact h3 {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+.medium-impact {
+    background: linear-gradient(135deg, #ff00ff, #00ff00);
+    color: #fff;
+}
+
+.medium-impact h3 {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+.attack-vectors {
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    color: #fff;
+}
+
+.attack-vectors h3 {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+.legal-ethical {
+    background: linear-gradient(135deg, #ff00ff, #00ff00);
+    color: #fff;
+}
+
+.legal-ethical h3 {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+.red-team {
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    color: #fff;
+}
+
+.red-team h3 {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+.risk-assessment {
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    color: #fff;
+}
+
+.risk-assessment h3 {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+/* Disclaimer */
+.disclaimer {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    border-radius: 12px;
+    color: #000;
+    box-shadow: 0 6px 20px rgba(0, 255, 0, 0.3);
+    border: 2px solid #00ff00;
+}
+
+.disclaimer h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #000;
+}
+
+.disclaimer p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 1.05em;
+    color: #000;
+}
+
+.disclaimer strong {
+    font-weight: 700;
+    text-decoration: underline;
+    color: #000;
+}
+
+.annoying-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.popup-content {
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: #000;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 255, 0, 0.5);
+    border: 2px solid #00ff00;
+}
+
+.popup-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #000;
+}
+
+.popup-content button {
+    background: #000;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-content button:hover {
+    background: #00ff00;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #00ff00;
+}
+
+.logout-messages {
+    background: rgba(20,20,40,0.95);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+    border: 2px solid #00ff00;
+}
+
+.logout-messages h3 {
+    color: #ff00ff;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    text-shadow: 0 0 8px #ff00ff;
+}
+
+.logout-messages div {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    color: #eee;
+}
+
+.logout-messages div:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .button-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .download-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .demo-section {
+        padding: 20px;
+    }
+}
+
+/* Animation for buttons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.demo-btn:hover {
+    animation: pulse 0.3s ease-in-out;
+}
+
+/* Special styling for the FULL ANNOYANCE MODE button */
+.demo-btn:last-child {
+    background: linear-gradient(135deg, #00ff00, #ff00ff);
+    font-size: 1.1em;
+    padding: 18px 25px;
+    border: 3px solid #00ff00;
+    box-shadow: 0 6px 20px rgba(0, 255, 0, 0.4);
+}
+
+.demo-btn:last-child:hover {
+    background: linear-gradient(135deg, #ff00ff, #00ff00);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.6);
+}
+

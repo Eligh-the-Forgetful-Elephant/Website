@@ -1,0 +1,46 @@
+#!/bin/bash
+# flush all existing rules
+iptables -F
+
+# set defaults to drop
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+# allow loopback traffic
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
+# allow all INCOMING ssh traffic, no new outgoing connections allowed
+iptables -A INPUT -p tcp -m tcp --dport 22 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --sport 22 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# allow icmp traffic
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+# allow port 80
+iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+# allow port 443
+iptables -A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+# allow dns lookups
+iptables -A OUTPUT -p udp --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT  -p udp --sport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp  --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT  -p tcp  --sport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+# allow port 25 (egress) as per published rules
+iptables -A OUTPUT -p udp --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT  -p udp --sport 25 -m state --state ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp  --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT  -p tcp  --sport 25 -m state --state ESTABLISHED -j ACCEPT
+
+# allow port 3306 as per scored services
+iptables -A INPUT -p tcp --dport 3306 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 3306 -m state --state NEW,ESTABLISHED -j ACCEPT

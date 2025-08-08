@@ -1,0 +1,21 @@
+Tool Name:	Repo | Link	Purpose:	Notes:
+exploidb	https://github.com/offensive-security/exploitdb	Quickly enumerate if a machine is file with RCE vulns.	
+Mod Security	https://github.com/SpiderLabs/ModSecurity	Open source WAF and traffic monitoring	
+Infection Monkey	https://www.guardicore.com/infectionmonkey/	Breack attack simulation tool	
+RapidRepoPull	https://github.com/tbalz2319/RapidRepoPull	Helps pull important Github security related repos/tools	
+IPBan	https://github.com/DigitalRuby/IPBan	"Monitors failed logins and bad behavior and bans ip 
+addresses on Windows and Linux."	
+SOOTY	https://github.com/TheresAFewConors/Sooty	"The SOC Analysts all-in-one CLI tool to automate and 
+speed up workflow."	
+pfsense	https://www.pfsense.org/	Opensource firewall/router	
+LinEnum	https://github.com/rebootuser/LinEnum	Scripted Local Linux Enumeration & Privilege Escalation Checks	
+JA3	https://github.com/open-ch/ja3	"Hunting SSL/TLS clients and fingerprint SSL traffic
+that belongs to Meterpreter, Chrome, etc."	
+Elastic Suite			
+Cheatsheets	https://hausec.com/pentesting-cheatsheet/		
+	https://ired.team/offensive-security-experiments/offensive-security-cheetsheets		
+	https://github.com/HarmJ0y/CheatSheets		
+	https://digital-forensics.sans.org/media/SANS_Poster_2018_Hunt_Evil_FINAL.pdf		
+	https://github.com/netbiosX/Checklists		
+Tabby	https://tabby.sh/	Multi-pane Terminal Input. Run the same commands on 2+ servers at the same time	
+Chkrootkit	https://www.chkrootkit.org/	Reports signs of rootkits	

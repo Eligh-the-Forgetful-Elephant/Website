@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "4HSy6AHkG9E=",
+  "success": true,
+  "projectFilePath": "/Users/eligh/Downloads/PVJ WORKBOOK/offense/DesktopGooseDecompiled-master/GooseDesktop.csproj",
+  "expectedPackageFiles": [
+    "/Users/eligh/.nuget/packages/microsoft.netcore.app.ref/8.0.15/microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
+    "/Users/eligh/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.15/microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512",
+    "/Users/eligh/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.15/microsoft.netcore.app.host.osx-arm64.8.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

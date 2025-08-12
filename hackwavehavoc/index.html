@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackwave Havoc Community</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <style>
+        /* Dynamic Background Layers */
+        body {
+            background: #000000;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Gradient Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #000000, #330066, #660066, #330033, #000000);
+            background-size: 400% 400%;
+            animation: gradient-shift 12s ease infinite;
+            z-index: -3;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Grid Pattern Overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 0, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+            z-index: -2;
+        }
+        
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: float 8s linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* Glitch Scanlines */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 0, 0.08) 2px,
+                rgba(0, 255, 0, 0.08) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+            animation: scanline-flicker 0.1s linear infinite;
+        }
+        
+        @keyframes scanline-flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Pulse Rings */
+        .pulse-rings {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            border: 2px solid rgba(0, 255, 0, 0.5);
+            border-radius: 50%;
+            animation: pulse 4s ease-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 600px;
+                height: 600px;
+                opacity: 0;
+            }
+        }
+        
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .matrix-column {
+            position: absolute;
+            top: -100px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            animation: matrix-fall 8s linear infinite;
+        }
+        
+        @keyframes matrix-fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        
+        /* Floating Data Orbs */
+        .data-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .data-orb {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #00ff00, transparent);
+            border-radius: 50%;
+            animation: orb-float 12s linear infinite;
+        }
+        
+        @keyframes orb-float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(80vh) translateX(20px) scale(1);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(20vh) translateX(-20px) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Glitch Blocks */
+        .glitch-blocks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .glitch-block {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid rgba(0, 255, 0, 0.4);
+            animation: glitch-appear 3s ease-in-out infinite;
+        }
+        
+        @keyframes glitch-appear {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+        }
+        
+        /* Energy Waves */
+        .energy-waves {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .energy-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 255, 0, 0.3), transparent);
+            animation: wave-rise 6s ease-in-out infinite;
+        }
+        
+        @keyframes wave-rise {
+            0%, 100% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Rave Audio Visualizer */
+        .audio-visualizer {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 2px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        
+        .audio-bar {
+            width: 2px;
+            background: linear-gradient(to top, #00ff00, #ff00ff);
+            border-radius: 1px;
+            animation: audio-bounce 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes audio-bounce {
+            0%, 100% {
+                height: 5px;
+                opacity: 0.3;
+            }
+            50% {
+                height: 20px;
+                opacity: 0.8;
+            }
+        }
+        
+        /* Bass Drops */
+        .bass-drops {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .bass-drop {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.6), transparent);
+            border-radius: 50%;
+            animation: bass-expand 2s ease-out infinite;
+        }
+        
+        @keyframes bass-expand {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        /* Laser Beams */
+        .laser-beams {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .laser-beam {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background: linear-gradient(to bottom, transparent, #00ff00, #ff00ff, transparent);
+            animation: laser-sweep 3s linear infinite;
+        }
+        
+        @keyframes laser-sweep {
+            0% {
+                transform: translateX(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) rotate(0deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Strobe Lights */
+        .strobe-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .strobe-light {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+            animation: strobe-flash 0.1s ease-in-out infinite;
+        }
+        
+        @keyframes strobe-flash {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        /* Content Enhancement */
+        .site-header, .site-footer {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 0, 0.5);
+        }
+        
+        .page-grid-container {
+            background: transparent;
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            border: none;
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        .left-column, .right-column {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 0, 0.4);
+        }
+        
+        .center-section {
+            background: transparent;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .bottom-section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 0, 0.4);
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="particles" id="particles"></div>
+    <div class="scanlines"></div>
+    <div class="pulse-rings">
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring" style="animation-delay: 1s;"></div>
+        <div class="pulse-ring" style="animation-delay: 2s;"></div>
+    </div>
+    <div class="matrix-rain" id="matrixRain"></div>
+    <div class="data-orbs" id="dataOrbs"></div>
+    <div class="glitch-blocks" id="glitchBlocks"></div>
+    <div class="energy-waves">
+        <div class="energy-wave"></div>
+        <div class="energy-wave" style="animation-delay: 2s;"></div>
+        <div class="energy-wave" style="animation-delay: 4s;"></div>
+    </div>
+    <div class="audio-visualizer" id="audioVisualizer"></div>
+    <div class="bass-drops" id="bassDrops"></div>
+    <div class="laser-beams" id="laserBeams"></div>
+    <div class="strobe-lights" id="strobeLights"></div>
+    
+    <header class="site-header">
+    </header>
+    <div class="page-grid-container">
+        <!-- Left Column - Music Player -->
+        <div class="left-column">
+            <div class="left-item">
+                <div class="music-player">
+                    <div class="player-header">
+                        <h3>🎵 LIVE MUSIC</h3>
+                        <div class="status-indicator">● LIVE</div>
+                    </div>
+                    <div class="track-info">
+                        <div class="track-name">Techno Vibes</div>
+                        <div class="artist-name">DJ Cyberpunk</div>
+                    </div>
+                    <div class="player-controls">
+                        <button class="control-btn" onclick="togglePlay()">⏸️</button>
+                        <button class="control-btn" onclick="nextTrack()">⏭️</button>
+                        <button class="control-btn" onclick="openMusicPage()">🎧</button>
+                    </div>
+                    <div class="volume-slider">
+                        <input type="range" min="0" max="100" value="75" class="volume-control">
+                    </div>
+                </div>
+            </div>
+            <div class="left-item">
+                <div class="community-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">247</div>
+                        <div class="stat-label">Active Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Live Streams</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Center Section with Video -->
+        <div class="center-section">
+            <video class="glitch-video" id="background-video" autoplay loop muted playsinline>
+                <source src="assets/videos/your-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <!-- Right Column - Stream Viewer -->
+        <div class="right-column">
+            <div class="right-item">
+                <div class="stream-viewer">
+                    <div class="stream-header">
+                        <h3>📺 LIVE STREAMS</h3>
+                        <div class="viewer-count">👥 1.2K viewers</div>
+                    </div>
+                    <div class="stream-grid">
+                        <div class="stream-item" onclick="openStream('cyber-rave')">
+                            <div class="stream-thumbnail">🎮</div>
+                            <div class="stream-title">Cyber Rave</div>
+                            <div class="streamer">DJ_Havoc</div>
+                        </div>
+                        <div class="stream-item" onclick="openStream('techno-session')">
+                            <div class="stream-thumbnail">🎧</div>
+                            <div class="stream-title">Techno Session</div>
+                            <div class="streamer">MC_Glitch</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-item">
+                <div class="equalizer-container">
+                    <canvas id="equalizer-canvas"></canvas>
+                    <div class="eq-label">AUDIO VISUALIZER</div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Section (Community Links) -->
+        <div class="bottom-section">
+            <div class="button-frame">
+                <div class="thumbnail">
+                    <img src="assets/images/events.png" alt="Events">
+                </div>
+                <button class="neon-button green" onclick="openEvents()">EVENTS</button>
+            </div>
+            <div class="button-frame">
+                <div class="thumbnail">
+                    <img src="assets/images/community.png" alt="Community">
+                </div>
+                <button class="neon-button pink" onclick="openCommunity()">COMMUNITY</button>
+            </div>
+            <div class="button-frame">
+                <div class="thumbnail">
+                    <img src="assets/images/aboutus.png" alt="About Us">
+                </div>
+                <button class="neon-button green" onclick="openMusic()">MUSIC</button>
+            </div>
+            <div class="button-frame">
+                <div class="thumbnail">
+                    <img src="assets/images/flyer.png" alt="Flyer">
+                </div>
+                <button class="neon-button pink" onclick="openStreams()">STREAMS</button>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>Hacker Collective & Underground Rave Crew</p>
+            <p>Stay curious, stay safe.</p>
+            <p><a href="../index.html" style="color: #00ff00; text-decoration: none; text-shadow: 0 0 5px #00ff00;">← Back to Project Hub</a></p>
+        </div>
+    </footer>
+    <div class="ripple-sweep" id="rippleSweep"></div>
+    <script>
+    // Equalizer animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.getElementById('equalizer-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = 100;
+            canvas.height = 180;
+            function drawEqualizer() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const barCount = 8;
+                const barWidth = canvas.width / barCount;
+                for (let i = 0; i < barCount; i++) {
+                    const height = Math.random() * canvas.height * 0.8;
+                    const x = i * barWidth;
+                    const y = canvas.height - height;
+                    ctx.fillStyle = i % 2 === 0 ? '#00ff00' : '#ff00ff';
+                    ctx.fillRect(x + 2, y, barWidth - 4, height);
+                }
+            }
+            setInterval(drawEqualizer, 100);
+        }
+    });
+    // Ripple sweep + per-element glitch
+    function getAllGlitchableElements() {
+        // All major grid elements: video, images, buttons, etc.
+        return Array.from(document.querySelectorAll('.glitch-video, .left-item img, .right-item img, .thumbnail img, .neon-button, .section-title, .footer-content p, .terminal-typing'));
+    }
+    function triggerRippleSweep() {
+        const sweep = document.getElementById('rippleSweep');
+        if (!sweep) return;
+        sweep.classList.remove('glitch-sweep');
+        void sweep.offsetWidth; // force reflow
+        sweep.classList.add('glitch-sweep');
+        // Animate per-element glitch as sweep passes
+        const elements = getAllGlitchableElements();
+        const containerRect = document.body.getBoundingClientRect();
+        const sweepHeight = 120;
+        const duration = 1200; // ms
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            // Calculate when the sweep will hit the element (center)
+            const relTop = rect.top - containerRect.top;
+            const relMid = relTop + rect.height / 2;
+            const sweepStart = 0;
+            const sweepEnd = containerRect.height;
+            const t = Math.max(0, Math.min(1, relMid / (sweepEnd - sweepStart)));
+            const hitTime = t * duration;
+            setTimeout(() => {
+                el.classList.add('glitch-hit');
+                setTimeout(() => {
+                    el.classList.remove('glitch-hit');
+                }, 180);
+            }, hitTime);
+        });
+    }
+    setInterval(triggerRippleSweep, 4500);
+    
+    // Create floating particles
+    function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            particlesContainer.appendChild(particle);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 10000);
+        }
+        
+        // Create particles periodically
+        setInterval(createParticle, 500);
+        
+        // Create initial particles
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createParticle, i * 200);
+        }
+    }
+    
+            // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            createMatrixRain();
+            createDataOrbs();
+            createGlitchBlocks();
+            createAudioVisualizer();
+            createBassDrops();
+            createLaserBeams();
+            createStrobeLights();
+            
+            // Initialize music player
+            updateTrackInfo();
+            setInterval(updateTrackInfo, 5000);
+        });
+        
+        // Music Player Functions
+        let isPlaying = true;
+        let currentTrack = 0;
+        const tracks = [
+            { name: "Techno Vibes", artist: "DJ Cyberpunk" },
+            { name: "Digital Rain", artist: "MC Glitch" },
+            { name: "Neon Nights", artist: "Synth Master" },
+            { name: "Hackwave Havoc", artist: "Cyber Collective" }
+        ];
+        
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            const btn = document.querySelector('.control-btn');
+            btn.textContent = isPlaying ? '⏸️' : '▶️';
+        }
+        
+        function nextTrack() {
+            currentTrack = (currentTrack + 1) % tracks.length;
+            updateTrackInfo();
+        }
+        
+        function updateTrackInfo() {
+            const trackName = document.querySelector('.track-name');
+            const artistName = document.querySelector('.artist-name');
+            if (trackName && artistName) {
+                trackName.textContent = tracks[currentTrack].name;
+                artistName.textContent = tracks[currentTrack].artist;
+            }
+        }
+        
+        function openMusicPage() {
+            alert('🎵 Opening Music Community Page...\n\nThis would link to your music community section with live DJ streams, track uploads, and collaborative playlists.');
+        }
+        
+        // Stream Functions
+        function openStream(streamId) {
+            const streams = {
+                'cyber-rave': { title: 'Cyber Rave', streamer: 'DJ_Havoc', viewers: '1.2K' },
+                'techno-session': { title: 'Techno Session', streamer: 'MC_Glitch', viewers: '856' }
+            };
+            const stream = streams[streamId];
+            alert(`📺 Opening Stream: ${stream.title}\n\nStreamer: ${stream.streamer}\nViewers: ${stream.viewers}\n\nThis would open the live stream viewer with chat and community features.`);
+        }
+        
+        // Community Page Functions
+        function openEvents() {
+            alert('🎪 Opening Events Page...\n\nThis would show upcoming underground raves, hacker meetups, and community events with RSVP functionality.');
+        }
+        
+        function openCommunity() {
+            alert('👥 Opening Community Page...\n\nThis would display member profiles, community chat, and collaborative projects.');
+        }
+        
+        function openMusic() {
+            alert('🎵 Opening Music Page...\n\nThis would show live DJ streams, track uploads, collaborative playlists, and music production tools.');
+        }
+        
+        function openStreams() {
+            alert('📺 Opening Streams Page...\n\nThis would display all live streams, gaming sessions, and community broadcasts.');
+        }
+    
+    // Create Matrix Rain Effect
+    function createMatrixRain() {
+        const matrixContainer = document.getElementById('matrixRain');
+        if (!matrixContainer) return;
+        
+        const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        
+        function createMatrixColumn() {
+            const column = document.createElement('div');
+            column.className = 'matrix-column';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.animationDelay = Math.random() * 8 + 's';
+            column.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            
+            // Add random characters
+            let text = '';
+            for (let i = 0; i < 20; i++) {
+                text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+            }
+            column.innerHTML = text;
+            
+            matrixContainer.appendChild(column);
+            
+            setTimeout(() => {
+                if (column.parentNode) {
+                    column.parentNode.removeChild(column);
+                }
+            }, 10000);
+        }
+        
+        setInterval(createMatrixColumn, 800);
+        
+        // Create initial columns
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createMatrixColumn, i * 1000);
+        }
+    }
+    
+    // Create Floating Data Orbs
+    function createDataOrbs() {
+        const orbsContainer = document.getElementById('dataOrbs');
+        if (!orbsContainer) return;
+        
+        function createOrb() {
+            const orb = document.createElement('div');
+            orb.className = 'data-orb';
+            orb.style.left = Math.random() * 100 + '%';
+            orb.style.animationDelay = Math.random() * 12 + 's';
+            orb.style.animationDuration = (Math.random() * 6 + 8) + 's';
+            orbsContainer.appendChild(orb);
+            
+            setTimeout(() => {
+                if (orb.parentNode) {
+                    orb.parentNode.removeChild(orb);
+                }
+            }, 15000);
+        }
+        
+        setInterval(createOrb, 2000);
+        
+        // Create initial orbs
+        for (let i = 0; i < 3; i++) {
+            setTimeout(createOrb, i * 2000);
+        }
+    }
+    
+    // Create Glitch Blocks
+    function createGlitchBlocks() {
+        const blocksContainer = document.getElementById('glitchBlocks');
+        if (!blocksContainer) return;
+        
+        function createBlock() {
+            const block = document.createElement('div');
+            block.className = 'glitch-block';
+            block.style.left = Math.random() * 100 + '%';
+            block.style.top = Math.random() * 100 + '%';
+            block.style.animationDelay = Math.random() * 3 + 's';
+            blocksContainer.appendChild(block);
+            
+            setTimeout(() => {
+                if (block.parentNode) {
+                    block.parentNode.removeChild(block);
+                }
+            }, 6000);
+        }
+        
+        setInterval(createBlock, 1500);
+        
+        // Create initial blocks
+        for (let i = 0; i < 4; i++) {
+            setTimeout(createBlock, i * 1500);
+        }
+    }
+    
+    // Create Audio Visualizer
+    function createAudioVisualizer() {
+        const visualizer = document.getElementById('audioVisualizer');
+        if (!visualizer) return;
+        
+        // Create 20 audio bars
+        for (let i = 0; i < 20; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'audio-bar';
+            bar.style.animationDelay = (i * 0.05) + 's';
+            visualizer.appendChild(bar);
+        }
+    }
+    
+    // Create Bass Drops
+    function createBassDrops() {
+        const bassContainer = document.getElementById('bassDrops');
+        if (!bassContainer) return;
+        
+        function createBassDrop() {
+            const drop = document.createElement('div');
+            drop.className = 'bass-drop';
+            drop.style.left = Math.random() * 100 + '%';
+            drop.style.top = Math.random() * 100 + '%';
+            bassContainer.appendChild(drop);
+            
+            setTimeout(() => {
+                if (drop.parentNode) {
+                    drop.parentNode.removeChild(drop);
+                }
+            }, 2000);
+        }
+        
+        setInterval(createBassDrop, 3000);
+        
+        // Create initial drops
+        for (let i = 0; i < 3; i++) {
+            setTimeout(createBassDrop, i * 1000);
+        }
+    }
+    
+    // Create Laser Beams
+    function createLaserBeams() {
+        const laserContainer = document.getElementById('laserBeams');
+        if (!laserContainer) return;
+        
+        function createLaserBeam() {
+            const beam = document.createElement('div');
+            beam.className = 'laser-beam';
+            beam.style.top = Math.random() * 100 + '%';
+            beam.style.animationDelay = Math.random() * 3 + 's';
+            laserContainer.appendChild(beam);
+            
+            setTimeout(() => {
+                if (beam.parentNode) {
+                    beam.parentNode.removeChild(beam);
+                }
+            }, 3000);
+        }
+        
+        setInterval(createLaserBeam, 4000);
+        
+        // Create initial beams
+        for (let i = 0; i < 2; i++) {
+            setTimeout(createLaserBeam, i * 2000);
+        }
+    }
+    
+    // Create Strobe Lights
+    function createStrobeLights() {
+        const strobeContainer = document.getElementById('strobeLights');
+        if (!strobeContainer) return;
+        
+        function createStrobeLight() {
+            const light = document.createElement('div');
+            light.className = 'strobe-light';
+            strobeContainer.appendChild(light);
+            
+            setTimeout(() => {
+                if (light.parentNode) {
+                    light.parentNode.removeChild(light);
+                }
+            }, 100);
+        }
+        
+        setInterval(createStrobeLight, 200);
+        
+        // Create initial strobes
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createStrobeLight, i * 100);
+        }
+    }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,539 @@
+/* Global Styling */
+body {
+    background-color: #000000; /* True black background */
+    color: #00ff00; /* Neon green text */
+    font-family: 'VT323', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+/* Site Header */
+.site-header {
+    background-color: #000000;
+    padding: 20px;
+    border-bottom: 2px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+}
+
+/* Main Navigation */
+.main-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.main-navigation a {
+    color: #00ff00;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.main-navigation a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* Blinking Cursor Effect */
+.terminal-typing::after {
+    content: '|'; /* The cursor character */
+    animation: blink 1s infinite; /* Blink effect */
+    color: #00ff00; /* Neon green cursor */
+}
+
+/* Animation for blinking cursor */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Ripple Sweep Effect */
+.ripple-sweep {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 120px;
+    top: -120px;
+    z-index: 10000;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0,255,0,0.18) 30%, rgba(255,0,255,0.18) 70%, rgba(255,255,255,0) 100%);
+    filter: blur(2px) brightness(1.2);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.glitch-sweep {
+    animation: ripple-sweep-move 1.2s linear forwards;
+}
+
+@keyframes ripple-sweep-move {
+    0% { top: -120px; opacity: 0.7; }
+    10% { opacity: 1; }
+    100% { top: 100vh; opacity: 0; }
+}
+
+.glitch-hit {
+    filter: brightness(1.5) blur(1.5px) drop-shadow(-2px 0 #00ff00) drop-shadow(2px 0 #ff00ff);
+    transition: filter 0.2s;
+}
+
+/* Site Footer */
+.site-footer {
+    background-color: #000000;
+    padding: 20px;
+    border-top: 2px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    color: #00ff00;
+}
+
+/* Page Grid Layout */
+.page-grid-container {
+    display: grid;
+    grid-template-columns: 20% 60% 20%; /* Left, Center, Right columns */
+    grid-template-rows: auto; /* Content and bottom section */
+    gap: 20px;
+    align-items: start;
+    justify-items: center; /* Reduce spacing between columns */
+    padding: 10px;
+}
+
+/* Left and Right Columns */
+.left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Space items vertically */
+    align-items: center;
+    padding-top: 20px;
+    background-color: #000000;
+    height: auto; /* Dark background to frame the page */
+}
+
+/* Left Column Items */
+.left-item, .right-item {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.left-item img, .right-item img {
+    width: 60%; 
+    height: auto;
+    margin-bottom: 30px;
+}
+
+/* Music Player Styles */
+.music-player {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 0 15px #00ff00;
+    width: 200px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.player-header h3 {
+    margin: 0;
+    color: #00ff00;
+    font-size: 14px;
+}
+
+.status-indicator {
+    color: #ff0000;
+    font-size: 12px;
+    text-shadow: 0 0 5px #ff0000;
+}
+
+.track-info {
+    margin-bottom: 10px;
+}
+
+.track-name {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.artist-name {
+    color: #00ff00;
+    font-size: 10px;
+}
+
+.player-controls {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.control-btn {
+    background: rgba(0, 255, 0, 0.2);
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: rgba(0, 255, 0, 0.4);
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.volume-control {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 255, 0, 0.3);
+    border-radius: 2px;
+    outline: none;
+}
+
+.volume-control::-webkit-slider-thumb {
+    background: #00ff00;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+/* Community Stats */
+.community-stats {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 0 15px #ff00ff;
+    width: 200px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.stat-item {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.stat-number {
+    color: #ff00ff;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.stat-label {
+    color: #ffffff;
+    font-size: 10px;
+}
+
+/* Stream Viewer */
+.stream-viewer {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 0 15px #00ff00;
+    width: 200px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.stream-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.stream-header h3 {
+    margin: 0;
+    color: #00ff00;
+    font-size: 14px;
+}
+
+.viewer-count {
+    color: #ff00ff;
+    font-size: 10px;
+}
+
+.stream-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stream-item {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stream-item:hover {
+    background: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.stream-thumbnail {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.stream-title {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.streamer {
+    color: #00ff00;
+    font-size: 8px;
+}
+
+/* Equalizer Container */
+.equalizer-container {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 0 15px #ff00ff;
+    text-align: center;
+    width: 200px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.eq-label {
+    color: #ff00ff;
+    font-size: 10px;
+    margin-top: 5px;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+/* Thumbnail Icons */
+.thumbnail-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* Center Section */
+.center-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glitch Video in Center Section */
+.glitch-video {
+    width: 90%; /* Adjust based on your layout */
+    max-width: 1200px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Video Overlay */
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
+    padding: 20px;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    z-index: 10;
+    display: none;
+}
+
+.video-overlay p {
+    margin: 0;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+/* Bottom Section (Directly Under the Main Image) */
+.bottom-section {
+    grid-column: 2 / 3; /* Bottom section spans only the center column */
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    margin-top: 20px;
+    background-color: #000000; /* Set a different background */
+}
+
+/* Button Frame to align buttons and thumbnails */
+.button-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+/* Thumbnails: Keep consistent with buttons */
+.thumbnail {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.thumbnail img {
+    max-width: 100%; /* Make sure images don't overflow the thumbnail box */
+    max-height: 100%; /* Ensure the image stays within the container */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+/* Thumbnails - Alternating Neon Green and Neon Pink */
+.thumbnail:nth-child(odd) {
+    border: 2px solid #00ff00; /* Neon green for 1st, 3rd */
+}
+
+.thumbnail:nth-child(even) {
+    border: 2px solid #ff00ff; /* Neon pink for 2nd, 4th */
+}
+
+/* Hover Effect for Neon Green Buttons */
+.neon-button.green {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #000000; /* Neon green text */
+    background-color: #00ff00;
+    border: 2px solid #00ff00; /* Neon green border */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #000000, 0 0 20px transparent, 0 0 30px #000000; /* Constant glow */
+    cursor: pointer;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; /* Constant green glow */
+    transition: all 0.3s ease;
+}
+.neon-button.green:hover {
+    box-shadow: 0 0 30px #00ff00, 0 0 60px #00ff00;
+}
+/* Hover Effect for Neon Pink Buttons */
+.neon-button.pink {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #000000; /* Neon pink text */
+    background-color: #ff00ff;
+    border: 2px solid #ff00ff; /* Neon pink border */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #000000, 0 0 20px #ff00ff, 0 0 30px #ff00ff; /* Constant glow */
+    cursor: pointer;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff; /* Constant pink glow */
+    transition: all 0.3s ease;
+}
+.neon-button.pink:hover {
+    box-shadow: 0 0 30px #ff00ff, 0 0 60px #ff00ff;
+}
+/* Equalizer Canvas (If needed) */
+#equalizer-canvas {
+    width: 100px;
+    height: 180px; /* Reduce height */
+    background-color: #111;
+    border: 2px solid #ff00ff; /* Neon pink border for equalizer */
+    box-shadow: 0 0 10px #ff00ff; /* Neon pink glow for equalizer */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .page-grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 10px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .left-column, .right-column {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .left-item img, .right-item img {
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    .center-section {
+        min-height: 200px;
+    }
+
+    .bottom-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button-frame {
+        margin-bottom: 15px;
+    }    
+
+    .neon-button {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .thumbnail {
+        width: 100px;
+        height: 100px;
+    }
+
+    #equalizer-canvas {
+        width: 80px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-grid-container {
+        margin: 5px;
+        padding: 5px;
+    }
+    
+    .left-item img, .right-item img {
+        max-width: 60px;
+        max-height: 60px;
+    }
+    
+    .neon-button {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+    
+    .thumbnail {
+        width: 80px;
+        height: 80px;
+    }
+}
+

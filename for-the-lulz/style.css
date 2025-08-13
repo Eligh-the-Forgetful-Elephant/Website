@@ -547,3 +547,46 @@ header .subtitle {
     }
 }
 
+/* TheAnnoyingSite.com styles */
+.hello-message {
+    margin: 40px;
+    text-align: center;
+    color: #00ff00;
+    text-shadow: 0 0 12px #00ff00, 0 0 32px #ff00ff;
+}
+
+.hello-message h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hello-message h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.hello-message h3 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #aaa;
+}
+
+.hello-message img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.logout-messages {
+    pointer-events: none;
+    color: red;
+    margin: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-shadow: 2px 2px #FFF, 4px 4px 10px #000;
+    z-index: 10000;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+

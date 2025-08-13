@@ -1,0 +1,27 @@
+# Embedded git repositories
+files/dpr/DreadPirateRoberts/
+files/malware/frioct11/SFML/
+files/malware/frioct11/opengoose/
+hackwavehavoc/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

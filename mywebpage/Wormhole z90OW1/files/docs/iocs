@@ -1,0 +1,859 @@
+root@mail0:/etc# cat bash.bashrc 
+# System-wide .bashrc file for interactive bash(1) shells.
+
+# To enable the settings / commands in this file for login shells as well,
+# this file has to be sourced in /etc/profile.
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, overwrite the one in /etc/profile)
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
+# Commented out, don't overwrite xterm -T "title" -n "icontitle" by default.
+# If this is an xterm set the title to user@host:dir
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+#    ;;
+#*)
+#    ;;
+#esac
+
+# enable bash completion in interactive shells
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    . /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#  fi
+#fi
+
+# sudo hint
+if [ ! -e "$HOME/.sudo_as_admin_successful" ] && [ ! -e "$HOME/.hushlogin" ] ; then
+    case " $(groups) " in *\ admin\ *|*\ sudo\ *)
+    if [ -x /usr/bin/sudo ]; then
+	cat <<-EOF
+	To run a command as administrator (user "root"), use "sudo <command>".
+	See "man sudo_root" for details.
+	
+	EOF
+    fi
+    esac
+fi
+
+# if the command-not-found package is installed, use it
+if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-not-found ]; then
+	function command_not_found_handle {
+	        # check because c-n-f could've been removed in the meantime
+                if [ -x /usr/lib/command-not-found ]; then
+		   /usr/lib/command-not-found -- "$1"
+                   return $?
+                elif [ -x /usr/share/command-not-found/command-not-found ]; then
+		   /usr/share/command-not-found/command-not-found -- "$1"
+                   return $?
+		else
+		   printf "%s: command not found\n" "$1" >&2
+		   return 127
+		fi
+	}
+fi
+root@mail0:/etc# cat passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+sshd:x:108:65534::/var/run/sshd:/usr/sbin/nologin
+dovecot:x:109:117:Dovecot mail server,,,:/usr/lib/dovecot:/bin/false
+dovenull:x:110:118:Dovecot login user,,,:/nonexistent:/bin/false
+postfix:x:111:119::/var/spool/postfix:/bin/false
+icanhasaccess:x:1000:1000::/home/icanhasaccess:/bin/bash
+alice.smith:x:1001:1001:Alice Smith:/home/alice.smith:/bin/bash
+bob.johnson:x:1002:1002:Bob Johnson:/home/bob.johnson:/bin/bash
+carol.williams:x:1003:1003:Carol Williams:/home/carol.williams:/bin/bash
+carlos.brown:x:1004:1004:Carlos Brown:/home/carlos.brown:/bin/bash
+charlie.jones:x:1005:1005:Charlie Jones:/home/charlie.jones:/bin/bash
+chuck.garcia:x:1006:1006:Chuck Garcia:/home/chuck.garcia:/bin/bash
+chad.miller:x:1007:1007:Chad Miller:/home/chad.miller:/bin/bash
+craig.davis:x:1008:1008:Craig Davis:/home/craig.davis:/bin/bash
+dan.rodriguez:x:1009:1009:Dan Rodriguez:/home/dan.rodriguez:/bin/bash
+dave.martinez:x:1010:1010:Dave Martinez:/home/dave.martinez:/bin/bash
+david.hernandez:x:1011:1011:David Hernandez:/home/david.hernandez:/bin/bash
+erin.lopez:x:1012:1012:Erin Lopez:/home/erin.lopez:/bin/bash
+eve.gonzales:x:1013:1013:Eve Gonzales:/home/eve.gonzales:/bin/bash
+yves.wilson:x:1014:1014:Yves Wilson:/home/yves.wilson:/bin/bash
+faythe.anderson:x:1015:1015:Faythe Anderson:/home/faythe.anderson:/bin/bash
+frank.thomas:x:1016:1016:Frank Thomas:/home/frank.thomas:/bin/bash
+grace.taylor:x:1017:1017:Grace Taylor:/home/grace.taylor:/bin/bash
+heidi.moore:x:1018:1018:Heidi Moore:/home/heidi.moore:/bin/bash
+ivan.jackson:x:1019:1019:Ivan Jackson:/home/ivan.jackson:/bin/bash
+judy.martin:x:1020:1020:Judy Martin:/home/judy.martin:/bin/bash
+mallory.lee:x:1021:1021:Mallory Lee:/home/mallory.lee:/bin/bash
+michael.perez:x:1022:1022:Michael Perez:/home/michael.perez:/bin/bash
+mike.thompson:x:1023:1023:Mike Thompson:/home/mike.thompson:/bin/bash
+olivia.white:x:1024:1024:Olivia White:/home/olivia.white:/bin/bash
+oscar.harris:x:1025:1025:Oscar Harris:/home/oscar.harris:/bin/bash
+peggy.sanchez:x:1026:1026:Peggy Sanchez:/home/peggy.sanchez:/bin/bash
+rupert.ramirez:x:1028:1028:Rupert Ramirez:/home/rupert.ramirez:/bin/bash
+sybil.lewis:x:1029:1029:Sybil Lewis:/home/sybil.lewis:/bin/bash
+trent.robinson:x:1030:1030:Trent Robinson:/home/trent.robinson:/bin/bash
+ted.walker:x:1031:1031:Ted Walker:/home/ted.walker:/bin/bash
+trudy.young:x:1032:1032:Trudy Young:/home/trudy.young:/bin/bash
+victor.allen:x:1033:1033:Victor Allen:/home/victor.allen:/bin/bash
+walter.king:x:1034:1034:Walter King:/home/walter.king:/bin/bash
+goldteamscoring:x:1036:1036::/nonexistent:/bin/false
+root@mail0:/etc# cat passwd- 
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+sshd:x:108:65534::/var/run/sshd:/usr/sbin/nologin
+dovecot:x:109:117:Dovecot mail server,,,:/usr/lib/dovecot:/bin/false
+dovenull:x:110:118:Dovecot login user,,,:/nonexistent:/bin/false
+postfix:x:111:119::/var/spool/postfix:/bin/false
+icanhasaccess:x:1000:1000::/home/icanhasaccess:/bin/bash
+alice.smith:x:1001:1001:Alice Smith:/home/alice.smith:/bin/bash
+bob.johnson:x:1002:1002:Bob Johnson:/home/bob.johnson:/bin/bash
+carol.williams:x:1003:1003:Carol Williams:/home/carol.williams:/bin/bash
+carlos.brown:x:1004:1004:Carlos Brown:/home/carlos.brown:/bin/bash
+charlie.jones:x:1005:1005:Charlie Jones:/home/charlie.jones:/bin/bash
+chuck.garcia:x:1006:1006:Chuck Garcia:/home/chuck.garcia:/bin/bash
+chad.miller:x:1007:1007:Chad Miller:/home/chad.miller:/bin/bash
+craig.davis:x:1008:1008:Craig Davis:/home/craig.davis:/bin/bash
+dan.rodriguez:x:1009:1009:Dan Rodriguez:/home/dan.rodriguez:/bin/bash
+dave.martinez:x:1010:1010:Dave Martinez:/home/dave.martinez:/bin/bash
+david.hernandez:x:1011:1011:David Hernandez:/home/david.hernandez:/bin/bash
+erin.lopez:x:1012:1012:Erin Lopez:/home/erin.lopez:/bin/bash
+eve.gonzales:x:1013:1013:Eve Gonzales:/home/eve.gonzales:/bin/bash
+yves.wilson:x:1014:1014:Yves Wilson:/home/yves.wilson:/bin/bash
+faythe.anderson:x:1015:1015:Faythe Anderson:/home/faythe.anderson:/bin/bash
+frank.thomas:x:1016:1016:Frank Thomas:/home/frank.thomas:/bin/bash
+grace.taylor:x:1017:1017:Grace Taylor:/home/grace.taylor:/bin/bash
+heidi.moore:x:1018:1018:Heidi Moore:/home/heidi.moore:/bin/bash
+ivan.jackson:x:1019:1019:Ivan Jackson:/home/ivan.jackson:/bin/bash
+judy.martin:x:1020:1020:Judy Martin:/home/judy.martin:/bin/bash
+mallory.lee:x:1021:1021:Mallory Lee:/home/mallory.lee:/bin/bash
+michael.perez:x:1022:1022:Michael Perez:/home/michael.perez:/bin/bash
+mike.thompson:x:1023:1023:Mike Thompson:/home/mike.thompson:/bin/bash
+olivia.white:x:1024:1024:Olivia White:/home/olivia.white:/bin/bash
+oscar.harris:x:1025:1025:Oscar Harris:/home/oscar.harris:/bin/bash
+peggy.sanchez:x:1026:1026:Peggy Sanchez:/home/peggy.sanchez:/bin/bash
+pat.clark:x:1027:1027:Pat Clark:/home/pat.clark:/bin/bash
+rupert.ramirez:x:1028:1028:Rupert Ramirez:/home/rupert.ramirez:/bin/bash
+sybil.lewis:x:1029:1029:Sybil Lewis:/home/sybil.lewis:/bin/bash
+trent.robinson:x:1030:1030:Trent Robinson:/home/trent.robinson:/bin/bash
+ted.walker:x:1031:1031:Ted Walker:/home/ted.walker:/bin/bash
+trudy.young:x:1032:1032:Trudy Young:/home/trudy.young:/bin/bash
+victor.allen:x:1033:1033:Victor Allen:/home/victor.allen:/bin/bash
+walter.king:x:1034:1034:Walter King:/home/walter.king:/bin/bash
+goldteamscoring:x:1036:1036::/nonexistent:/bin/false
+root@mail0:/etc#
+root@mail0:/etc# cat adduser.conf 
+# /etc/adduser.conf: `adduser' configuration.
+# See adduser(8) and adduser.conf(5) for full documentation.
+
+# The DSHELL variable specifies the default login shell on your
+# system.
+DSHELL=/bin/bash
+
+# The DHOME variable specifies the directory containing users' home
+# directories.
+DHOME=/home
+
+# If GROUPHOMES is "yes", then the home directories will be created as
+# /home/groupname/user.
+GROUPHOMES=no
+
+# If LETTERHOMES is "yes", then the created home directories will have
+# an extra directory - the first letter of the user name. For example:
+# /home/u/user.
+LETTERHOMES=no
+
+# The SKEL variable specifies the directory containing "skeletal" user
+# files; in other words, files such as a sample .profile that will be
+# copied to the new user's home directory when it is created.
+SKEL=/etc/skel
+
+# FIRST_SYSTEM_[GU]ID to LAST_SYSTEM_[GU]ID inclusive is the range for UIDs
+# for dynamically allocated administrative and system accounts/groups.
+# Please note that system software, such as the users allocated by the base-passwd
+# package, may assume that UIDs less than 100 are unallocated.
+FIRST_SYSTEM_UID=100
+LAST_SYSTEM_UID=999
+
+FIRST_SYSTEM_GID=100
+LAST_SYSTEM_GID=999
+
+# FIRST_[GU]ID to LAST_[GU]ID inclusive is the range of UIDs of dynamically
+# allocated user accounts/groups.
+FIRST_UID=1000
+LAST_UID=29999
+
+FIRST_GID=1000
+LAST_GID=29999
+
+# The USERGROUPS variable can be either "yes" or "no".  If "yes" each
+# created user will be given their own group to use as a default.  If
+# "no", each created user will be placed in the group whose gid is
+# USERS_GID (see below).
+USERGROUPS=yes
+
+# If USERGROUPS is "no", then USERS_GID should be the GID of the group
+# `users' (or the equivalent group) on your system.
+USERS_GID=100
+
+# If DIR_MODE is set, directories will be created with the specified
+# mode. Otherwise the default mode 0755 will be used.
+DIR_MODE=0755
+
+# If SETGID_HOME is "yes" home directories for users with their own
+# group the setgid bit will be set. This was the default for
+# versions << 3.13 of adduser. Because it has some bad side effects we
+# no longer do this per default. If you want it nevertheless you can
+# still set it here.
+SETGID_HOME=no
+
+# If QUOTAUSER is set, a default quota will be set from that user with
+# `edquota -p QUOTAUSER newuser'
+QUOTAUSER=""
+
+# If SKEL_IGNORE_REGEX is set, adduser will ignore files matching this
+# regular expression when creating a new home directory
+SKEL_IGNORE_REGEX="dpkg-(old|new|dist|save)"
+
+# Set this if you want the --add_extra_groups option to adduser to add
+# new users to other groups.
+# This is the list of groups that new non-system users will be added to
+# Default:
+#EXTRA_GROUPS="dialout cdrom floppy audio video plugdev users"
+
+# If ADD_EXTRA_GROUPS is set to something non-zero, the EXTRA_GROUPS
+# option above will be default behavior for adding new, non-system users
+#ADD_EXTRA_GROUPS=1
+
+
+# check user and group names also against this regular expression.
+#NAME_REGEX="^[a-z][-a-z0-9_]*\$"
+
+# use extrausers by default
+#USE_EXTRAUSERS=1
+root@mail0:/etc# ps aux     
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  37880  4840 ?        Ss   17:48   0:04 /lib/systemd/systemd --system --deserialize 55
+root         2  0.0  0.0      0     0 ?        S    17:48   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    17:48   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   17:48   0:00 [kworker/0:0H]
+root         7  0.0  0.0      0     0 ?        S    17:48   0:00 [rcu_sched]
+root         8  0.0  0.0      0     0 ?        S    17:48   0:00 [rcu_bh]
+root         9  0.0  0.0      0     0 ?        S    17:48   0:00 [migration/0]
+root        10  0.0  0.0      0     0 ?        S    17:48   0:00 [watchdog/0]
+root        11  0.0  0.0      0     0 ?        S    17:48   0:00 [watchdog/1]
+root        12  0.0  0.0      0     0 ?        S    17:48   0:00 [migration/1]
+root        13  0.0  0.0      0     0 ?        S    17:48   0:00 [ksoftirqd/1]
+root        15  0.0  0.0      0     0 ?        S<   17:48   0:00 [kworker/1:0H]
+root        16  0.0  0.0      0     0 ?        S    17:48   0:00 [kdevtmpfs]
+root        17  0.0  0.0      0     0 ?        S<   17:48   0:00 [netns]
+root        18  0.0  0.0      0     0 ?        S<   17:48   0:00 [perf]
+root        19  0.0  0.0      0     0 ?        S    17:48   0:00 [khungtaskd]
+root        20  0.0  0.0      0     0 ?        S<   17:48   0:00 [writeback]
+root        21  0.0  0.0      0     0 ?        SN   17:48   0:00 [ksmd]
+root        22  0.0  0.0      0     0 ?        SN   17:48   0:00 [khugepaged]
+root        23  0.0  0.0      0     0 ?        S<   17:48   0:00 [crypto]
+root        24  0.0  0.0      0     0 ?        S<   17:48   0:00 [kintegrityd]
+root        25  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        26  0.0  0.0      0     0 ?        S<   17:48   0:00 [kblockd]
+root        27  0.0  0.0      0     0 ?        S<   17:48   0:00 [ata_sff]
+root        28  0.0  0.0      0     0 ?        S<   17:48   0:00 [md]
+root        29  0.0  0.0      0     0 ?        S<   17:48   0:00 [devfreq_wq]
+root        34  0.0  0.0      0     0 ?        S    17:48   0:01 [kswapd0]
+root        35  0.0  0.0      0     0 ?        S<   17:48   0:00 [vmstat]
+root        36  0.0  0.0      0     0 ?        S    17:48   0:00 [fsnotify_mark]
+root        37  0.0  0.0      0     0 ?        S    17:48   0:00 [ecryptfs-kthrea]
+root        52  0.0  0.0      0     0 ?        S<   17:48   0:00 [kthrotld]
+root        53  0.0  0.0      0     0 ?        S<   17:48   0:00 [acpi_thermal_pm]
+root        54  0.0  0.0      0     0 ?        S    17:48   0:00 [vballoon]
+root        55  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        56  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        57  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        58  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        59  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        60  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        61  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        62  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        63  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        64  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        65  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        66  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        67  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        68  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        69  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        70  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        71  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        72  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        73  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        74  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        75  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        76  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        77  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        78  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        79  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root        80  0.0  0.0      0     0 ?        S    17:48   0:00 [scsi_eh_0]
+root        81  0.0  0.0      0     0 ?        S<   17:48   0:00 [scsi_tmf_0]
+root        82  0.0  0.0      0     0 ?        S    17:48   0:00 [scsi_eh_1]
+root        83  0.0  0.0      0     0 ?        S<   17:48   0:00 [scsi_tmf_1]
+root        88  0.0  0.0      0     0 ?        S<   17:48   0:00 [ipv6_addrconf]
+root       102  0.0  0.0      0     0 ?        S<   17:48   0:00 [deferwq]
+root       103  0.0  0.0      0     0 ?        S<   17:48   0:00 [charger_manager]
+root       104  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       140  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       141  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       143  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       144  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       145  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       146  0.0  0.0      0     0 ?        S<   17:48   0:00 [kpsmoused]
+root       147  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       149  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       150  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       161  0.0  0.0      0     0 ?        S<   17:48   0:00 [kdmflush]
+root       162  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       173  0.0  0.0      0     0 ?        S<   17:48   0:00 [kdmflush]
+root       176  0.0  0.0      0     0 ?        S<   17:48   0:00 [bioset]
+root       198  0.0  0.0      0     0 ?        S<   17:48   0:00 [kworker/0:1H]
+root       199  0.0  0.0      0     0 ?        S<   17:48   0:00 [kworker/1:1H]
+root       203  0.0  0.0      0     0 ?        S    17:48   0:00 [jbd2/dm-0-8]
+root       204  0.0  0.0      0     0 ?        S<   17:48   0:00 [ext4-rsv-conver]
+root       246  0.0  0.0  32144  3164 ?        Ss   17:48   0:00 /lib/systemd/systemd-journald
+root       293  0.0  0.0 102968   228 ?        Ss   17:48   0:00 /sbin/lvmetad -f
+root       304  0.0  0.0  45536  2592 ?        Ss   17:48   0:00 /lib/systemd/systemd-udevd
+root       446  0.0  0.0      0     0 ?        S<   17:48   0:00 [ext4-rsv-conver]
+systemd+   473  0.0  0.0 100324  1060 ?        Ssl  17:48   0:00 /lib/systemd/systemd-timesyncd
+root       638  0.0  0.0   4228    84 ?        S    17:48   0:00 [bioset]
+root       686  0.0  0.0 1225484 2136 ?        Sl   17:48   0:00 /sbin/gcpconfig
+root       700  0.0  0.2 722688  8756 ?        Ssl  17:48   0:00 /sbin/.gcpconfig
+root       765  0.0  0.0  29580  3260 ?        Ss   17:48   0:00 /lib/systemd/systemd-logind
+root       766  0.0  0.0 278324  3776 ?        Ssl  17:48   0:00 /usr/lib/accountsservice/accounts-daemon
+root       778  0.0  0.0  29268   272 ?        Ss   17:48   0:00 /usr/sbin/cron -f
+message+   789  0.0  0.0  42892   472 ?        Ss   17:48   0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+syslog     819  0.0  0.0 256396   764 ?        Ssl  17:48   0:00 /usr/sbin/rsyslogd -n
+root       856  0.0  0.0  19472   252 ?        Ss   17:48   0:00 /usr/sbin/irqbalance --pid=/var/run/irqbalance.pid
+root       857  0.0  0.0  21976   248 ?        Ss   17:48   0:07 /usr/sbin/qemu-ga --daemonize -m virtio-serial -p /dev/virtio-ports/org.qemu.guest_agent.0
+icanhas+  1088  0.0  0.0  45248  2324 ?        Ss   18:09   0:00 /lib/systemd/systemd --user
+icanhas+  1093  0.0  0.0  63504  2136 ?        S    18:09   0:00 (sd-pam)
+icanhas+  1134  0.0  0.0 1225484 2256 ?        Sl   18:09   0:00 /usr/bin/morepipe
+icanhas+  1149  0.0  0.2 1230568 8784 ?        Ssl  18:09   0:00 /usr/bin/.morepipe
+root      1197  0.0  0.1  31656  6224 ?        S    18:13   0:05 Network Manager
+root      2271  0.0  0.0  65604  2020 ?        Ss   19:05   0:00 /usr/sbin/sshd -D
+root      3606  0.0  0.0  94988  1352 ?        Ss   21:01   0:00 sshd: icanhasaccess [priv]
+icanhas+  3642  0.0  0.0  94988   996 ?        S    21:01   0:00 sshd: icanhasaccess@pts/0
+icanhas+  3645  0.0  0.0  24860  3308 pts/0    Ss+  21:01   0:00 -bash
+root      7131  0.0  0.0      0     0 ?        S    21:31   0:00 [kworker/0:2]
+root      7308  0.0  2.1 5967160 87636 ?       Ssl  21:38   0:01 /opt/runzero/bin/runzero-agent-9ee89512-c5c4-426f-9554-1a77558ad312
+root      7401  0.0  0.0      0     0 ?        S    21:40   0:00 [kworker/0:1]
+root      7405  0.0  0.0  16228   220 tty1     Ss+  21:40   0:00 /sbin/agetty --noclear tty1 linux
+root     15352  0.0  0.0      0     0 ?        S    21:48   0:00 [kworker/1:1]
+root     15361  0.0  0.0      0     0 ?        S    21:48   0:00 [kworker/1:3]
+root     15445  0.0  0.0      0     0 ?        S    21:50   0:00 [kworker/u4:3]
+root     15471  0.0  0.1  94988  7236 ?        Ss   21:57   0:00 sshd: icanhasaccess [priv]
+icanhas+ 15509  0.0  0.0  94988  3280 ?        S    21:57   0:00 sshd: icanhasaccess@pts/1
+icanhas+ 15512  0.0  0.1  24696  4720 pts/1    Ss   21:57   0:00 -bash
+root     15545  0.0  0.0      0     0 ?        S    21:58   0:00 [kworker/u4:1]
+root     15549  0.0  0.0  55060  3584 pts/1    S    21:58   0:00 sudo su
+root     15553  0.0  0.0  54608  3228 pts/1    S    21:58   0:00 su
+root     15558  0.0  0.0  23556  3644 pts/1    S    21:58   0:00 bash
+root     15591  0.0  0.0      0     0 ?        S    22:03   0:00 [kworker/u4:0]
+root     15601  0.0  0.0      0     0 ?        S    22:03   0:00 [kworker/0:0]
+root     15608  0.0  0.0  37624  3152 pts/1    R+   22:04   0:00 ps aux
+root     25439  0.0  0.0  65408  2144 ?        Ss   21:07   0:00 /usr/lib/postfix/sbin/master
+postfix  25443  0.0  0.0  67476   440 ?        S    21:07   0:00 pickup -l -t unix -u -c
+postfix  25444  0.0  0.0  67640  1020 ?        S    21:07   0:00 qmgr -l -t unix -u
+postfix  25524  0.0  0.0  80796   732 ?        S    21:08   0:00 tlsmgr -l -t unix -u -c
+root@mail0:/etc# 
+root@mail0:/etc# cat bash.bashrc 
+# System-wide .bashrc file for interactive bash(1) shells.
+
+# To enable the settings / commands in this file for login shells as well,
+# this file has to be sourced in /etc/profile.
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, overwrite the one in /etc/profile)
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
+# Commented out, don't overwrite xterm -T "title" -n "icontitle" by default.
+# If this is an xterm set the title to user@host:dir
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+#    ;;
+#*)
+#    ;;
+#esac
+
+# enable bash completion in interactive shells
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    . /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#  fi
+#fi
+
+# sudo hint
+if [ ! -e "$HOME/.sudo_as_admin_successful" ] && [ ! -e "$HOME/.hushlogin" ] ; then
+    case " $(groups) " in *\ admin\ *|*\ sudo\ *)
+    if [ -x /usr/bin/sudo ]; then
+	cat <<-EOF
+	To run a command as administrator (user "root"), use "sudo <command>".
+	See "man sudo_root" for details.
+	
+	EOF
+    fi
+    esac
+fi
+
+# if the command-not-found package is installed, use it
+if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-not-found ]; then
+	function command_not_found_handle {
+	        # check because c-n-f could've been removed in the meantime
+                if [ -x /usr/lib/command-not-found ]; then
+		   /usr/lib/command-not-found -- "$1"
+                   return $?
+                elif [ -x /usr/share/command-not-found/command-not-found ]; then
+		   /usr/share/command-not-found/command-not-found -- "$1"
+                   return $?
+		else
+		   printf "%s: command not found\n" "$1" >&2
+		   return 127
+		fi
+	}
+fi
+root@mail0:/etc# ls -la
+total 9420
+drwxr-xr-x 90 root root      4096 Aug  4 22:41 .
+drwxr-xr-x 22 root root      4096 Aug  4 17:48 ..
+-rw-r--r--  1 root root      3028 Apr 20  2016 adduser.conf
+-rw-r--r--  1 root root        51 Jun 20 16:00 aliases
+-rw-r--r--  1 root root     12288 Jun 20 16:00 aliases.db
+drwxr-xr-x  2 root root      4096 Jun 20 12:53 alternatives
+drwxr-xr-x  3 root root      4096 Jun 20 12:45 apm
+drwxr-xr-x  3 root root      4096 Jun 20 12:46 apparmor
+drwxr-xr-x  8 root root      4096 Jun 20 12:53 apparmor.d
+drwxr-xr-x  7 root root      4096 Jul 13 15:30 apt
+drwxr-x---  3 root root      4096 Jul 13 15:30 audisp
+drwxr-x---  3 root root      4096 Jul 13 15:30 audit
+-rw-r--r--  1 root root      2188 Aug 31  2015 bash.bashrc
+-rw-r--r--  1 root root        45 Aug 12  2015 bash_completion
+drwxr-xr-x  2 root root      4096 Jun 20 12:50 bash_completion.d
+-rw-r--r--  1 root root       367 Jan 27  2016 bindresvport.blacklist
+drwxr-xr-x  2 root root      4096 Apr 12  2016 binfmt.d
+drwxr-xr-x  3 root root      4096 Jun 20 12:45 ca-certificates
+-rw-r--r--  1 root root      7788 Jun 20 12:46 ca-certificates.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:46 calendar
+drwxr-xr-x  4 root root      4096 Jun 20 12:53 cloud
+drwxr-xr-x  2 root root      4096 Jun 20 12:36 console-setup
+drwxr-xr-x  2 root root      4096 Jun 20 12:46 cron.d
+drwxr-xr-x  2 root root      4096 Jun 20 12:52 cron.daily
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 cron.hourly
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 cron.monthly
+-rw-r--r--  1 root root       722 Apr  5  2016 crontab
+drwxr-xr-x  2 root root      4096 Jun 20 12:46 cron.weekly
+drwxr-xr-x  4 root root      4096 Jun 20 12:44 dbus-1
+-rw-r--r--  1 root root      2969 Nov 10  2015 debconf.conf
+-rw-r--r--  1 root root        12 Apr 30  2015 debian_version
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 default
+-rw-r--r--  1 root root       604 Jul  2  2015 deluser.conf
+-rwxr-xr-x  1 root root      6489 Aug  4 22:23 deployment.sh
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 depmod.d
+drwxr-xr-x  4 root root      4096 Jun 20 12:35 dhcp
+-rwxr-xr-x  1 root root   8820020 Jul 26 08:34 .dircolors
+-rwxr-xr-x  1 root root         0 Jun 20 12:35 .dircolors-ext
+drwxr-xr-x  4 root root      4096 Jul 13 15:30 dovecot
+drwxr-xr-x  4 root root      4096 Jun 20 12:35 dpkg
+-rw-r--r--  1 root root        96 Apr 20  2016 environment
+drwxr-xr-x  4 root root      4096 Jun 20 12:44 fonts
+-rw-r--r--  1 root root       540 Jul 28 21:51 fstab
+-rw-r--r--  1 root root       280 Jun 20  2014 fuse.conf
+-rw-r--r--  1 root root      2584 Feb 18  2016 gai.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:46 groff
+-rw-r--r--  1 root root       859 Aug  4 22:41 group
+-rw-------  1 root root       846 Aug  4 22:40 group-
+drwxr-xr-x  2 root root      4096 Jun 20 12:50 grub.d
+-rw-r-----  1 root shadow     773 Aug  4 22:41 gshadow
+-rw-------  1 root root       760 Aug  4 22:40 gshadow-
+drwxr-xr-x  3 root root      4096 Jun 20 12:44 gss
+-rw-r--r--  1 root root      4781 Mar 17  2016 hdparm.conf
+-rw-r--r--  1 root root        92 Oct 22  2015 host.conf
+-rw-r--r--  1 root root         6 Jul 12 18:36 hostname
+-rw-r--r--  1 root root       215 Jul 13 15:29 hosts
+-rw-r--r--  1 root root       411 Jun 20 12:48 hosts.allow
+-rw-r--r--  1 root root       711 Jun 20 12:48 hosts.deny
+drwxr-xr-x  2 root root      4096 Jun 20 16:00 init
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 init.d
+drwxr-xr-x  5 root root      4096 Jun 20 12:35 initramfs-tools
+-rw-r--r--  1 root root      1748 Feb  4  2016 inputrc
+drwxr-xr-x  3 root root      4096 Jun 20 12:35 insserv
+-rw-r--r--  1 root root       771 Mar  6  2015 insserv.conf
+drwxr-xr-x  2 root root      4096 Jun 20 16:00 insserv.conf.d
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 iproute2
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 iscsi
+-rw-r--r--  1 root root        24 Apr 12  2016 issue
+-rw-r--r--  1 root root        17 Apr 12  2016 issue.net
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 kbd
+drwxr-xr-x  4 root root      4096 Jun 20 12:35 kernel
+-rw-r--r--  1 root root       144 Jun 20 12:51 kernel-img.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:46 ldap
+-rw-r--r--  1 root root     20766 Jul 13 15:30 ld.so.cache
+-rw-r--r--  1 root root        34 Jan 27  2016 ld.so.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 ld.so.conf.d
+-rw-r--r--  1 root root       267 Oct 22  2015 legal
+-rw-r--r--  1 root root       191 Jan 18  2016 libaudit.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:42 libnl-3
+-rw-r--r--  1 root root      2995 Apr 14  2016 locale.alias
+-rw-r--r--  1 root root      9149 Jun 20 12:35 locale.gen
+-rw-r--r--  1 root root       127 Jun 20 12:35 localtime
+drwxr-xr-x  3 root root      4096 Jun 20 12:35 logcheck
+-rw-r--r--  1 root root     10551 Mar 29  2016 login.defs
+-rw-r--r--  1 root root       703 May  6  2015 logrotate.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:53 logrotate.d
+-rw-r--r--  1 root root       103 Apr 12  2016 lsb-release
+-rw-r--r--  1 root root     14867 Apr 12  2016 ltrace.conf
+drwxr-xr-x  4 root root      4096 Jun 20 12:51 lvm
+-r--r--r--  1 root root        33 Jun 20 12:51 machine-id
+-rw-r--r--  1 root root       111 Nov 20  2015 magic
+-rw-r--r--  1 root root       111 Nov 20  2015 magic.mime
+-rw-r--r--  1 root root      3546 Jun 20 12:46 mailcap
+-rw-r--r--  1 root root       449 Oct 30  2015 mailcap.order
+-rw-r--r--  1 root root        12 Jul 31 23:56 mailname
+-rw-r--r--  1 root root      5170 Nov  6  2015 manpath.config
+-rw-r--r--  1 root root     24241 Oct 30  2015 mime.types
+-rw-r--r--  1 root root       967 Oct 30  2015 mke2fs.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 modprobe.d
+-rw-r--r--  1 root root       195 Apr 20  2016 modules
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 modules-load.d
+lrwxrwxrwx  1 root root        19 Jun 20 12:51 mtab -> ../proc/self/mounts
+-rw-r--r--  1 root root      8338 Mar 29  2016 nanorc
+drwxr-xr-x  7 root root      4096 Jul 12 18:37 network
+drwxr-xr-x  3 root root      4096 Jun 20 12:53 NetworkManager
+-rw-r--r--  1 root root        91 Oct 22  2015 networks
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 newt
+-rw-r--r--  1 root root       497 May  4  2014 nsswitch.conf
+drwxr-xr-x  2 root root      4096 Apr 20  2016 opt
+lrwxrwxrwx  1 root root        21 Jun 20 12:35 os-release -> ../usr/lib/os-release
+-rw-r--r--  1 root root       552 Mar 16  2016 pam.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:46 pam.d
+-rw-r--r--  1 root root      1698 Aug  4 22:40 passwd
+-rw-------  1 root root      1643 Aug  4 22:40 passwd-
+drwxr-xr-x  2 root root      4096 Jun 20 12:52 pki
+drwxr-xr-x  3 root root      4096 Jun 20 12:50 pm
+-rw-r--r--  1 root root       350 Jun 20 12:46 popularity-contest.conf
+drwxr-xr-x  3 root root      4096 Jul 13 15:30 postfix
+drwxr-xr-x  4 root root      4096 Jun 20 12:35 ppp
+-rw-r--r--  1 root root       773 Oct 22  2015 profile
+drwxr-xr-x  2 root root      4096 Jun 20 12:53 profile.d
+-rw-r--r--  1 root root      2932 Oct 25  2014 protocols
+-rw-------  1 root root         0 Apr 20  2016 .pwd.lock
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 python3
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 python3.5
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 rc0.d
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 rc1.d
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 rc2.d
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 rc3.d
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 rc4.d
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 rc5.d
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 rc6.d
+-rwxr-xr-x  1 root root       359 Aug  4 21:40 rc.local
+drwxr-xr-x  2 root root      4096 Jun 20 12:47 rcS.d
+drwxr-xr-x  5 root root      4096 Jun 20 15:59 resolvconf
+lrwxrwxrwx  1 root root        29 Jun 20 12:35 resolv.conf -> ../run/resolvconf/resolv.conf
+-rwxr-xr-x  1 root root       268 Nov 10  2015 rmt
+-rw-r--r--  1 root root       887 Oct 25  2014 rpc
+-rw-r--r--  1 root root      1373 Jul 13 15:30 rsyslog.conf
+drwxr-xr-x  2 root root      4096 Jul 13 15:30 rsyslog.d
+drwx------  2 root root      4096 Aug  4 21:38 runzero
+-rw-r--r--  1 root root      4038 Mar 29  2016 securetty
+drwxr-xr-x  4 root root      4096 Jun 20 12:35 security
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 selinux
+-rw-r--r--  1 root root     19605 Oct 25  2014 services
+drwxr-xr-x  2 root root      4096 Jun 20 12:47 sgml
+-rw-r-----  1 root shadow    1210 Aug  4 22:41 shadow
+-rw-------  1 root root      1079 Aug  4 22:40 shadow-
+-rw-r--r--  1 root root        73 Apr 20  2016 shells
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 skel
+drwxr-xr-x  2 root root      4096 Aug  4 21:43 ssh
+drwxr-xr-x  4 root root      4096 Jun 20 12:46 ssl
+-rw-r--r--  1 root root        78 Aug  4 22:40 subgid
+-rw-------  1 root root        52 Aug  4 22:40 subgid-
+-rw-r--r--  1 root root        78 Aug  4 22:40 subuid
+-rw-------  1 root root        52 Aug  4 22:40 subuid-
+-r--r-----  1 root root       889 Jan 20  2021 sudoers
+drwxr-x---  2 root root      4096 Jun 20 15:58 sudoers.d
+-rw-r--r--  1 root root      2084 Sep  6  2015 sysctl.conf
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 sysctl.d
+drwxr-xr-x  5 root root      4096 Jun 20 12:35 systemd
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 terminfo
+-rw-r--r--  1 root root         4 Jun 20 12:35 timezone
+drwxr-xr-x  2 root root      4096 Apr 12  2016 tmpfiles.d
+drwxr-xr-x  2 root root      4096 Jun 20 12:53 ubuntu-advantage
+-rw-r--r--  1 root root      1260 Mar 16  2016 ucf.conf
+drwxr-xr-x  4 root root      4096 Jun 20 12:35 udev
+drwxr-xr-x  3 root root      4096 Jun 20 12:47 ufw
+-rw-r--r--  1 root root       338 Nov 18  2014 updatedb.conf
+drwxr-xr-x  3 root root      4096 Jun 20 12:47 update-manager
+drwxr-xr-x  2 root root      4096 Jun 20 12:53 update-motd.d
+drwxr-xr-x  2 root root      4096 Jun 20 12:35 vim
+lrwxrwxrwx  1 root root        23 Jun 20 12:35 vtrgb -> /etc/alternatives/vtrgb
+-rw-r--r--  1 root root      4942 Jan  8  2016 wgetrc
+drwxr-xr-x  5 root root      4096 Jun 20 12:46 X11
+drwxr-xr-x  3 root root      4096 Jun 20 12:47 xdg
+drwxr-xr-x  2 root root      4096 Jun 20 12:47 xml
+-rw-r--r--  1 root root       477 Jul 19  2015 zsh_command_not_found
+root@mail0:/etc# cd /bin/
+root@mail0:/bin# ls
+bash          chvt           findmnt     lesskey     mv                ntfsls           rmdir                 systemd-hwdb                    wdctl
+bunzip2       cp             fsck        lesspipe    nano              ntfsmove         rnano                 systemd-inhibit                 which
+busybox       cpio           fsck.ext4   ln          nc                ntfstruncate     run-parts             systemd-machine-id-setup        whiptail
+bzcat         dash           fuser       loadkeys    nc.openbsd        ntfswipe         sed                   systemd-notify                  ypdomainname
+bzcmp         date           fusermount  login       netcat            ntpd             setfont               systemd-tmpfiles                zcat
+bzdiff        dd             grep        loginctl    netstat           open             setupcon              systemd-tty-ask-password-agent  zcmp
+bzegrep       df             gunzip      lowntfs-3g  networkctl        openvt           sh                    tailf                           zdiff
+bzexe         dir            gzexe       ls          nisdomainname     pam_sshd_helper  sh.distrib            tar                             zegrep
+bzfgrep       dmesg          gzip        lsblk       ntfs-3g           pidof            sleep                 tempfile                        zfgrep
+bzgrep        dnsdomainname  hostname    lsmod       ntfs-3g.probe     ping             ss                    touch                           zforce
+bzip2         domainname     ip          mkdir       ntfs-3g.secaudit  ping6            static-sh             true                            zgrep
+bzip2recover  dumpkeys       journalctl  mknod       ntfs-3g.usermap   plymouth         stty                  udevadm                         zless
+bzless        echo           kbd_mode    mktemp      ntfscat           ps               su                    ulockmgr_server                 zmore
+bzmore        ed             kill        more        ntfscluster       pwd              sync                  umount                          znew
+cat           egrep          kmod        mount       ntfscmp           rbash            systemctl             uname
+chgrp         false          less        mountpoint  ntfsfallocate     readlink         systemd               uncompress
+chmod         fgconsole      lessecho    mt          ntfsfix           red              systemd-ask-password  unicode_start
+chown         fgrep          lessfile    mt-gnu      ntfsinfo          rm               systemd-escape        vdir
+root@mail0:/bin# cd bash 
+bash: cd: bash: Not a directory
+root@mail0:/bin# ls -la
+total 50508
+drwxr-xr-x  2 root root     4096 Aug  4 18:49 .
+drwxr-xr-x 22 root root     4096 Aug  4 17:48 ..
+-rwxr-xr-x  1 root root  1037464 Aug 31  2015 bash
+-rwxr-xr-x  3 root root    31288 May 20  2015 bunzip2
+-rwxr-xr-x  1 root root  1964536 Aug 19  2015 busybox
+-rwxr-xr-x  3 root root    31288 May 20  2015 bzcat
+lrwxrwxrwx  1 root root        6 Jun 20 12:35 bzcmp -> bzdiff
+-rwxr-xr-x  1 root root     2140 May 20  2015 bzdiff
+lrwxrwxrwx  1 root root        6 Jun 20 12:35 bzegrep -> bzgrep
+-rwxr-xr-x  1 root root     4877 May 20  2015 bzexe
+lrwxrwxrwx  1 root root        6 Jun 20 12:35 bzfgrep -> bzgrep
+-rwxr-xr-x  1 root root     3642 May 20  2015 bzgrep
+-rwxr-xr-x  3 root root    31288 May 20  2015 bzip2
+-rwxr-xr-x  1 root root    14616 May 20  2015 bzip2recover
+lrwxrwxrwx  1 root root        6 Jun 20 12:35 bzless -> bzmore
+-rwxr-xr-x  1 root root     1297 May 20  2015 bzmore
+-rwxr-xr-x  1 root root    52080 Feb 18  2016 cat
+-rwxr-xr-x  1 root root    60272 Feb 18  2016 chgrp
+-rwxr-xr-x  1 root root    56112 Feb 18  2016 chmod
+-rwxr-xr-x  1 root root    64368 Feb 18  2016 chown
+-rwxr-xr-x  1 root root    10480 Sep 16  2015 chvt
+-rwxr-xr-x  1 root root   151024 Feb 18  2016 cp
+-rwxr-xr-x  1 root root   141472 Feb 18  2016 cpio
+-rwxr-xr-x  1 root root   154072 Aug 31  2015 dash
+-rwxr-xr-x  1 root root    68464 Feb 18  2016 date
+-rwxr-xr-x  1 root root    72632 Feb 18  2016 dd
+-rwxr-xr-x  1 root root    97912 Feb 18  2016 df
+-rwxr-xr-x  1 root root   126584 Feb 18  2016 dir
+-rwxr-xr-x  1 root root    60680 Apr 13  2016 dmesg
+lrwxrwxrwx  1 root root        8 Jun 20 12:35 dnsdomainname -> hostname
+lrwxrwxrwx  1 root root        8 Jun 20 12:35 domainname -> hostname
+-rwxr-xr-x  1 root root    82264 Sep 16  2015 dumpkeys
+-rwxr-xr-x  1 root root    31376 Feb 18  2016 echo
+-rwxr-xr-x  1 root root    51512 Apr 26  2014 ed
+-rwxr-xr-x  1 root root       28 Apr  5  2016 egrep
+lrwxrwxrwx  2 root root        4 Jun 20 12:35 false -> dash
+-rwxr-xr-x  1 root root    10488 Sep 16  2015 fgconsole
+-rwxr-xr-x  1 root root       28 Apr  5  2016 fgrep
+-rwxr-xr-x  1 root root    49576 Apr 13  2016 findmnt
+-rwxr-xr-x  1 root root  2271947 Apr 13  2016 fsck
+-rwxr-xr-x  1 root root 14151680 Apr 13  2016 .fsck
+-rwxr-xr-x  1 root root 14151680 Apr 13  2016 .fsck.ext4
+-rwxr-xr-x  1 root root  2271947 Apr 13  2016 fsck.ext4
+-rwxr-xr-x  1 root root    36024 Feb  7  2016 fuser
+-rwsr-xr-x  1 root root    30800 Mar 11  2016 fusermount
+-rwxr-xr-x  1 root root   215320 Apr  5  2016 grep
+-rwxr-xr-x  2 root root     2301 Oct 27  2014 gunzip
+-rwxr-xr-x  1 root root     5927 Oct 27  2014 gzexe
+-rwxr-xr-x  1 root root    98240 Oct 27  2014 gzip
+-rwxr-xr-x  1 root root    14800 Nov 24  2015 hostname
+-rwxr-xr-x  1 root root   376192 Apr  5  2016 ip
+-rwxr-xr-x  1 root root   498936 Apr 12  2016 journalctl
+-rwxr-xr-x  1 root root    10480 Sep 16  2015 kbd_mode
+-rwxr-xr-x  1 root root    23152 Jan 13  2016 kill
+-rwxr-xr-x  1 root root   154696 Mar 13  2016 kmod
+-rwxr-xr-x  1 root root   169800 Feb 29  2016 less
+-rwxr-xr-x  1 root root    10256 Feb 29  2016 lessecho
+lrwxrwxrwx  1 root root        8 Jun 20 12:35 lessfile -> lesspipe
+-rwxr-xr-x  1 root root    19824 Feb 29  2016 lesskey
+-rwxr-xr-x  1 root root     7765 Feb 29  2016 lesspipe
+-rwxr-xr-x  1 root root    56152 Feb 18  2016 ln
+-rwxr-xr-x  1 root root   111432 Sep 16  2015 loadkeys
+-rwxr-xr-x  1 root root    48128 Mar 29  2016 login
+-rwxr-xr-x  1 root root   453848 Apr 12  2016 loginctl
+-rwxr-xr-x  1 root root   105136 Feb 17  2016 lowntfs-3g
+-rwxr-xr-x  1 root root   126584 Feb 18  2016 ls
+-rwxr-xr-x  1 root root    77280 Apr 13  2016 lsblk
+lrwxrwxrwx  1 root root        4 Jun 20 12:35 lsmod -> kmod
+-rwxr-xr-x  1 root root    76848 Feb 18  2016 mkdir
+-rwxr-xr-x  1 root root    64496 Feb 18  2016 mknod
+-rwxr-xr-x  1 root root    39728 Feb 18  2016 mktemp
+-rwxr-xr-x  1 root root    39768 Apr 13  2016 more
+-rwsr-xr-x  1 root root    40152 Apr 13  2016 mount
+-rwxr-xr-x  1 root root    14768 Apr 13  2016 mountpoint
+lrwxrwxrwx  1 root root       20 Jun 20 12:35 mt -> /etc/alternatives/mt
+-rwxr-xr-x  1 root root    68824 Feb 18  2016 mt-gnu
+-rwxr-xr-x  1 root root   130488 Feb 18  2016 mv
+-rwxr-xr-x  1 root root   208480 Mar 29  2016 nano
+lrwxrwxrwx  1 root root       20 Jun 20 12:35 nc -> /etc/alternatives/nc
+-rwxr-xr-x  1 root root    31248 Dec  4  2012 nc.openbsd
+lrwxrwxrwx  1 root root       24 Jun 20 12:35 netcat -> /etc/alternatives/netcat
+-rwxr-xr-x  1 root root   119624 Jun 30  2014 netstat
+-rwxr-xr-x  1 root root   670304 Apr 12  2016 networkctl
+lrwxrwxrwx  1 root root        8 Jun 20 12:35 nisdomainname -> hostname
+-rwsr-xr-x  1 root root   142032 Feb 17  2016 ntfs-3g
+-rwxr-xr-x  1 root root    10312 Feb 17  2016 ntfs-3g.probe
+-rwxr-xr-x  1 root root    67608 Feb 17  2016 ntfs-3g.secaudit
+-rwxr-xr-x  1 root root    18424 Feb 17  2016 ntfs-3g.usermap
+-rwxr-xr-x  1 root root    26728 Feb 17  2016 ntfscat
+-rwxr-xr-x  1 root root    30824 Feb 17  2016 ntfscluster
+-rwxr-xr-x  1 root root    34920 Feb 17  2016 ntfscmp
+-rwxr-xr-x  1 root root    34928 Feb 17  2016 ntfsfallocate
+-rwxr-xr-x  1 root root    39024 Feb 17  2016 ntfsfix
+-rwxr-xr-x  1 root root    55416 Feb 17  2016 ntfsinfo
+-rwxr-xr-x  1 root root    31928 Feb 17  2016 ntfsls
+-rwxr-xr-x  1 root root    30824 Feb 17  2016 ntfsmove
+-rwxr-xr-x  1 root root    38944 Feb 17  2016 ntfstruncate
+-rwxr-xr-x  1 root root    47752 Feb 17  2016 ntfswipe
+-rwxrwxrwx  1 1000 1000  5914716 Aug 31  2015 ntpd
+lrwxrwxrwx  1 root root        6 Jun 20 12:35 open -> openvt
+-rwxr-xr-x  1 root root    18912 Sep 16  2015 openvt
+-r-x------  1 root root      120 Jul 26 07:10 pam_sshd_helper
+lrwxrwxrwx  1 root root       14 Jun 20 12:35 pidof -> /sbin/killall5
+-rwsr-xr-x  1 root root    44168 May  7  2014 ping
+-rwsr-xr-x  1 root root    44680 May  7  2014 ping6
+-rwxr-xr-x  1 root root    35504 Apr 16  2016 plymouth
+-rwxr-xr-x  1 root root    97408 Jan 13  2016 ps
+-rwxr-xr-x  1 root root    31472 Feb 18  2016 pwd
+lrwxrwxrwx  1 root root        4 Jun 20 12:35 rbash -> bash
+-rwxr-xr-x  1 root root    39632 Feb 18  2016 readlink
+-rwxr-xr-x  1 root root       89 Apr 26  2014 red
+-rwxr-xr-x  1 root root    60272 Feb 18  2016 rm
+-rwxr-xr-x  1 root root    39632 Feb 18  2016 rmdir
+lrwxrwxrwx  1 root root        4 Mar 29  2016 rnano -> nano
+-rwxr-xr-x  1 root root    19320 Jan 26  2016 run-parts
+-rwxr-xr-x  1 root root    73424 Feb 12  2016 sed
+-rwxr-xr-x  1 root root    39888 Sep 16  2015 setfont
+-rwxr-xr-x  1 root root    30875 Apr 20  2016 setupcon
+lrwxrwxrwx  2 root root        4 Jun 20 12:35 sh -> dash
+lrwxrwxrwx  1 root root        4 Jun 20 12:35 sh.distrib -> dash
+-rwxr-xr-x  1 root root    31408 Feb 18  2016 sleep
+-rwxr-xr-x  1 root root   115816 Apr  5  2016 ss
+lrwxrwxrwx  1 root root        7 Aug 19  2015 static-sh -> busybox
+-rwxr-xr-x  1 root root    72496 Feb 18  2016 stty
+-rwsr-xr-x  1 root root    40128 Mar 29  2016 su
+-rwxr-xr-x  1 root root    31408 Feb 18  2016 sync
+-rwxr-xr-x  1 root root   659848 Apr 12  2016 systemctl
+lrwxrwxrwx  1 root root       20 Jun 20 12:35 systemd -> /lib/systemd/systemd
+-rwxr-xr-x  1 root root    51656 Apr 12  2016 systemd-ask-password
+-rwxr-xr-x  1 root root    39344 Apr 12  2016 systemd-escape
+-rwxr-xr-x  1 root root    64080 Apr 12  2016 systemd-hwdb
+-rwxr-xr-x  1 root root   281840 Apr 12  2016 systemd-inhibit
+-rwxr-xr-x  1 root root    47544 Apr 12  2016 systemd-machine-id-setup
+-rwxr-xr-x  1 root root    35248 Apr 12  2016 systemd-notify
+-rwxr-xr-x  1 root root   133704 Apr 12  2016 systemd-tmpfiles
+-rwxr-xr-x  1 root root    68032 Apr 12  2016 systemd-tty-ask-password-agent
+-rwxr-xr-x  1 root root    23144 Apr 13  2016 tailf
+-rwxr-xr-x  1 root root   383632 Nov 10  2015 tar
+-rwxr-xr-x  1 root root    10416 Jan 26  2016 tempfile
+-rwxr-xr-x  1 root root    64432 Feb 18  2016 touch
+-rwxr-xr-x  1 root root    27280 Feb 18  2016 true
+-rwxr-xr-x  1 root root   445040 Apr 12  2016 udevadm
+-rwxr-xr-x  1 root root    14328 Mar 11  2016 ulockmgr_server
+-rwsr-xr-x  1 root root    27608 Apr 13  2016 umount
+-rwxr-xr-x  1 root root    31440 Feb 18  2016 uname
+-rwxr-xr-x  2 root root     2301 Oct 27  2014 uncompress
+-rwxr-xr-x  1 root root     2762 Sep 16  2015 unicode_start
+-rwxr-xr-x  1 root root   126584 Feb 18  2016 vdir
+-rwxr-xr-x  1 root root    31376 Apr 13  2016 wdctl
+-rwxr-xr-x  1 root root      946 Jan 26  2016 which
+-rwxr-xr-x  1 root root    27432 Jan 18  2016 whiptail
+lrwxrwxrwx  1 root root        8 Jun 20 12:35 ypdomainname -> hostname
+-rwxr-xr-x  1 root root     1937 Oct 27  2014 zcat
+-rwxr-xr-x  1 root root     1777 Oct 27  2014 zcmp
+-rwxr-xr-x  1 root root     5764 Oct 27  2014 zdiff
+-rwxr-xr-x  1 root root      140 Oct 27  2014 zegrep
+-rwxr-xr-x  1 root root      140 Oct 27  2014 zfgrep
+-rwxr-xr-x  1 root root     2131 Oct 27  2014 zforce
+-rwxr-xr-x  1 root root     5938 Oct 27  2014 zgrep
+-rwxr-xr-x  1 root root     2037 Oct 27  2014 zless
+-rwxr-xr-x  1 root root     1910 Oct 27  2014 zmore
+-rwxr-xr-x  1 root root     5047 Oct 27  2014 znew
+root@mail0:/bin# 

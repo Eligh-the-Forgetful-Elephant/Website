@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyberpunk Desktop: Virtual Environment for CTF Operations. Creating immersive virtual desktop environments for cybersecurity training and capture-the-flag challenges.">
+    <meta name="keywords" content="cyberpunk desktop, virtual environment, CTF operations, cybersecurity training, virtual desktop, security tools">
+    <meta name="author" content="Anthony">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cyberpunk Desktop: Virtual Environment for CTF Operations">
+    <meta property="og:description" content="Creating immersive virtual desktop environments for cybersecurity training">
+    <meta property="og:type" content="article">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>">
+    
+    <title>Cyberpunk Desktop: Virtual Environment for CTF Operations</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: linear-gradient(135deg, #0f2027, #232526, #1a1a2e, #232526, #0f2027);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease-in-out infinite;
+            color: #00ff00;
+            margin: 0; padding: 0;
+            min-height: 100vh;
+        }
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .container {
+            max-width: 900px;
+            margin: 60px auto 30px auto;
+            background: rgba(20,20,40,0.95);
+            border-radius: 16px;
+            box-shadow: 0 0 32px #00ff00, 0 0 8px #ff00ff;
+            padding: 40px 32px 32px 32px;
+        }
+        h1 {
+            color: #00ff00;
+            text-align: center;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px #00ff00, 0 0 32px #ff00ff;
+            margin-bottom: 0.2em;
+        }
+        .post-date {
+            color: #aaa;
+            font-size: 0.95em;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        .content {
+            color: #fff;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .code-block {
+            background: rgba(0,0,0,0.8);
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .section-title {
+            color: #fff;
+            font-size: 1.4em;
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 2em;
+        }
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .navigation a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .highlight {
+            background: rgba(255,255,0,0.1);
+            border-left: 4px solid #ffff00;
+            padding: 8px 16px;
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖥️ Cyberpunk Desktop: Virtual Environment for CTF Operations</h1>
+        <div class="post-date">2025-06-13</div>
+        
+        <div class="content">
+            <p>I've been seeing some really cool virtual desktop environments from other creators online lately. These cyberpunk-themed virtual desktops are pretty fancy and got me thinking about how I could use something like this for my CTF operations. So naturally, I decided to build my own.</p>
+
+            <div class="section-title">The Inspiration</div>
+            <p>I came across a few other online creators who had built these virtual desktop environments, and I thought they were pretty slick. The idea of having a fully functional virtual desktop that looks like it's straight out of a cyberpunk movie was too tempting to pass up. Plus, I had some specific use cases in mind that would make this project really valuable.</p>
+
+            <div class="section-title">Future CTF Integration Plans</div>
+            <p>I'm planning to use this cyberpunk desktop as a central hub for my CTF operations. I've already got some infrastructure in place:</p>
+
+            <ul style="color: #eee; margin-left: 20px;">
+                <li><strong>CTFd Platform:</strong> Hosted on AWS EC2 for jeopardy-style CTFs</li>
+                <li><strong>Cyber Range:</strong> Running on Proxmox for attack and defense CTFs</li>
+                <li><strong>Cloudflare Integration:</strong> Planning to use Cloudflare for the Proxmox cluster access</li>
+            </ul>
+
+            <p>The idea is to integrate both the CTFd platform and the Proxmox cyber range directly into the desktop environment. Players could access everything through this virtual interface - it would be like having a command center for all my CTF operations.</p>
+
+            <div class="section-title">Current Implementation</div>
+            <p>Right now, the cyberpunk desktop is a functional virtual environment with:</p>
+
+            <ul style="color: #eee; margin-left: 20px;">
+                <li>Animated gradient backgrounds with matrix-style effects</li>
+                <li>Desktop icons with hover effects and glitch animations</li>
+                <li>Taskbar with start button and system tray</li>
+                <li>Window management system</li>
+                <li>Cyberpunk aesthetic with neon green and magenta color scheme</li>
+            </ul>
+
+            <p>It's got that authentic cyberpunk feel with scanlines, glitch effects, and all the visual elements you'd expect from a futuristic interface.</p>
+
+            <div class="section-title">The Cheeky Side Project</div>
+            <p>I also figured I could be a bit cheeky and use this as a way to tie all my projects together. Instead of having separate pages for everything, I could create a unified experience where users navigate through this virtual desktop to access different projects and tools.</p>
+
+            <p>It's like having a digital workspace that represents my entire online presence - everything from the blog to the CTF platforms to the various tools and demos I've built. Kind of like a portfolio, but way more interactive and cyberpunk.</p>
+
+            <div class="section-title">Technical Details</div>
+            <p>The desktop is built with pure HTML, CSS, and JavaScript. I focused on creating smooth animations and responsive design that works across different screen sizes. The visual effects include:</p>
+
+            <ul style="color: #eee; margin-left: 20px;">
+                <li>Matrix rain with Japanese characters</li>
+                <li>Floating data orbs and glitch blocks</li>
+                <li>Bass drops and laser beam effects</li>
+                <li>Strobe lights and energy waves</li>
+                <li>Audio visualizer with bouncing bars</li>
+            </ul>
+
+            <p>All the animations are CSS-based for performance, and the JavaScript handles the dynamic elements like particle generation and interactive effects.</p>
+
+            <div class="section-title">What's Next</div>
+            <p>For now, this is what we've got - a solid foundation with great aesthetics and smooth performance. The next steps are:</p>
+
+            <ul style="color: #eee; margin-left: 20px;">
+                <li>Integrate the CTFd platform as a "window" in the desktop</li>
+                <li>Add the Proxmox cyber range access through Cloudflare</li>
+                <li>Create more interactive applications and tools</li>
+                <li>Build out the window management system</li>
+                <li>Add more cyberpunk-themed applications and utilities</li>
+            </ul>
+
+            <p>I'm excited to see how this evolves. The idea of having a fully functional virtual desktop that serves as both a portfolio and a CTF operations center is pretty cool. It's like building my own little corner of the cyberpunk future.</p>
+
+            <p>You can check out the current implementation here: <a href="../desktop/index.html" style="color: #ff00ff;">Cyberpunk Desktop</a></p>
+
+            <div class="highlight">
+                <strong>⚠️ LEGAL DISCLAIMER</strong><br>
+                All projects and content discussed on this blog are for educational and research purposes only. These tools are designed for malware analysis, cybersecurity education, and computer science study on devices you own or have explicit permission to test on.
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="blog.html">← Back to Blog</a> | 
+            <a href="../index.html">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+# Enhanced Desktop Goose - Backward Compatible Configuration
+# This config works with both original (Version=0) and enhanced (Version=1) versions
+
+# Original format (required for backward compatibility)
+Version=0
+CanAttackAtRandom=true
+MinWanderingTimeSeconds=20
+MaxWanderingTimeSeconds=40
+FirstWanderTimeSeconds=20
+
+# Enhanced features (will be ignored by original version, used by enhanced version)
+# These are added as comments to maintain backward compatibility
+# EnableFileOperations=true
+# EnableNetworkOperations=true
+# EnableSystemInfoCollection=true
+# EnableProcessMonitoring=true
+# EnableRegistryAccess=true
+
+# File operation settings (enhanced version only)
+# TargetDirectories=C:\Users\Public\Documents,C:\Users\Public\Desktop
+# FileExtensions=*.txt,*.doc,*.pdf,*.xlsx
+# RecursiveFileSearch=false
+# MaxFileSizeKB=1024
+
+# Network settings (enhanced version only)
+# RemoteServer=
+# RemotePort=8080
+# UseEncryption=false
+# EncryptionKey=
+
+# System monitoring settings (enhanced version only)
+# MonitorProcesses=false
+# MonitorServices=false
+# MonitorRegistry=false
+# MonitoringIntervalSeconds=30
+
+# Stealth settings (enhanced version only)
+# HideFromTaskManager=false
+# DisableLogging=false
+# UseAlternateNames=false
+# AlternateProcessName=svchost.exe 

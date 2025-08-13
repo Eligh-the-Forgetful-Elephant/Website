@@ -1,0 +1,96 @@
+# Embedded git repositories
+files/dpr/DreadPirateRoberts/
+files/malware/frioct11/SFML/
+files/malware/frioct11/opengoose/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build artifacts and compiled files
+*.exe
+*.dll
+*.pdb
+*.obj
+*.o
+*.so
+*.dylib
+*.a
+*.lib
+*.wasm
+*.gz
+*.cache
+*.json
+*.props
+*.targets
+*.nupkg
+*.nuget.props
+*.nuget.targets
+*.dgspec
+
+# Build directories
+**/bin/
+**/obj/
+**/build/
+**/dist/
+**/out/
+**/target/
+
+# Dependencies
+**/node_modules/
+**/vendor/
+**/packages/
+
+# Runtime files
+**/tmp-webcil/
+**/webcil/
+**/compressed/
+**/ref/
+**/refint/
+**/scopedcss/
+**/staticwebassets/
+
+# Project-specific build files
+**/project.assets.json
+**/project.nuget.cache
+**/project.nuget.props
+**/project.nuget.targets
+**/msbuild.*.props
+**/msbuild.*.targets
+**/msbuild.*.props
+**/msbuild.build.*.props
+**/msbuild.buildMultiTargeting.*.props
+**/msbuild.buildTransitive.*.props
+
+# CMake build files
+**/CMakeCache.txt
+**/CMakeFiles/
+**/cmake_install.cmake
+**/compile_commands.json
+**/Makefile
+**/Makefile.cmake
+**/Makefile2
+**/progress.marks
+**/TargetDirectories.txt
+**/CMakeDirectoryInformation.cmake
+**/CMakeRuleHashes.txt
+**/cmake.check_cache
+**/goose_autogen/

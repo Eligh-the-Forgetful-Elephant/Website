@@ -1,0 +1,19 @@
+1) change root pw
+sudo passwd root
+
+2) check for uses
+sudo cat /etc/passwd | grep /bin/
+userdel -r -f <user>
+
+3) check crontab
+sudo cat /etc/crontab
+sudo cat /etc/anacrontab
+
+4) check open connections
+sudo netstat -lptuna > openConnections.txt
+
+
+
+
+misc:
+arp -s <dest IP> de:ad:be:ef

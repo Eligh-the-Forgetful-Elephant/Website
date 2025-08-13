@@ -26,16 +26,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     
-    <!-- GitHub Pages Favicon - Multiple formats for better compatibility -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=4">
-    <link rel="shortcut icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=4">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=4">
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=4">
-    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=4">
-    
-    <!-- Alternative: GitHub Pages will automatically serve these if they exist -->
-    <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico"> -->
-    <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
+    <!-- Favicon using swan emoji image -->
+    <link rel="icon" type="image/png" href="swan-emoji-128px.png">
+    <link rel="shortcut icon" type="image/png" href="swan-emoji-128px.png">
+    <link rel="apple-touch-icon" href="swan-emoji-128px.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="swan-emoji-128px.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="swan-emoji-128px.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="swan-emoji-128px.png">
     
     <title>Eligh's Project Hub - Cybersecurity Research & CTF Tools</title>
     <style>
@@ -439,18 +436,7 @@
     }
     setInterval(triggerRippleSweep, 4500);
 
-    // Force favicon update to bypass cache
-    function updateFavicon() {
-        const favicon = document.querySelector('link[rel="icon"]');
-        if (favicon) {
-            const timestamp = Date.now();
-            favicon.href = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=4&t=${timestamp}`;
-        }
-    }
-    
-    // Update favicon immediately and every 5 seconds
-    updateFavicon();
-    setInterval(updateFavicon, 5000);
+    // Favicon is now handled by proper image file - no need for JavaScript updates
     
     // Shine random letters in project titles every 2.5s
     function wrapTitleLetters() {

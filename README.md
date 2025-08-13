@@ -1,4 +1,4 @@
-# Eligh's Project Hub - Cybersecurity Research & CTF Tools
+# Anthony's Project Hub - Cybersecurity Research & CTF Tools
 
 A comprehensive collection of cybersecurity research tools, CTF experiences, malware analysis resources, and educational materials for ethical hacking and penetration testing.
 
@@ -159,13 +159,13 @@ Wormhole z90OW1/
 
 ## 📞 Contact & Community
 
-- **GitHub**: [Eligh-the-Forgetful-Elephant](https://github.com/Eligh-the-Forgetful-Elephant)
+- **GitHub**: [Anthony-the-Forgetful-Elephant](https://github.com/Anthony-the-Forgetful-Elephant)
 - **Twitter**: [@ElephantsForg3t](https://x.com/ElephantsForg3t)
 - **Community**: [Hackwave Havoc](hackwavehavoc/)
 
 ## 📝 License
 
-This project is provided "as-is" for educational purposes. All content is copyright © 2025 Eligh.
+This project is provided "as-is" for educational purposes. All content is copyright © 2025 Anthony.
 
 ---
 

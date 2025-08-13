@@ -578,7 +578,22 @@ function focusWindows () {
 function openWindow () {
   const { x, y } = getRandomCoords()
   const opts = `width=${WIN_WIDTH},height=${WIN_HEIGHT},left=${x},top=${y}`
-  const win = window.open(window.location.pathname, '', opts)
+  
+  // Randomly choose between opening a media file or the same page
+  const shouldOpenMedia = Math.random() > 0.3 // 70% chance to open media
+  let urlToOpen
+  
+  if (shouldOpenMedia) {
+    // Open a random media file (image or video)
+    const mediaFiles = [...VIDEOS, ...FILE_DOWNLOADS]
+    const randomMedia = getRandomArrayEntry(mediaFiles)
+    urlToOpen = `static/${randomMedia}`
+  } else {
+    // Sometimes open the same page for variety
+    urlToOpen = window.location.pathname
+  }
+  
+  const win = window.open(urlToOpen, '', opts)
 
   // New windows may be blocked by the popup blocker
   if (!win) return
@@ -602,7 +617,7 @@ function hideCursor () {
 function triggerFileDownload () {
   const fileName = getRandomArrayEntry(FILE_DOWNLOADS)
   const a = document.createElement('a')
-  a.href = fileName
+  a.href = `static/${fileName}`
   a.download = fileName
   a.click()
 }

@@ -260,10 +260,10 @@
             border: 2px solid #00ff00;
             border-radius: 12px;
             box-shadow: 0 0 16px #00ff00, 0 0 4px #ff00ff;
-            padding: 24px 20px 18px 20px;
-            min-width: 220px;
-            max-width: 260px;
-            flex: 1 1 220px;
+            padding: 18px 16px 14px 16px;
+            min-width: 180px;
+            max-width: 220px;
+            flex: 1 1 180px;
             transition: transform 0.18s, box-shadow 0.18s;
             text-align: center;
             position: relative;
@@ -341,7 +341,7 @@
                 <div class="project-desc">Virtual desktop environment with window management and system tray.</div>
             </a>
 
-            <a class="project-card" href="for-the-lulz/">
+            <a class="project-card" href="#" onclick="showWarningPopup('for-the-lulz', event)">
                 <div class="project-title">🚨 FOR THE LULZ (EXTREME RISK)</div>
                 <div class="project-desc">⚠️ FULL ForgetfulElephant.net functionality - popups, downloads, logout attempts, device access, and more! This is NOT a simulation - it will actually attempt to log you out of websites, access your camera/microphone, and create a chaotic browser experience. CLICK AT YOUR OWN RISK!</div>
             </a>
@@ -497,6 +497,57 @@
     }
     wrapTitleLetters();
     setInterval(shineRandomLetters, 2500);
+
+    // Warning popup logic
+    function showWarningPopup(url, event) {
+        event.preventDefault(); // Prevent default link behavior
+        const warningHtml = `
+            <div class="warning-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.95); color: #fff; padding: 30px; border-radius: 15px; z-index: 100000; max-width: 600px; text-align: center; border: 3px solid #ff0000; box-shadow: 0 0 30px rgba(255,0,0,0.5);">
+                <h2 style="color: #ff0000; margin-bottom: 20px; font-size: 1.5em;">⚠️ EXTREME WARNING: FOR THE LULZ 🚨</h2>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    <strong>CRITICAL:</strong> The "FOR THE LULZ" page contains the FULL, REAL ForgetfulElephant.net functionality. 
+                    This is NOT a simulation or demo - it will actually:
+                </p>
+                <ul style="text-align: left; margin: 0 auto 20px auto; max-width: 500px; font-size: 0.95em;">
+                    <li>🚫 Attempt to log you out of websites (Gmail, GitHub, Amazon, etc.)</li>
+                    <li>📱 Request access to your camera, microphone, and device sensors</li>
+                    <li>💾 Download files and trigger popup windows</li>
+                    <li>🎵 Play audio and create annoying sounds</li>
+                    <li>🔒 Lock your browser and prevent normal navigation</li>
+                    <li>📋 Access your clipboard and attempt device control</li>
+                </ul>
+                <p style="font-size: 0.9em; margin-bottom: 25px;">
+                    <strong>ONLY ACCESS THIS PAGE IN A CONTROLLED ENVIRONMENT!</strong> Use a separate browser profile, 
+                    incognito mode, or virtual machine. This tool is for educational purposes only.
+                </p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <button style="background: #ff0000; color: #fff; padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer; font-size: 1em; font-weight: bold; transition: all 0.2s;" onclick="confirmWarning('for-the-lulz/')">
+                        I Understand, Continue to For The Lulz
+                    </button>
+                    <button style="background: #00ff00; color: #000; padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer; font-size: 1em; font-weight: bold; transition: all 0.2s;" onclick="closeWarning()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', warningHtml);
+    }
+ 
+    function confirmWarning(url) {
+        closeWarning();
+        window.location.href = url;
+    }
+ 
+    function closeWarning() {
+        const popup = document.querySelector('.warning-popup');
+        if (popup) {
+            popup.style.opacity = '0';
+            popup.style.transform = 'translate(-50%, -50%) scale(0.9)';
+            setTimeout(() => {
+                popup.remove();
+            }, 200);
+        }
+    }
     </script>
     <div class="footer">
         &copy; 2025 Anthony. Made with <span style="color:#ff00ff;">&lt;/&gt;</span> and neon.

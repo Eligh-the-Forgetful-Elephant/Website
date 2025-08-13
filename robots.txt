@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: sitemap.xml
+
+# Disallow sensitive directories
+Disallow: /files/
+Disallow: /malware/
+Disallow: /old blog page/
+Disallow: /screenshots/
+
+# Allow important pages
+Allow: /index.html
+Allow: /blog/
+Allow: /desktop/
+Allow: /for-the-lulz/
+Allow: /hackwavehavoc/
+Allow: /desktop-goose-files/
+
+# Crawl delay (optional)
+Crawl-delay: 1

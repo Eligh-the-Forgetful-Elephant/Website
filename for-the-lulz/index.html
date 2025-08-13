@@ -34,7 +34,7 @@
         </header>
 
         <div class="demo-section">
-            <h2>🎯 Annoying Content Generator</h2>
+            <h2>🎯 Core Annoyance Features</h2>
             <div class="button-grid">
                 <button onclick="triggerCatPictures()" class="demo-btn">🐱 Cat Picture Spam</button>
                 <button onclick="triggerVideoSpam()" class="demo-btn">📹 Video Spam</button>
@@ -44,7 +44,7 @@
                 <button onclick="triggerSearchSpam()" class="demo-btn">🔍 Search History Spam</button>
                 <button onclick="triggerLogout()" class="demo-btn">🚪 Super Logout</button>
                 <button onclick="triggerBrowserData()" class="demo-btn">🔐 Browser Data Grab</button>
-                <button onclick="triggerFullAnnoyance()" class="demo-btn">💀 FULL ANNOYANCE MODE</button>
+                <button onclick="triggerFullAnnoyance()" class="demo-btn full-annoyance">💀 FULL ANNOYANCE MODE</button>
             </div>
         </div>
 
@@ -85,7 +85,7 @@
         </div>
 
         <div class="demo-section">
-            <h2>🎮 Interactive Annoyance</h2>
+            <h2>🎮 Advanced Features</h2>
             <div class="button-grid">
                 <button onclick="requestCameraAndMic()" class="demo-btn">📷 Camera & Mic Access</button>
                 <button onclick="requestClipboardRead()" class="demo-btn">📋 Clipboard Read</button>
@@ -95,12 +95,6 @@
                 <button onclick="startTheramin()" class="demo-btn">🎵 Theramin Mode</button>
                 <button onclick="blockBackButton()" class="demo-btn">🔒 Block Back Button</button>
                 <button onclick="fillHistory()" class="demo-btn">📚 Fill Browser History</button>
-            </div>
-        </div>
-
-        <div class="demo-section">
-            <h2>🔧 Advanced Features</h2>
-            <div class="button-grid">
                 <button onclick="requestMidiAccess()" class="demo-btn">🎹 MIDI Access</button>
                 <button onclick="requestBluetoothAccess()" class="demo-btn">📶 Bluetooth Access</button>
                 <button onclick="requestUsbAccess()" class="demo-btn">💾 USB Access</button>
@@ -112,7 +106,7 @@
             </div>
         </div>
 
-        <!-- NEW: Technical Analysis Section -->
+        <!-- Streamlined Technical Analysis Section -->
         <div class="demo-section technical-analysis">
             <h2>🔬 Technical Analysis & Capabilities</h2>
             
@@ -141,30 +135,6 @@
                     </ul>
                 </div>
 
-                <div class="analysis-card attack-vectors">
-                    <h3>🎯 ATTACK VECTORS DEMONSTRATED</h3>
-                    <ul>
-                        <li><strong>Client-Side Attacks:</strong> No server compromise needed</li>
-                        <li><strong>Browser API Abuse:</strong> Legitimate APIs used maliciously</li>
-                        <li><strong>Permission Bypass:</strong> Circumventing security prompts</li>
-                        <li><strong>Sandbox Escape:</strong> Breaking browser isolation</li>
-                        <li><strong>Social Engineering:</strong> Psychological manipulation</li>
-                        <li><strong>Device Reconnaissance:</strong> Hardware enumeration</li>
-                    </ul>
-                </div>
-
-                <div class="analysis-card legal-ethical">
-                    <h3>⚖️ LEGAL & ETHICAL CONSIDERATIONS</h3>
-                    <ul>
-                        <li><strong>Educational Use:</strong> ✅ Legal in controlled environments</li>
-                        <li><strong>Malicious Use:</strong> ❌ Illegal - unauthorized access</li>
-                        <li><strong>Privacy Violations:</strong> ❌ Unethical data theft</li>
-                        <li><strong>Surveillance:</strong> ❌ Harmful spying capabilities</li>
-                        <li><strong>Account Takeover:</strong> ❌ Session hijacking</li>
-                        <li><strong>Device Control:</strong> ❌ Hardware manipulation</li>
-                    </ul>
-                </div>
-
                 <div class="analysis-card red-team">
                     <h3>🔴 RED TEAM APPLICATIONS</h3>
                     <ul>
@@ -177,15 +147,15 @@
                     </ul>
                 </div>
 
-                <div class="analysis-card risk-assessment">
-                    <h3>📊 RISK ASSESSMENT</h3>
+                <div class="analysis-card legal-ethical">
+                    <h3>⚖️ LEGAL & ETHICAL CONSIDERATIONS</h3>
                     <ul>
-                        <li><strong>Immediate Impact:</strong> Privacy violation, data theft</li>
-                        <li><strong>Long-term Impact:</strong> Reputation damage, legal consequences</li>
-                        <li><strong>Scale Potential:</strong> Individual to mass surveillance</li>
-                        <li><strong>Detection Difficulty:</strong> Hard to detect, appears legitimate</li>
-                        <li><strong>Recovery Complexity:</strong> Requires system reset</li>
-                        <li><strong>Legal Consequences:</strong> Criminal charges possible</li>
+                        <li><strong>Educational Use:</strong> ✅ Legal in controlled environments</li>
+                        <li><strong>Malicious Use:</strong> ❌ Illegal - unauthorized access</li>
+                        <li><strong>Privacy Violations:</strong> ❌ Unethical data theft</li>
+                        <li><strong>Surveillance:</strong> ❌ Harmful spying capabilities</li>
+                        <li><strong>Account Takeover:</strong> ❌ Session hijacking</li>
+                        <li><strong>Device Control:</strong> ❌ Hardware manipulation</li>
                     </ul>
                 </div>
             </div>
@@ -491,8 +461,11 @@
             }
         }
 
-        // Full Annoyance Mode
+        // Enhanced Full Annoyance Mode - Now includes ALL features
         function triggerFullAnnoyance() {
+            console.log('💀 FULL ANNOYANCE MODE ACTIVATED!');
+            
+            // Core annoyance features
             triggerCatPictures();
             triggerVideoSpam();
             triggerPopups();
@@ -501,6 +474,8 @@
             triggerSearchSpam();
             triggerLogout();
             triggerBrowserData();
+            
+            // Advanced features
             requestCameraAndMic();
             requestClipboardRead();
             requestFullscreen();
@@ -509,6 +484,21 @@
             startTheramin();
             blockBackButton();
             fillHistory();
+            
+            // Hardware access features
+            requestMidiAccess();
+            requestBluetoothAccess();
+            requestUsbAccess();
+            requestSerialAccess();
+            requestHidAccess();
+            requestWebauthnAttestation();
+            registerProtocolHandlers();
+            animateUrlWithEmojis();
+            
+            // Additional chaos
+            setTimeout(() => {
+                alert('💀 FULL ANNOYANCE MODE COMPLETE! You have been thoroughly annoyed!');
+            }, 2000);
         }
 
         // Individual download trigger
@@ -527,7 +517,7 @@
             }, 500);
         }
 
-        // TheAnnoyingSite Functions
+        // Advanced Feature Functions
         function requestCameraAndMic() {
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 navigator.mediaDevices.getUserMedia({ audio: true, video: true })

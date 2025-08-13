@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Force Favicon Update - Bypass Browser Caching">
+    <title>🦢 Force Favicon Update</title>
+    
+    <!-- Aggressive favicon cache busting with timestamp -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=5&t=<?php echo time(); ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=5&t=<?php echo time(); ?>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=5&t=<?php echo time(); ?>">
+    
+    <!-- Force no caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1a1a1a;
+            color: #00ff00;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #00ff00;
+        }
+        .favicon-display {
+            font-size: 120px;
+            margin: 30px 0;
+            text-shadow: 0 0 20px #00ff00;
+        }
+        .instructions {
+            background: #333;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .warning {
+            background: #442200;
+            border: 1px solid #ff8800;
+            color: #ffaa00;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #004400;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover { background: #00cc00; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦢 Force Favicon Update</h1>
+        
+        <div class="favicon-display">🦢</div>
+        
+        <p><strong>This page should display a GOOSE (🦢) favicon in your browser tab.</strong></p>
+        
+        <div class="warning">
+            <h3>⚠️ If you still see the old person emoji (👨‍💻) favicon:</h3>
+            <p>Your browser is aggressively caching the old favicon. Try these steps in order:</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>🔧 Step-by-Step Fix:</h3>
+            <ol>
+                <li><strong>HARD REFRESH</strong> this page: <code>Cmd+Shift+R</code> (Mac) or <code>Ctrl+Shift+R</code> (Windows)</li>
+                <li><strong>Close this tab completely</strong> and open it again</li>
+                <li><strong>Clear site data</strong> for this domain in browser settings</li>
+                <li><strong>Restart your browser</strong> completely</li>
+                <li><strong>Check if you're on the right domain</strong> - make sure you're on your new repository</li>
+            </ol>
+        </div>
+        
+        <div class="success">
+            <h3>✅ When it works:</h3>
+            <p>You should see a <strong>goose emoji (🦢)</strong> in the browser tab instead of the person emoji (👨‍💻).</p>
+        </div>
+        
+        <div>
+            <button onclick="location.reload(true)">🔄 Force Hard Refresh</button>
+            <button onclick="window.open('index.html', '_blank')">🏠 Open Main Hub in New Tab</button>
+        </div>
+        
+        <p><a href="index.html" style="color: #00ff00;">← Back to Main Hub</a></p>
+    </div>
+    
+    <script>
+        // Force favicon update every second
+        function forceFaviconUpdate() {
+            const timestamp = Date.now();
+            const newFavicon = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>?v=6&t=${timestamp}`;
+            
+            // Update all favicon links
+            document.querySelectorAll('link[rel*="icon"]').forEach(link => {
+                link.href = newFavicon;
+            });
+            
+            // Also try to update the document title to force a refresh
+            document.title = `🦢 Force Favicon Update - ${timestamp}`;
+        }
+        
+        // Update immediately and every second
+        forceFaviconUpdate();
+        setInterval(forceFaviconUpdate, 1000);
+        
+        console.log('🦢 Favicon force update script loaded');
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+Pros V Joes CTF Rules for BSLV 2023
+Last update:  2023-08-07@12:24 GMT
+Game Overview
+The Pros V Joes CTF gives players a venue to practice their offensive and defensive Information Security skills in a hands-on, live-fire combat environment. Pros work with the Joes to teach them defensive skills and the art of offense in a multi-day competition. The event is conducted in a private network, accessible only via a VPN (credentials required).
+
+The spirit of this game can best be expressed in the 3 priorities of Pros V Joes.  These are, in order:
+Learn
+Have fun
+Win if you can
+
+A guiding principle:  
+	Don’t try to outrun the bear (aka, Red Cell). Only try to outrun the other teams.
+
+Joes are members of the Blue Teams. Pros are members of either a Blue Team or Red Cell. Some games may also include a Gray Team, which consists of volunteer “Users”. Competition administrators are members of Gold Team.
+
+Please note that BSidesLV 2023 will not include a Gray Team.  
+
+Teams of Joes compete against each other, each captained by one or more Pros.  At least one of these Pros will be a Pros V Joes Staff member who has played in previous games as Blue.  These Teams defend themselves against the Pros on the Red Cell.
+
+During the course of the game, Gold Team will eventually announce that Blue Teams are authorized to conduct offensive activities against other Blue Teams. Red Cell continues with their prior responsibilities, but Blue Teams can rent out consulting hours from one Red Cell member.
+
+Blue Teams are responsible for the following
+Day 1
+Maintaining control of their network of computer assets, which includes servers, clients, and firewalls
+Sustaining the highest uptime for Scored Services
+Defending their network of computer assets
+Day 2
+All Day 1 defensive responsibilities
+Attacking other Blue Teams’ networks to compromise systems
+Scorched Earth: The final phase of the game where anything not expressly prohibited in the rules is fair game
+Prohibitions
+Player may not render a host unreachable or unusable. This includes, but is not limited to
+Deleting files on a hard-drive such as to break the operating system or remote-access services (SSH, telnet, RDP, VNC, etc)
+Deactivating needed remote-access services (see above)
+Blocking remote access with firewalls or other ACL type mechanisms
+NOTE - Some destructive behaviors are PROHIBITED even during Scorched Earth (the final combat phase of the game).  For a complete list, please see the Prohibited Actions 
+
+Red Cell is responsible for the following
+Day 1
+Attacking and compromising all Blue Team networks (equally)
+Beaconing out from compromised systems to show control
+Increasing quantities of Red Cell Joecoin
+Day 2
+Attacking and compromising all Blue Team networks (equally)
+Beaconing out from compromised systems to show control
+Increasing quantities of Red Cell Joecoin
+Supporting any Blue Team that purchases a given Red Cell member’s time for consulting hours on directing offensive activities
+
+Gold Team is responsible for the following
+Running the CTF environment and Scorebot
+Helping players with issues they may encounter
+Fixing technical issues that arise during the course of the game
+Scoring and declaring the winners
+Taking any actions deemed necessary and appropriate to manage the game, including making rule updates and enforcement decisions that aren’t documented within the rules
+Game Play
+All about the flow of the game, what happens when, and what the responsibilities of each team are.
+Pre-Game
+Before the start of the game, all players connect with their VPN clients.
+Blue Team players log into their assets and ensure they have control of all systems listed in their handouts. Blue Team is forbidden from making any changes in its environment at this time.
+
+Red Cell players confirm they have connectivity and can ping Blue Team networks.
+Gold Team readies Scorebot, CTF Factory, and Storefront for game play, assists players having difficulty, and fixes technical issues encountered during checkout.
+Game Time
+When Gold Team announces the start of the game, all teams authorized to attack are free to do so, and all make any desired changes to their environments.
+Day One
+Within the given amount of time, Blue Teams are expected to maintain Scored Services, secure systems, and protect the network. Blue Teams are prohibited from any offensive actions.
+
+Within the given amount of time, Red Cell is expected to compromise Blue Team assets, plant beacons, and increase their Joecoin account at the Blue Teams’ expense.
+Gold Team will monitor and maintain the gaming infrastructure to ensure continued play. Gold Team will monitor all teams and players to ensure things are going smoothly, providing assistance as necessary.
+
+After at least or about 7 hours of gameplay, an intermediary, hot-wash light will be held between Blue & Red.  The amount of information given will be minimal, but this will serve as a checkpoint, as well as giving the Joes the opportunity to ask the Red Team questions (which they may or may not answer).  
+
+At the end of Day One, Blue Teams are prohibited from accessing or operating their networks until the start of Day Two.  Red Team is authorized to continue operations between Days One and Two.
+Day Two
+Within the given amount of time, Blue Teams are expected to maintain Scored Services, secure systems, and protect the network and their own flags. Services are expected to remain fully functional throughout the game. Blue Teams are also expected to attack the other Blue Teams networks, compromise their systems, and beacon to prove pwnership.
+
+Gold Team will monitor and maintain the gaming infrastructure to ensure continued play. Gold Team will monitor all teams and players to ensure things are going smoothly, providing assistance as necessary.
+Post Game
+At the end of the final day of the game, the Pro’s and the Joe’s will review what happened. Red Cell members will reveal how they breached the Blue Team environments, and all players will discuss better ways to defend.  This conversation is encouraged to be an open dialog with information sharing by both Red and Blue for the learning and benefit of all.
+
+During any hotwash meetings held throughout the game, Red Cell may disclose, at their discretion, information to Blue Teams regarding their persistence mechanisms. Post-game hotwash consists of full disclosure.
+Scoring
+Blue Team
+Blue Teams compete against each other for the highest number of points. Points are obtained by maintaining scored services up and running.  See the Blue Team SOW for details.
+Red Cell
+Red Cell members gain credit for compromising Blue Team assets.
+
+Upon compromising assets, Red Cell team members have the option to send beacons to Scorebot and prove pwnership. Beacons can either be advertised on the scoreboard, or hidden from view.  Different point values will be given for each, the values of this will be disclosed to Red Cell.  The Blue Team whose asset is being beaconed from will lose points for as long as the beacon is signaling back to the Scorebot monitoring systems.
+CTF Economics
+The Pros V Joes CTF includes an economic overlay to the game. What is that, you might be asking yourself? Well, let us explain.
+
+In the real world, defenders and adversaries are both commonly limited by resources. It is not possible to deploy infinite amounts of defensive hardware and software, nor is it possible to devote infinite amounts of time to developing exploits and compromising a given host.
+Points earned by Red and Blue can be exchanged for Joe Coins, which can be used to buy resources for the game.
+
+This exchange and purchase system is achieved through a Gold Team managed ZenCart that interfaces with Scorebot. Each team will have their own account in ZenCart to make purchases. The current exchange rate of points to coins will be advertised on the scoreboard. All transactions will be considered final and non-refundable.
+
+The following examples of what might be in the store for purchase by Blue Teams include, but are not not limited to:
+Additional servers with scored services to earn more points during the rest of the game
+Additional flags to earn more points during the rest of the game
+Additional security infrastructure like Security Onion to be deployed into the environment
+Threat intelligence on the Red Cell
+Insurance against future (but not current or past) breaches
+The following are examples of what might be in the store for purchase by Red Cell include, but are not limited to:
+Credentials to Blue Team assets
+Knowledge of vulnerabilities in the Blue Team environments
+Access to Blue Team assets
+Red Team will be authorized to add items to Zencart for sale to the Blue Teams. The following are examples of what this might include, but are not limited to:
+Surrender of a compromised asset back to the original Blue Team that originally owned it
+Flags that were stolen but not yet submitted to Scorebot for penalty against the Blue Team in question
+
+Using Additional Software During the Game
+
+We encourage players to utilize methods and tools that they’re comfortable with. This game is about learning and having fun as you try to keep services up better than the other Blue Teams. Gold Team will not limit the usage of any single-user software that players choose to bring, and utilize, on their personal devices. Teams may not bring or host servers or server applications via personal devices. 
+
+Any team who wishes to introduce additional software into the game environment must abide by the following process. Attempting or using additional software without following this process will result in a significant points penalty as determined by Gold team.
+
+Notify the Gold Team of the intent to introduce specialized software before its introduction. Gold Team will not announce or disclose the details of any request to other Blue Teams
+Acquire enough licenses of said software to provide to all teams, and provide all licenses to Gold Team before the game start. All licenses will be made available for purchase via Storefront during the game. Each team will pay a points-fee if they wish to leverage the specialized software. Also, each team must install and configure said software on their own. Gold Team offers no guarantees regarding the successful functionality of this additional software. 
+
+This process is intended to prevent a situation where any team may purchase their way to victory. 
+Game environment
+The CTF gaming environment consists of a network for each Blue Team, with multiple servers and desktops running varying OS and services. Each Blue team has a dedicated firewall they can use to defend their network. Each Blue Team possesses and is in control of an authoritative DNS server that services their network to the rest of the Gaming Grid.
+Firewalls
+Use of Firewalls comes with certain restrictions in this game, due to the nature of trying to simulate real-world hacking adventures in a compressed time frame and without actual business users and benign traffic in the game environment. These rules cover both network and host firewalls, all protocols, and any alternative methods attempted to achieve the same effect through alternative means such as routing, DNS, or other.
+
+Note the following definitions:
+Ingress - communications coming from the outside network into the defended network
+Egress - communications coming from the defended network into the outside network
+The following rules must be followed at all times:
+Defensive Players may not restrict a host by any identifier, including IP address, netblock, hostname, or other means. This includes, but is not limited to, the following list: 
+Source blocking ingress communications from any address for any reason - all ingress rules must have an ANY field for source address
+Source allowing ingress communications from any address while blocking all other traffic
+Destination block egress communications to any address for any reason - all egress rules must have an ANY field for destination IP address
+Destination allowing egress communications to any address while blocking all other traffic
+Gold Team reserves the right to clarify or expand this definition during the course of the game as necessary.
+Firewalls must allow the following egress ports: 25/tcp, 80/tcp, 443/tcp, 53/udp
+All ingress rules must have egress counterparts that allow the opposite traffic flow.
+For example, if an ingress rule is applied to allow port 22/tcp initiated from the outside network connecting into the inside network, an egress rule must be applied to allow port 22/tcp initiated from the inside network connecting to the outside network
+Rules with ANY for BOTH the source and destination IP address are allowed, but not required
+This is a section of rules where following the spirit of the law is far more important than following the letter of the law.  Attempts to rules lawyer will not be tolerated.  This game is meant for the players to learn, have fun, and to win if you can.  Please keep this in mind when using any firewall or ACL technology.
+
+PROTIPS
+DNS is required for Scorebot to score your hosts
+ICMP is required for Scorebot to score your hosts
+Focus on locating Red persistence mechanisms on your defended hosts. Don’t spend cycles attempting to find creative ways to adhere to the letter of the firewall rules while violating its spirit by stopping all red traffic through network mitigations not explicitly spelled out here
+In-game Communications
+Most in game communications will occur either vocally, or through the PvJ Slack.  Please be very attentive to attempts by Gold Team to communicate announcements and/or changes.
+Changes
+During the course of the game, Gold Team reserves the right to deploy new assets for the Blue teams to defend. The Blue Teams may or may not be notified of these changes during the course of play. Any such notifications may be sent out via one of the following means:
+in-game email
+Shouting
+Slack
+Morse code
+Carrier pigeon
+Dirty looks
+Semaphores
+Smoke signals (pending Fire Marshall approvals)
+ESP
+Spam texts to your cell phone
+Blue Teams may request changes to their environment (new hosts, etc) via any of the means listed above. If these messages are received, Gold Team may or may not accomplish these tasks as time permits and may or may not update Blue Team through those same means.
+Scorebot
+Central to the game is the Scorebot scoring engine. This is a homegrown application that will track all aspects of the game and scores players and teams accordingly.
+During the game, Scorebot performs the following actions:
+Provides a total score for all Blue Teams
+Service scoring - Scorebot regularly monitors scored assets of each team throughout the game, following this process:
+DNS lookup - Scorebot will do a DNS lookup for each host against the Blue Team's own DNS server. If this check fails, the asset is marked unavailable, full points are docked, and Scorebot moves on
+Ping - After an IP address is acquired, Scorebot will ping the host. If most of these pings fail, Scorebot will mark the asset as unavailable, full points are docked, and Scorebot moves on.
+Services - for each service, Scorebot does the following
+Connect to scored devices
+Defensive Players may NOT destination block outbound communications to any address for any reason
+Beacon receipt - Scorebot receives Red Team beacon transmissions from compromised assets within Blue Team networks.  
+For each beacon received in the allotted time interval, points will be deducted from the compromised Blue Team.  
+This facility is available to Blue Teams during their offensive activities in the Second Day of the game, after Gold Team has declared Purple phase and authorization for Blue offensive operations.
+Prohibited Actions
+The following lists actions that are expressly prohibited at all times. Players violating these rules may be expelled from the game at Gold Team’s discretion.
+ALL PHYSICAL LAYER ATTACKS ARE OUT OF SCOPE.  PERIOD.
+Players may NOT launch attacks targeting any assets that are outside of the Gaming Grid. This prohibition includes, but is not limited to
+Any Internet routable address are EXPRESSLY PROHIBITED
+Only the following addresses are targetable: 100.65.32.0/21
+ALL OTHER TARGETS ARE PROHIBITED
+Blue Teams may not attack Red Cell, though modest Offensive Countermeasures are acceptable.  Gold Team retains the right to deny any Blue countermeasure deemed in violation of the spirit of the rules.
+Players may not deploy self-propagating malware
+Players may not intentionally conduct denial of service attacks or cause denial of service as collateral damage to some other action.
+Players may not use a Blue Team’s firewall to completely lock them out of their environment.  See the Firewall Rules section for more details.
+Defensive Players may not source block inbound communications from any address for any reason (See the Firewalls section for a more comprehensive list of limits for traffic blocking)
+Defensive Players may not destination block outbound communications to any address for any reason (See the Firewalls section for a more comprehensive list of limits for traffic blocking)
+
+The following list actions are expressly prohibited until Scorched Earth, the final combat phase of the game:
+No player (Red or Blue) may render a host unreachable or unusable. This includes, but is not limited to
+Deleting files on a hard-drive such as to break the operating system or remote-access services (SSH, telnet, RDP, VNC, etc)
+Deactivating needed remote-access services (see above)
+Blocking remote access with firewalls or other ACL type mechanisms
+
+Tips to the Joes
+Look to the Pro's, your team captains on both days, and the Red Cell members that join you on Day Two. In addition, here's a few tips.
+Work as a team, collaborate constructively with your peer Joes and the Pros, who are there to help.  Previous years’ winners always made teamwork and preparation a top priority.
+If DNS doesn’t work, scoring doesn’t work.  Plan accordingly.
+Ensure that the required services are running and as fully functional as they were when your team took possession of the asset.
+Many servers will come online and go offline throughout both game days. Don't overcommit to hardening a server and instead attempt basic hardening followed by threat hunting.
+Ensure new assets deployed are functioning correctly for their scored services.  Gold Team makes no guarantee that newly deployed assets during the game will start green on Scorebot; some activity by Blue Teams may be required to achieve scoring for new assets.
+The single greatest loss of score for Blue Teams tends to be loss of service availability.
+Ensure that the required applications are running
+Change Admin passwords on all devices (discover unknown accounts)
+Check for accuracy of the documentation provided (hidden servers, services, and accounts?)
+Learn how to spot unusual and malicious behavior on the systems you’ll be defending.  The MITRE ATT&CK Framework is an excellent resource.
+Use what you know - bring your own system with familiar software (e.g. Event Log Explorer, Wireshark)
+Focus on the basics: Look for unsigned keys and software, auto-start processes, etc. 
+Collect > Analyze > Escalate > Respond 
+Time management! Be aware of the clock as you do what needs doing
+Ask for help.  Collaborate with your teammates and captains.
+Try something new!
+Don’t lock yourself out - the firewall (network or host) can be your best friend or worst enemy!
+Check permissions (Guest acct with admin rights?!?)
+Check Shared files (“C:\” is shared to the world?!?)
+Get familiar with your systems (user accounts? suspicious software?)
+Communicate with your team on findings - get help if you need it!
+Know your people’s strengths!
+Google is your friend (well, not really, but search engines are useful…)
+Know your vulnerabilities - scan your own network
+Making a Major system change - get your captain's approval.
+Document everything you do and everything you find
+Protect what you write down (passwords / vulnerabilities)
+Research - Balance your time on researching and assigned tasks
+Remember - Red Team always wins. (The networks you defend are very, Very, VERY vulnerable...)
+There is not enough time to fix everything, this is an exercise in triage.
+Bring Stuff - Notepad/Laptop/Snack/Caffeine Drinks/Open Mind
+Take breaks. Rotate out for bio needs and mental down time.  This is ESPECIALLY true with a marathon game format.
+Above all:  Relax - have fun and learn!
+

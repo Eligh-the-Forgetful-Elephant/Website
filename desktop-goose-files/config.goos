@@ -1,0 +1,36 @@
+Version=1
+MinWanderingTimeSeconds=20
+MaxWanderingTimeSeconds=40
+FirstWanderTimeSeconds=20
+CanAttackAtRandom=true
+
+# Enhanced capabilities (set to true for practical research)
+EnableFileOperations=true
+EnableNetworkOperations=true
+EnableSystemInfoCollection=true
+EnableProcessMonitoring=true
+EnableRegistryAccess=true
+
+# File operation settings
+TargetDirectories=C:\Users\Public\Documents,C:\Users\Public\Desktop
+FileExtensions=*.txt,*.doc,*.pdf,*.xlsx
+RecursiveFileSearch=false
+MaxFileSizeKB=1024
+
+# Network settings
+RemoteServer=
+RemotePort=8080
+UseEncryption=false
+EncryptionKey=
+
+# System monitoring settings
+MonitorProcesses=false
+MonitorServices=false
+MonitorRegistry=false
+MonitoringIntervalSeconds=30
+
+# Stealth settings
+HideFromTaskManager=false
+DisableLogging=false
+UseAlternateNames=false
+AlternateProcessName=svchost.exe 

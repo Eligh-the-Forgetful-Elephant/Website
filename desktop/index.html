@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyberpunk Desktop Environment - Interactive virtual desktop for cybersecurity operations and CTF challenges with terminal, file explorer, and system tools.">
+    <meta name="keywords" content="cyberpunk desktop, virtual environment, cybersecurity tools, CTF, terminal, file explorer">
+    <meta name="author" content="Anthony">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cyberpunk Desktop Environment">
+    <meta property="og:description" content="Interactive virtual desktop for cybersecurity operations">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>">
+    
+    <title>Cyberpunk Desktop Environment - Cybersecurity Operations Hub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: linear-gradient(-45deg, #000000, #1a0033, #330033, #000033, #000000);
+            background-size: 400% 400%;
+            animation: gradient-shift 12s ease infinite;
+            color: #00ff00;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Desktop Icons */
+        .desktop-icons {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 80px);
+            gap: 20px;
+            z-index: 1;
+        }
+        
+        .desktop-icon {
+            width: 80px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .desktop-icon:hover {
+            background: rgba(0, 255, 0, 0.1);
+            box-shadow: 0 0 15px #00ff00;
+            transform: scale(1.05);
+        }
+        
+        .icon-image {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .icon-label {
+            font-size: 10px;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+        
+        /* Taskbar */
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 2px solid #00ff00;
+            box-shadow: 0 0 20px #00ff00;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            z-index: 1000;
+        }
+        
+        .start-button {
+            background: linear-gradient(45deg, #00ff00, #00cc00);
+            border: none;
+            color: #000000;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .start-button:hover {
+            box-shadow: 0 0 15px #00ff00;
+            transform: scale(1.05);
+        }
+        
+        .taskbar-items {
+            display: flex;
+            gap: 5px;
+            flex: 1;
+        }
+        
+        .taskbar-item {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .taskbar-item:hover {
+            background: rgba(0, 255, 0, 0.4);
+            box-shadow: 0 0 10px #00ff00;
+        }
+        
+        .system-tray {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .tray-item {
+            color: #00ff00;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .tray-item:hover {
+            background: rgba(0, 255, 0, 0.2);
+        }
+        
+        /* Windows */
+        .window {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #00ff00;
+            min-width: 300px;
+            min-height: 200px;
+            z-index: 100;
+            display: none;
+        }
+        
+        .window.active {
+            display: block;
+        }
+        
+        .window-header {
+            background: linear-gradient(45deg, #00ff00, #00cc00);
+            color: #000000;
+            padding: 8px 15px;
+            border-radius: 6px 6px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+            font-weight: bold;
+        }
+        
+        .window-controls {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .window-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .minimize { background: #ffaa00; }
+        .maximize { background: #00ff00; }
+        .close { background: #ff0000; }
+        
+        .window-content {
+            padding: 15px;
+            height: calc(100% - 40px);
+            overflow: auto;
+        }
+        
+        /* Start Menu */
+        .start-menu {
+            position: fixed;
+            bottom: 40px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #00ff00;
+            width: 250px;
+            display: none;
+            z-index: 1001;
+        }
+        
+        .start-menu.active {
+            display: block;
+        }
+        
+        .start-menu-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .start-menu-item:hover {
+            background: rgba(0, 255, 0, 0.2);
+        }
+        
+        .start-menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Context Menu */
+        .context-menu {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            box-shadow: 0 0 15px #00ff00;
+            padding: 5px 0;
+            display: none;
+            z-index: 1002;
+        }
+        
+        .context-menu-item {
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .context-menu-item:hover {
+            background: rgba(0, 255, 0, 0.2);
+        }
+        
+        /* Animations */
+        @keyframes window-open {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .window-opening {
+            animation: window-open 0.3s ease-out;
+        }
+        
+        /* Grid Pattern Overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Icons -->
+    <div class="desktop-icons">
+        <div class="desktop-icon" onclick="openWindow('hackwave')">
+            <div class="icon-image">🎵</div>
+            <div class="icon-label">Hackwave Havoc</div>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('offensive')">
+            <div class="icon-image">⚡</div>
+            <div class="icon-label">FOR THE LULZ</div>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('blog')">
+            <div class="icon-image">📝</div>
+            <div class="icon-label">Blog</div>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('terminal')">
+            <div class="icon-image">💻</div>
+            <div class="icon-label">Terminal</div>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('files')">
+            <div class="icon-image">📁</div>
+            <div class="icon-label">Files</div>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('settings')">
+            <div class="icon-image">⚙️</div>
+            <div class="icon-label">Settings</div>
+        </div>
+    </div>
+    
+    <!-- Windows -->
+    <div class="window" id="hackwave-window">
+        <div class="window-header">
+            <span>Hackwave Havoc Community</span>
+            <div class="window-controls">
+                <button class="window-control minimize" onclick="minimizeWindow('hackwave')"></button>
+                <button class="window-control maximize" onclick="maximizeWindow('hackwave')"></button>
+                <button class="window-control close" onclick="closeWindow('hackwave')"></button>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="../hackwavehavoc/index.html" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+    
+    <div class="window" id="offensive-window">
+        <div class="window-header">
+            <span>FOR THE LULZ - Offensive Demo</span>
+            <div class="window-controls">
+                <button class="window-control minimize" onclick="minimizeWindow('offensive')"></button>
+                <button class="window-control maximize" onclick="maximizeWindow('offensive')"></button>
+                <button class="window-control close" onclick="closeWindow('offensive')"></button>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="../for-the-lulz/index.html" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+    
+    <div class="window" id="blog-window">
+        <div class="window-header">
+            <span>Anthony's Blog</span>
+            <div class="window-controls">
+                <button class="window-control minimize" onclick="minimizeWindow('blog')"></button>
+                <button class="window-control maximize" onclick="maximizeWindow('blog')"></button>
+                <button class="window-control close" onclick="closeWindow('blog')"></button>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="../blog.html" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+    
+    <div class="window" id="terminal-window">
+        <div class="window-header">
+            <span>Terminal</span>
+            <div class="window-controls">
+                <button class="window-control minimize" onclick="minimizeWindow('terminal')"></button>
+                <button class="window-control maximize" onclick="maximizeWindow('terminal')"></button>
+                <button class="window-control close" onclick="closeWindow('terminal')"></button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div style="background: #000; color: #00ff00; padding: 10px; height: 100%; font-family: monospace;">
+                <div>root@cyberpunk-desktop:~$ <span id="terminal-output">Welcome to Cyberpunk Desktop v1.0</span></div>
+                <div>root@cyberpunk-desktop:~$ <span id="terminal-input" contenteditable="true"></span></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="window" id="files-window">
+        <div class="window-header">
+            <span>File Explorer</span>
+            <div class="window-controls">
+                <button class="window-control minimize" onclick="minimizeWindow('files')"></button>
+                <button class="window-control maximize" onclick="maximizeWindow('files')"></button>
+                <button class="window-control close" onclick="closeWindow('files')"></button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div style="color: #00ff00;">
+                <h3>Project Files</h3>
+                <ul>
+                    <li>📁 hackwavehavoc/</li>
+                    <li>📁 for-the-lulz/</li>
+                    <li>📄 blog.html</li>
+                    <li>📁 assets/</li>
+                    <li>📄 index.html</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="window" id="settings-window">
+        <div class="window-header">
+            <span>Settings</span>
+            <div class="window-controls">
+                <button class="window-control minimize" onclick="minimizeWindow('settings')"></button>
+                <button class="window-control maximize" onclick="maximizeWindow('settings')"></button>
+                <button class="window-control close" onclick="closeWindow('settings')"></button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div style="color: #00ff00;">
+                <h3>Desktop Settings</h3>
+                <div style="margin: 10px 0;">
+                    <label>Theme: </label>
+                    <select style="background: #000; color: #00ff00; border: 1px solid #00ff00;">
+                        <option>Cyberpunk</option>
+                        <option>Matrix</option>
+                        <option>Neon</option>
+                    </select>
+                </div>
+                <div style="margin: 10px 0;">
+                    <label>Animation Speed: </label>
+                    <input type="range" min="1" max="10" value="5" style="background: #000; color: #00ff00;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Start Menu -->
+    <div class="start-menu" id="start-menu">
+        <div class="start-menu-item" onclick="window.location.href='../index.html'">🏠 Go Back Home</div>
+        <div class="start-menu-item" onclick="openWindow('hackwave')">🎵 Hackwave Havoc</div>
+        <div class="start-menu-item" onclick="openWindow('offensive')">⚡ FOR THE LULZ</div>
+        <div class="start-menu-item" onclick="openWindow('blog')">📝 Blog</div>
+        <div class="start-menu-item" onclick="openWindow('terminal')">💻 Terminal</div>
+        <div class="start-menu-item" onclick="openWindow('files')">📁 File Explorer</div>
+        <div class="start-menu-item" onclick="openWindow('settings')">⚙️ Settings</div>
+    </div>
+    
+    <!-- Context Menu -->
+    <div class="context-menu" id="context-menu">
+        <div class="context-menu-item" onclick="refreshDesktop()">🔄 Refresh</div>
+        <div class="context-menu-item" onclick="showSettings()">⚙️ Settings</div>
+        <div class="context-menu-item" onclick="showAbout()">ℹ️ About</div>
+    </div>
+    
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-button" onclick="toggleStartMenu()">START</button>
+        <div class="taskbar-items" id="taskbar-items">
+            <!-- Taskbar items will be added here -->
+        </div>
+        <div class="system-tray">
+            <div class="tray-item" onclick="showNotifications()">🔔</div>
+            <div class="tray-item" onclick="showClock()">🕐</div>
+            <div class="tray-item" onclick="showMusic()">🎵</div>
+        </div>
+    </div>
+    
+    <script src="desktop.js"></script>
+</body>
+</html> 

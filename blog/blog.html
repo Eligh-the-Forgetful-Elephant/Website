@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cybersecurity research blog featuring CTF experiences, malware analysis, penetration testing tools, and educational resources for ethical hacking.">
+    <meta name="keywords" content="cybersecurity blog, CTF, malware analysis, penetration testing, ethical hacking, security research">
+    <meta name="author" content="Anthony">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cybersecurity Research Blog">
+    <meta property="og:description" content="CTF experiences, malware analysis, and security research blog">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦢</text></svg>">
+    
+    <title>Cybersecurity Research Blog - CTF Experiences & Security Tools</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: linear-gradient(135deg, #0f2027, #232526, #1a1a2e, #232526, #0f2027);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease-in-out infinite;
+            color: #00ff00;
+            margin: 0; padding: 0;
+            min-height: 100vh;
+        }
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .container {
+            max-width: 700px;
+            margin: 60px auto 30px auto;
+            background: rgba(20,20,40,0.95);
+            border-radius: 16px;
+            box-shadow: 0 0 32px #00ff00, 0 0 8px #ff00ff;
+            padding: 40px 32px 32px 32px;
+        }
+        h1 {
+            color: #00ff00;
+            text-align: center;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px #00ff00, 0 0 32px #ff00ff;
+            margin-bottom: 0.2em;
+        }
+        .post-link {
+            background: rgba(30,30,60,0.98);
+            border: 2px solid #00ff00;
+            border-radius: 12px;
+            box-shadow: 0 0 16px #00ff00, 0 0 4px #ff00ff;
+            padding: 24px 20px 18px 20px;
+            margin-bottom: 32px;
+            transition: all 0.3s ease;
+        }
+        .post-link:hover {
+            box-shadow: 0 0 24px #00ff00, 0 0 8px #ff00ff;
+            transform: translateY(-2px);
+        }
+        .post-title {
+            color: #fff;
+            font-size: 1.3em;
+            margin-bottom: 0.3em;
+            font-weight: bold;
+        }
+        .post-date {
+            color: #fff;
+            font-size: 0.95em;
+            margin-bottom: 1em;
+        }
+        .post-excerpt {
+            color: #fff;
+            font-size: 1.1em;
+            margin-bottom: 1em;
+        }
+        .read-more {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .read-more:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .instructions {
+            color: #fff;
+            font-size: 0.95em;
+            margin-top: 40px;
+            text-align: center;
+        }
+        a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Posts</h1>
+        
+        <div style="background:rgba(255,0,0,0.1); border:2px solid #ff0000; border-radius:10px; padding:15px; margin:20px 0;">
+            <h3 style="color:#ff0000; text-align:center; margin-bottom:10px;">⚠️ LEGAL DISCLAIMER</h3>
+            <p style="color:#ff0000; text-align:center; margin-bottom:8px; font-size:0.9em;">
+                <strong>WARNING:</strong> All projects and content discussed on this blog are for educational and research purposes only. 
+                These tools are designed for malware analysis, cybersecurity education, and computer science study 
+                on devices you own or have explicit permission to test on.
+            </p>
+            <p style="color:#ff0000; text-align:center; margin-bottom:8px; font-size:0.9em;">
+                <strong>DISCLAIMER:</strong> The author assumes no responsibility for any misuse of these tools. 
+                Users are solely responsible for ensuring compliance with applicable laws and regulations. 
+                Unauthorized use against systems you do not own or have permission to test is illegal.
+            </p>
+            <p style="color:#ff0000; text-align:center; font-size:0.9em;">
+                <strong>USE AT YOUR OWN RISK:</strong> These tools are provided "as-is" without warranty. 
+                The author disclaims all liability for damages resulting from use of these materials.
+            </p>
+        </div>
+
+        <!-- CTF Experience Post -->
+        <div class="post-link">
+            <div class="post-title">🎯 Pros vs Joes CTF 2025 - Team B4FFL3G4P Experience</div>
+            <div class="post-date">2025-08-05</div>
+            <div class="post-excerpt">
+                So... we just wrapped up Pros vs Joes CTF 2025, and holy shit, what a ride. Team B4FFL3G4P came together and made some magic happen. 
+                From offensive operations and defensive strategies to the chaos of leading a team, here's what actually went down...
+            </div>
+            <a href="ctf_experience_merged.html" class="read-more">Read Full Post →</a>
+        </div>
+
+        <!-- Desktop Goose Post -->
+        <div class="post-link">
+            <div class="post-title">🦢 Enhanced Desktop Goose: Malware Research & Cybersecurity Education</div>
+            <div class="post-date">2025-07-22</div>
+            <div class="post-excerpt">
+                Questioning myself on how things work... I've been diving deep into malware research and cybersecurity education, 
+                specifically working with the Desktop Goose application for educational purposes...
+            </div>
+            <a href="desktop_goose_blog.html" class="read-more">Read Full Post →</a>
+        </div>
+
+        <!-- DPR Post -->
+        <div class="post-link">
+            <div class="post-title">🏴‍☠️ DreadPirateRoberts: Building a Comprehensive C2 Framework</div>
+            <div class="post-date">2025-06-15</div>
+            <div class="post-excerpt">
+                "Hello. My name is Inigo Montoya. You killed my father. Prepare to die." - The Princess Bride
+                In the spirit of this classic line, let's explore building a comprehensive Command and Control (C2) framework...
+            </div>
+            <a href="dpr_blog.html" class="read-more">Read Full Post →</a>
+        </div>
+
+        <!-- Cyberpunk Desktop Post -->
+        <div class="post-link">
+            <div class="post-title">🖥️ Cyberpunk Desktop: Virtual Environment for CTF Operations</div>
+            <div class="post-date">2025-06-13</div>
+            <div class="post-excerpt">
+                I've been seeing some really cool virtual desktop environments from other creators online lately. 
+                These cyberpunk-themed virtual desktops are pretty fancy and got me thinking about how I could use 
+                something like this for my CTF operations...
+            </div>
+            <a href="cyberpunk_desktop_blog.html" class="read-more">Read Full Post →</a>
+        </div>
+
+        <!-- Original Blog Post -->
+        <div class="post-link">
+            <div class="post-title">🚀 Getting Started with Cybersecurity Research</div>
+            <div class="post-date">2025-06-10</div>
+            <div class="post-excerpt">
+                Welcome to my cybersecurity research blog. Here I'll be sharing my journey through malware analysis, 
+                penetration testing, and various security tools and techniques...
+            </div>
+            <a href="getting_started_blog.html" class="read-more">Read Full Post →</a>
+        </div>
+
+        <div class="instructions">
+            <a href="../index.html">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html> 

@@ -451,17 +451,19 @@
         function triggerFullAnnoyance() {
             console.log('💀 FULL ANNOYANCE MODE ACTIVATED!');
             
-            // Core annoyance features
+            // Call ALL permission-requiring functions immediately to maintain user-initiated context
+            // This is the key insight from TheAnnoyingSite.com - call them all at once!
+            
+            // Core annoyance features (these don't need permissions)
             triggerCatPictures();
             triggerVideoSpam();
             triggerPopups();
-            // triggerAlerts(); // Removed - no alerts wanted
             triggerDownloads();
             triggerSearchSpam();
             triggerLogout();
             triggerBrowserData();
             
-            // Advanced features
+            // Permission-requiring features - call ALL immediately
             requestCameraAndMic();
             requestClipboardRead();
             requestFullscreen();
@@ -470,8 +472,6 @@
             startTheramin();
             blockBackButton();
             fillHistory();
-            
-            // Hardware access features
             requestMidiAccess();
             requestBluetoothAccess();
             requestUsbAccess();
@@ -489,12 +489,7 @@
             const link = document.createElement('a');
             link.href = `static/${filename}`;
             link.download = filename;
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // No alert - just download
+            link.click(); // Click immediately, don't append to DOM
         }
 
         // Advanced Feature Functions
@@ -556,22 +551,34 @@
         function startTheramin() {
             if (window.AudioContext || window.webkitAudioContext) {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioContext.createOscillator();
+                const oscillatorNode = audioContext.createOscillator();
                 const gainNode = audioContext.createGain();
-                
-                oscillator.connect(gainNode);
+
+                const pitchBase = 50;
+                const pitchRange = 4000;
+
+                const wave = audioContext.createPeriodicWave(
+                    Array(10).fill(0).map((v, i) => Math.cos(i)),
+                    Array(10).fill(0).map((v, i) => Math.sin(i))
+                );
+
+                oscillatorNode.setPeriodicWave(wave);
+                oscillatorNode.connect(gainNode);
                 gainNode.connect(audioContext.destination);
-                
-                oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
-                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                
-                oscillator.start();
-                
-                setTimeout(() => {
-                    oscillator.stop();
-                }, 3000);
-                
-                // No alert - just play sound
+                oscillatorNode.start(0);
+
+                const oscillator = ({ pitch, volume }) => {
+                    oscillatorNode.frequency.value = pitchBase + pitch * pitchRange;
+                    gainNode.gain.value = volume * 0.5;
+                };
+
+                document.body.addEventListener('mousemove', event => {
+                    const { clientX, clientY } = event;
+                    const { clientWidth, clientHeight } = document.body;
+                    const pitch = (clientX - clientWidth / 2) / clientWidth;
+                    const volume = (clientY - clientHeight / 2) / clientHeight;
+                    oscillator({ pitch, volume });
+                });
             }
         }
 

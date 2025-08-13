@@ -39,7 +39,7 @@
                 <button onclick="triggerCatPictures()" class="demo-btn">🐱 Cat Picture Spam</button>
                 <button onclick="triggerVideoSpam()" class="demo-btn">📹 Video Spam</button>
                 <button onclick="triggerPopups()" class="demo-btn">🪟 Popup Hell</button>
-                <button onclick="triggerAlerts()" class="demo-btn">🚨 Alert Spam</button>
+                <!-- <button onclick="triggerAlerts()" class="demo-btn">🚨 Alert Spam</button> -->
                 <button onclick="triggerDownloads()" class="demo-btn">📥 Fake Downloads</button>
                 <button onclick="triggerSearchSpam()" class="demo-btn">🔍 Search History Spam</button>
                 <button onclick="triggerLogout()" class="demo-btn">🚪 Super Logout</button>
@@ -437,7 +437,14 @@
             // Silently grab data without alerting user
             console.log('🔐 Browser Data Grabbed:', data);
             
-            // Removed clipboard access to avoid permission dialogs
+            // Try to access more sensitive data silently
+            if (navigator.clipboard) {
+                navigator.clipboard.readText().then(text => {
+                    console.log('📋 Clipboard content:', text);
+                }).catch(() => {
+                    // Ignore errors silently
+                });
+            }
         }
 
         // Enhanced Full Annoyance Mode - Now includes ALL features
@@ -505,8 +512,15 @@
         }
 
         function requestClipboardRead() {
-            // Removed clipboard access to avoid permission dialogs
-            // Function kept for compatibility but does nothing
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                navigator.clipboard.readText()
+                    .then(text => {
+                        console.log('📋 Clipboard accessed:', text);
+                    })
+                    .catch(() => {
+                        // Silently fail
+                    });
+            }
         }
 
         function requestFullscreen() {

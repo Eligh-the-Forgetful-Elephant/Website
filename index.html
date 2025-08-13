@@ -277,6 +277,18 @@
             border-color: #ff00ff;
             text-decoration: none;
         }
+        
+        /* Wide project card for the bottom row */
+        .project-card-wide {
+            flex: 1 1 100% !important;
+            max-width: none !important;
+            min-width: auto !important;
+        }
+        
+        .project-card-wide:hover {
+            transform: scale(1.02) rotate(-0.5deg);
+        }
+        
         .project-title {
             color: #00ff00;
             font-size: 1.25em;
@@ -319,6 +331,10 @@
         @media (max-width: 700px) {
             .container { padding: 18px 4vw; }
             .projects { flex-direction: column; gap: 18px; }
+            .project-card-wide { 
+                flex: 1 1 auto !important; 
+                max-width: 100% !important;
+            }
         }
     </style>
 </head>
@@ -341,7 +357,7 @@
                 <div class="project-desc">Virtual desktop environment with window management and system tray.</div>
             </a>
 
-            <a class="project-card" href="#" onclick="showWarningPopup('for-the-lulz', event)">
+            <a class="project-card project-card-wide" href="#" onclick="showWarningPopup('for-the-lulz', event)">
                 <div class="project-title">🚨 FOR THE LULZ (EXTREME RISK)</div>
                 <div class="project-desc">⚠️ FULL ForgetfulElephant.net functionality - popups, downloads, logout attempts, device access, and more! This is NOT a simulation - it will actually attempt to log you out of websites, access your camera/microphone, and create a chaotic browser experience. CLICK AT YOUR OWN RISK!</div>
             </a>

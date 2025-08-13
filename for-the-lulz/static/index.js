@@ -584,10 +584,10 @@ function openWindow () {
   let urlToOpen
   
   if (shouldOpenMedia) {
-    // Open a random media file (image or video)
+    // Open a random media file (image or video) using absolute path from root
     const mediaFiles = [...VIDEOS, ...FILE_DOWNLOADS]
     const randomMedia = getRandomArrayEntry(mediaFiles)
-    urlToOpen = `static/${randomMedia}`
+    urlToOpen = `/for-the-lulz/static/${randomMedia}`
   } else {
     // Sometimes open the same page for variety
     urlToOpen = window.location.pathname
@@ -617,7 +617,7 @@ function hideCursor () {
 function triggerFileDownload () {
   const fileName = getRandomArrayEntry(FILE_DOWNLOADS)
   const a = document.createElement('a')
-  a.href = `static/${fileName}`
+  a.href = `/for-the-lulz/static/${fileName}`
   a.download = fileName
   a.click()
 }
